@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Swift 入门之旅
-      link: /docs/swift/a-swift-tour
+      link: /docs/swift/preface/a-swift-tour
     - theme: alt
       text: 博客
       link: /posts

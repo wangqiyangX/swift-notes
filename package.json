@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "swift-notes",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,6 +8,8 @@
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
+    "@types/node": "^22.16.2",
+    "feed": "^5.1.0",
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "2.0.0-alpha.8",
     "vitepress-plugin-group-icons": "^1.6.1"

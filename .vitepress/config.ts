@@ -1,5 +1,6 @@
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
 import { defineConfig, type DefaultTheme } from "vitepress";
+import { genFeed } from "./genFeed.ts";
 
 export default defineConfig({
   srcDir: "src",
@@ -95,7 +96,7 @@ export default defineConfig({
         link: "https://github.com/wangqiyangx/swift-notes",
         ariaLabel: "GitHub",
       },
-      { icon: "twitter", link: "", ariaLabel: "推特" },
+      { icon: "x", link: "https://x.com/wangqiyangx:", ariaLabel: "X" },
     ],
 
     search: {
@@ -105,7 +106,7 @@ export default defineConfig({
 
     footer: {
       message: "基于 MIT 许可发布",
-      copyright: `版权所有 © 2025-${new Date().getFullYear()} @启阳`,
+      copyright: `版权所有 © 2025-${new Date().getFullYear()} @wangqiyangx`,
     },
 
     docFooter: {
@@ -143,6 +144,8 @@ export default defineConfig({
     darkModeSwitchTitle: "切换到深色模式",
     skipToContentLabel: "跳转到内容",
   },
+
+  buildEnd: genFeed,
 });
 
 function nav(): DefaultTheme.NavItem[] {
@@ -355,6 +358,12 @@ function sidebarSwift(): DefaultTheme.SidebarItem[] {
 
 function sidebarPosts(): DefaultTheme.SidebarItem[] {
   return [
+    {
+      text: "Feed",
+      collapsed: true,
+      base: "/feed.rss",
+      items: [],
+    },
     {
       text: "教程",
       collapsed: true,
