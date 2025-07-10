@@ -1,8 +1,8 @@
-# 扩展
+# 扩展（Extensions）
 
 > 向现有类型添加功能。
 
-扩展为现有类、结构、枚举或协议类型添加新功能。这包括扩展您无法访问原始源代码的类型的能力（称为追溯建模）。扩展类似于 Objective-C 中的类别。（与 Objective-C 类别不同，Swift 扩展没有名称。）
+扩展为现有类、结构、枚举或协议类型添加新功能。这包括对无法访问原始源代码的类型进行扩展的能力（称为回溯建模）。扩展类似于 Objective-C 中的 category。（与 Objective-C category 不同，Swift 扩展没有名称。）
 
 Swift 中的扩展可以：
 
@@ -13,37 +13,37 @@ Swift 中的扩展可以：
 - 定义并使用新的嵌套类型
 - 使现有类型符合协议
 
-在 Swift 中，您甚至可以扩展协议以提供其要求的实现或添加符合类型可以利用的额外功能。有关更多详细信息，请参见协议扩展。
+在 Swift 中，你甚至可以扩展一个协议，以提供其要求的实现，或添加额外功能，使符合该协议的类型能够利用这些功能。有关更多详细信息，请参见[协议扩展](protocols.md/#协议扩展)。
 
-注意
+> 注意
+>
+> 扩展可以为类型添加新功能，但无法覆盖现有功能。
 
-扩展可以为类型添加新功能，但无法覆盖现有功能。
+## [语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Extension-Syntax)
 
-## [扩展语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Extension-Syntax)
-
-使用 `extension` 关键字声明扩展：
+使用关键字 `extension` 声明扩展：
 
 ```swift
 extension SomeType {
-    // new functionality to add to SomeType goes here
+    // 在此处添加 SomeType 的新功能。
 }
 ```
 
-扩展可以扩展现有类型，使其遵循一个或多个协议。要添加协议遵循，您按照为类或结构编写协议名称的方式编写它们：
+扩展可以扩展现有类型，使其遵循一个或多个协议。要添加遵循的协议，您按照为类或结构编写协议名称的方式编写它们：
 
 ```swift
 extension SomeType: SomeProtocol, AnotherProtocol {
-    // implementation of protocol requirements goes here
+    // 在此处完成协议的要求
 }
 ```
 
-以这种方式添加协议遵循在《使用扩展添加协议遵循》中进行了描述。
+以这种方式添加协议遵循在[使用扩展添加协议遵循](protocols/#使用扩展添加协议遵循)中进行了描述。
 
-扩展可以用来扩展现有的泛型类型，如在扩展泛型类型中所述。您还可以扩展泛型类型以有条件地添加功能，如在带有泛型 Where 子句的扩展中所述。
+扩展可以用来扩展现有的泛型类型，如在扩展泛型类型中所述。您还可以扩展泛型类型以有条件地添加功能，如在带有泛型 `Where` 子句的扩展中所述。
 
-注意
-
-如果您定义一个扩展以向现有类型添加新功能，则该新功能将在所有现有该类型的实例上可用，即使它们是在定义扩展之前创建的。
+> 注意
+>
+> 如果您定义一个扩展以向现有类型添加新功能，则该新功能将在所有现有该类型的实例上可用，即使它们是在定义扩展之前创建的。
 
 ## [计算属性](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Computed-Properties)
 
@@ -59,7 +59,7 @@ extension Double {
 }
 let oneInch = 25.4.mm
 print("One inch is \(oneInch) meters")
-// Prints "One inch is 0.0254 meters"
+// 打印 "One inch is 0.0254 meters"
 let threeFeet = 3.ft
 print("Three feet is \(threeFeet) meters")
 // Prints "Three feet is 0.914399970739201 meters"
@@ -69,7 +69,7 @@ print("Three feet is \(threeFeet) meters")
 
 在此示例中， `Double` 值 `1.0` 被视为表示“1 米”。这就是 `m` 计算属性返回 `self` 的原因——表达式 `1.m` 被视为计算 `Double` 值 `1.0` 。
 
-其他单位需要一些转换才能以米为单位的值表示。一公里等于 1,000 米，因此计算属性 `km` 将值乘以 `1_000.00` 以转换为以米表示的数字。同样，1 米等于 3.28084 英尺，因此计算属性 `ft` 将底层 `Double` 值除以 `3.28084` ，以将其从英尺转换为米。
+其他单位需要一些转换才能以米为单位的值表示。一公里等于 1000 米，因此计算属性 `km` 将值乘以 `1_000.00` 以转换为以米表示的数字。同样，1 米等于 3.28084 英尺，因此计算属性 `ft` 将底层 `Double` 值除以 `3.28084` ，以将其从英尺转换为米。
 
 这些属性是只读计算属性，因此为了简洁起见，它们不使用 `get` 关键字进行表达。它们的返回值类型为 `Double` ，可以在数学计算中用于接受 `Double` 的地方：
 
@@ -79,9 +79,9 @@ print("A marathon is \(aMarathon) meters long")
 // Prints "A marathon is 42195.0 meters long"
 ```
 
-注意
-
-扩展可以添加新的计算属性，但不能添加存储属性，或向现有属性添加属性观察器。
+> 注意
+>
+> 扩展可以添加新的计算属性，但不能添加存储属性，或向现有属性添加属性观察器。
 
 ## [初始化器](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Initializers)
 
@@ -89,7 +89,7 @@ print("A marathon is \(aMarathon) meters long")
 
 扩展可以向类添加新的便利初始化器，但它们不能向类添加新的指定初始化器或析构器。指定初始化器和析构器必须始终由原始类实现提供。
 
-如果您使用扩展为值类型添加初始化器，该初始化器为其所有存储属性提供默认值并且不定义任何自定义初始化器，您可以从扩展的初始化器中调用该值类型的默认初始化器和逐成员初始化器。如果您将初始化器作为值类型原始实现的一部分编写，情况就不会是这样，如《值类型的初始化器委托》中所述。
+如果您使用扩展为值类型添加初始化器，该初始化器为其所有存储属性提供默认值并且不定义任何自定义初始化器，您可以从扩展的初始化器中调用该值类型的默认初始化器和逐成员初始化器。如果您将初始化器作为值类型原始实现的一部分编写，情况就不会是这样，如[值类型的初始化器委托](initialization/#值类型的初始化委托)中所述。
 
 如果您使用扩展为在另一个模块中声明的结构添加初始化器，则新的初始化器无法访问 `self` ，直到它调用定义模块中的初始化器。
 
@@ -108,7 +108,7 @@ struct Rect {
 }
 ```
 
-因为 `Rect` 结构为其所有属性提供默认值，因此它会自动接收一个默认初始化器和一个成员逐一初始化器，如默认初始化器中所述。这些初始化器可以用来创建新的 `Rect` 实例：
+因为 `Rect` 结构为其所有属性提供默认值，因此它会自动接收一个默认初始化器和一个成员逐一初始化器，如[默认初始化器](initialization/#默认初始化器)中所述。这些初始化器可以用来创建新的 `Rect` 实例：
 
 ```swift
 let defaultRect = Rect()
@@ -136,9 +136,9 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
 // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 ```
 
-注意
-
-如果您提供一个带有扩展的新初始化器，您仍然需要负责确保每个实例在初始化器完成后都完全初始化。
+> 注意
+>
+> 如果您提供一个带有扩展的新初始化器，您仍然需要负责确保每个实例在初始化器完成后都完全初始化。
 
 ## [方法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Methods)
 
@@ -167,7 +167,7 @@ extension Int {
 // Hello!
 ```
 
-### [变异实例方法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Mutating-Instance-Methods)
+### [修改（变异）实例方法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/extensions#Mutating-Instance-Methods)
 
 通过扩展添加的实例方法也可以修改（或变更）实例本身。修改 `self` 或其属性的结构和枚举方法必须将实例方法标记为 `mutating` ，就像原始实现中的变更方法一样。
 
@@ -191,7 +191,7 @@ someInt.square()
 - `123456789[0]` 返回 `9`
 - `123456789[1]` 返回 `8`
 
-…等等：
+……等等：
 
 ```swift
 extension Int {

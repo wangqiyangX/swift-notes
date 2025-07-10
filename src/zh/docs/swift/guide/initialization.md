@@ -18,9 +18,9 @@ description: 为类型的存储属性设置初始值并执行一次性设置。
 
 您可以在初始化器中为存储属性设置初始值，或者通过将默认属性值作为属性定义的一部分进行赋值。这些操作在以下部分中进行了描述。
 
-注意
-
-当你为存储属性分配默认值，或在初始化器中设置其初始值时，该属性的值会直接设置，而不会调用任何属性观察者。
+> 注意
+>
+> 当你为存储属性分配默认值，或在初始化器中设置其初始值时，该属性的值会直接设置，而不会调用任何属性观察者。
 
 ### [初始化器](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization#Initializers)
 
@@ -157,7 +157,7 @@ let bodyTemperature = Celsius(37.0)
 
 初始化调用 `Celsius(37.0)` 的意图明确，无需参数标签。因此，适合将此初始化写为 `init(_ celsius: Double)` ，以便可以通过提供未命名的 `Double` 值来调用。
 
-### [可选属性类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization#Optional-Property-Types)
+### [可选的属性类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization#Optional-Property-Types)
 
 如果您的自定义类型有一个逻辑上允许“没有值”的存储属性——可能是因为它的值在初始化期间无法设置，或者因为它在某个后期时间允许“没有值”——请将该属性声明为可选类型。可选类型的属性在初始化时自动初始化为值 `nil` ，表示该属性在初始化期间故意设定为“尚无值”。
 
@@ -209,7 +209,7 @@ beetsQuestion.ask()
 beetsQuestion.response = "I also like beets. (But not with cheese.)"
 ```
 
-## [默认初始值设定项](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization#Default-Initializers)
+## [默认初始化器](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization#Default-Initializers)
 
 Swift 为任何提供所有属性的默认值并且自身没有提供至少一个初始化器的结构或类提供了一个默认初始化器。默认初始化器只是创建一个新实例，其所有属性都设置为默认值。
 
@@ -388,7 +388,7 @@ convenience init(<#parameters#>) {
 
 这些规则在下图中说明：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/initializerDelegation01@2x.png)
+![initializerDelegation01](https://docs.swift.org/swift-book/images/org.swift.tspl/initializerDelegation01@2x.png)
 
 这里，超类有一个指定初始化器和两个便利初始化器。一个便利初始化器调用另一个便利初始化器，而后者又调用单一的指定初始化器。这满足上述的规则 2 和 3。超类本身没有进一步的超类，因此规则 1 不适用。
 
@@ -400,7 +400,7 @@ convenience init(<#parameters#>) {
 
 下图显示了四个类的更复杂的类层次结构。它说明了该层次结构中的指定初始化器如何作为类初始化的“漏斗”点，从而简化了链中类之间的相互关系：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/initializerDelegation02@2x.png)
+![initializerDelegation02](https://docs.swift.org/swift-book/images/org.swift.tspl/initializerDelegation02@2x.png)
 
 ### [两阶段初始化](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization#Two-Phase-Initialization)
 
@@ -452,7 +452,7 @@ Swift 的编译器执行四项有用的安全检查，以确保两阶段初始�
 
 以下是对一个假设的子类和超类的初始化调用的第 1 阶段的样子：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/twoPhaseInitialization01@2x.png)
+![twoPhaseInitialization01](https://docs.swift.org/swift-book/images/org.swift.tspl/twoPhaseInitialization01@2x.png)
 
 在这个例子中，初始化从对子类的便利初始化器的调用开始。这个便利初始化器还不能修改任何属性。它会委托给同一类的指定初始化器。
 
@@ -464,7 +464,7 @@ Swift 的编译器执行四项有用的安全检查，以确保两阶段初始�
 
 阶段 2 对于相同的初始化调用如下：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/twoPhaseInitialization02@2x.png)
+![twoPhaseInitialization02](https://docs.swift.org/swift-book/images/org.swift.tspl/twoPhaseInitialization02@2x.png)
 
 超类的指定初始化器现在有机会进一步自定义实例（尽管这不是必要的）。
 
@@ -603,7 +603,7 @@ class Food {
 
 下图显示了 `Food` 类的初始化链：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/initializersExample01@2x.png)
+![initializersExample01](https://docs.swift.org/swift-book/images/org.swift.tspl/initializersExample01@2x.png)
 
 类没有默认的成员初始化器，因此 `Food` 类提供了一个指定初始化器，它接受一个名为 `name` 的单个参数。这个初始化器可以用来创建一个具有特定名称的新 `Food` 实例：
 
@@ -638,7 +638,7 @@ class RecipeIngredient: Food {
 
 下图显示了 `RecipeIngredient` 类的初始化链：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/initializersExample02@2x.png)
+![initializersExample02](https://docs.swift.org/swift-book/images/org.swift.tspl/initializersExample02@2x.png)
 
 `RecipeIngredient` 类有一个单一的指定初始化器 `init(name: String, quantity: Int)` ，可以用来填充新 `RecipeIngredient` 实例的所有属性。该初始化器首先将传入的 `quantity` 参数分配给 `quantity` 属性，这是 `RecipeIngredient` 引入的唯一新属性。完成后，初始化器会委托到 `Food` 类的 `init(name: String)` 初始化器。这一过程满足了上述两阶段初始化的安全检查 1。
 
@@ -681,7 +681,7 @@ class ShoppingListItem: RecipeIngredient {
 
 下图显示了所有三个类的整体初始化器链：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/initializersExample03@2x.png)
+![initializersExample03](https://docs.swift.org/swift-book/images/org.swift.tspl/initializersExample03@2x.png)
 
 您可以使用所有三个继承的初始化器来创建一个新的 `ShoppingListItem` 实例：
 
@@ -1032,7 +1032,7 @@ class SomeClass {
 
 下面的示例定义了一个名为 `Chessboard` 的结构，它模拟了国际象棋的棋盘。国际象棋在一个 8 x 8 的棋盘上进行，棋盘上交替着黑色和白色的方格。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/chessBoard@2x.png)
+![chessBoard](https://docs.swift.org/swift-book/images/org.swift.tspl/chessBoard@2x.png)
 
 为了表示这个棋盘， `Chessboard` 结构有一个名为 `boardColors` 的单一属性，它是一个包含 64 个 `Bool` 值的数组。数组中的 `true` 值表示一个黑色方格，而 `false` 值表示一个白色方格。数组中的第一个项目表示棋盘的左上方格，数组中的最后一个项目表示棋盘的右下方格。
 

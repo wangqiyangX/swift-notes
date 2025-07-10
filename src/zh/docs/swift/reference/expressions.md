@@ -14,7 +14,7 @@ description: 访问、修改和赋值。
 
 _expression_ → _try-operator?_ _await-operator?_ _prefix-expression_ _infix-expressions?_ \\
 
-## [前缀表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Prefix-Expressions) <a href="#prefix-expressions" id="prefix-expressions"></a>
+## [前缀表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Prefix-Expressions)
 
 前缀表达式将可选的前缀运算符与一个表达式结合。前缀运算符接受一个参数，即随后的表达式。
 
@@ -27,11 +27,11 @@ _expression_ → _try-operator?_ _await-operator?_ _prefix-expression_ _infix-ex
 _prefix-expression_ → _prefix-operator?_ _postfix-expression_\
 &#xNAN;_&#x70;refix-expression_ → _in-out-expression_
 
-### [输入输出表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#In-Out-Expression) <a href="#in-out-expression" id="in-out-expression"></a>
+### [输入输出表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#In-Out-Expression)
 
 一个输入输出表达式标记一个作为输入输出参数传递给函数调用表达式的变量。
 
-```
+```swift
 &<#expression#>
 ```
 
@@ -43,11 +43,11 @@ _prefix-expression_ → _prefix-operator?_ _postfix-expression_\
 
 _in-out-expression_ → **`&`** _primary-expression_
 
-### [尝试运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Try-Operator) <a href="#try-operator" id="try-operator"></a>
+### [尝试运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Try-Operator)
 
 一个尝试表达式由 `try` 运算符和一个可能抛出错误的表达式组成。它具有以下形式：
 
-```
+```swift
 try <#expression#>
 ```
 
@@ -55,7 +55,7 @@ try <#expression#>
 
 一个可选尝试表达式由 `try?` 运算符和一个可能抛出错误的表达式组成。它具有以下形式：
 
-```
+```swift
 try? <#expression#>
 ```
 
@@ -63,7 +63,7 @@ try? <#expression#>
 
 强制尝试表达式由 `try!` 操作符和一个可能抛出错误的表达式组成。它具有以下形式：
 
-```
+```swift
 try! <#expression#>
 ```
 
@@ -71,7 +71,7 @@ try! <#expression#>
 
 当一个中缀操作符左侧的表达式标记为 `try` 、 `try?` 或 `try!` 时，该操作符适用于整个中缀表达式。也就是说，您可以使用括号明确操作符应用的范围。
 
-```
+```swift
 // try applies to both function calls
 sum = try someThrowingFunction() + anotherThrowingFunction()
 
@@ -94,11 +94,11 @@ try 表达式的语法
 
 _try-operator_ → **`try`** | **`try`** **`?`** | **`try`** **`!`**
 
-### [等待运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Await-Operator) <a href="#await-operator" id="await-operator"></a>
+### [等待运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Await-Operator)
 
 一个 await 表达式由 `await` 运算符和一个使用异步操作结果的表达式组成。它具有以下形式：
 
-```
+```swift
 await <#expression#>
 ```
 
@@ -110,7 +110,7 @@ await <#expression#>
 
 当中缀运算符左侧的表达式标记为 `await` 运算符时，该运算符应用于整个中缀表达式。也就是说，您可以使用括号来明确运算符应用的范围。
 
-```
+```swift
 // await applies to both function calls
 sum = await someAsyncFunction() + anotherAsyncFunction()
 
@@ -131,11 +131,11 @@ await 表达式的语法
 
 _await-operator_ → **`await`**
 
-## [中缀表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Infix-Expressions) <a href="#infix-expressions" id="infix-expressions"></a>
+## [中缀表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Infix-Expressions)
 
 中缀表达式将一个中缀二元运算符与它作为左侧和右侧参数的表达式结合在一起。它具有以下形式：
 
-```
+```swift
 <#left-hand argument#> <#operator#> <#right-hand argument#>
 ```
 
@@ -155,17 +155,17 @@ _infix-expression_ → _infix-operator_ _prefix-expression_\
 &#xNAN;_&#x69;nfix-expression_ → _type-casting-operator_\
 &#xNAN;_&#x69;nfix-expressions_ → _infix-expression_ _infix-expressions?_
 
-### [赋值操作符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Assignment-Operator) <a href="#assignment-operator" id="assignment-operator"></a>
+### [赋值操作符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Assignment-Operator)
 
 赋值运算符为给定表达式设置一个新值。它具有以下形式：
 
-```
+```swift
 <#expression#> = <#value#>
 ```
 
 表达式的值被设置为通过计算值获得的值。如果表达式是一个元组，则值必须是具有相同元素数量的元组。（允许嵌套元组。）赋值是从值的每个部分到表达式的相应部分进行的。例如：
 
-```
+```swift
 (a, _, (b, c)) = ("test", 9.45, (12, 3))
 // a is "test", b is 12, c is 3, and 9.45 is ignored
 ```
@@ -176,11 +176,11 @@ _infix-expression_ → _infix-operator_ _prefix-expression_\
 
 _assignment-operator_ → **`=`**
 
-### [三元条件运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Ternary-Conditional-Operator) <a href="#ternary-conditional-operator" id="ternary-conditional-operator"></a>
+### [三元条件运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Ternary-Conditional-Operator)
 
 三元条件运算符根据条件的值评估给定的两个值中的一个。它具有以下形式：
 
-```
+```swift
 <#condition#> ? <#expression used if true#> : <#expression used if false#>
 ```
 
@@ -192,13 +192,13 @@ _assignment-operator_ → **`=`**
 
 _conditional-operator_ → **`?`** _expression_ **`:`**
 
-### [类型转换运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Type-Casting-Operators) <a href="#type-casting-operators" id="type-casting-operators"></a>
+### [类型转换运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Type-Casting-Operators)
 
 有四种类型转换运算符： `is` 运算符、 `as` 运算符、 `as?` 运算符和 `as!` 运算符。
 
 它们具有以下形式：
 
-```
+```swift
 <#expression#> is <#type#>
 <#expression#> as <#type#>
 <#expression#> as? <#type#>
@@ -209,7 +209,7 @@ _conditional-operator_ → **`?`** _expression_ **`:`**
 
 `as` 运算符在编译时已知转换总是成功时进行转换，例如向上转型或桥接。向上转型让你可以将表达式作为其类型超类型的实例使用，而不使用中间变量。以下方法是等效的：
 
-```
+```swift
 func f(_ any: Any) { print("Function for Any") }
 func f(_ int: Int) { print("Function for Int") }
 let x = 10
@@ -241,7 +241,7 @@ _type-casting-operator_ → **`is`** _type_\
 &#xNAN;_&#x74;ype-casting-operator_ → **`as`** **`?`** _type_\
 &#xNAN;_&#x74;ype-casting-operator_ → **`as`** **`!`** _type_
 
-## [主要表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Primary-Expressions) <a href="#primary-expressions" id="primary-expressions"></a>
+## [主要表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Primary-Expressions)
 
 基本表达式是最基本的表达式类型。它们可以单独作为表达式使用，也可以与其他标记结合形成前缀表达式、中缀表达式和后缀表达式。
 
@@ -262,7 +262,7 @@ _primary-expression_ → _identifier_ _generic-argument-clause?_\
 &#xNAN;_&#x70;rimary-expression_ → _selector-expression_\
 &#xNAN;_&#x70;rimary-expression_ → _key-path-string-expression_
 
-### [字面表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Literal-Expression) <a href="#literal-expression" id="literal-expression"></a>
+### [字面表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Literal-Expression)
 
 字面表达式由普通字面量（例如字符串或数字）、数组或字典字面量或游乐场字面量组成。
 
@@ -272,25 +272,25 @@ _primary-expression_ → _identifier_ _generic-argument-clause?_\
 
 数组字面量是有序值的集合。它具有以下形式：
 
-```
+```swift
 [<#value 1#>, <#value 2#>, <#...#>]
 ```
 
 数组中的最后一个表达式后可以跟一个可选的逗号。数组字面量的值的类型为 `[T]` ，其中 `T` 是其中表达式的类型。如果存在多种类型的表达式， `T` 是它们的最近公共超类型。空数组字面量使用一对空方括号表示，可以用来创建指定类型的空数组。
 
-```
+```swift
 var emptyArray: [Double] = []
 ```
 
 字典字面量是一个无序的键值对集合。它具有以下形式：
 
-```
+```swift
 [<#key 1#>: <#value 1#>, <#key 2#>: <#value 2#>, <#...#>]
 ```
 
 字典中的最后一个表达式可以后面跟一个可选的逗号。字典文字的值类型为 `[Key: Value]` ，其中 `Key` 是其键表达式的类型，而 `Value` 是其值表达式的类型。如果存在多种类型的表达式， `Key` 和 `Value` 是它们各自值的最接近的共同超类型。空字典文字表示为一对方括号中的冒号 ( `[:]` )，以将其与空数组文字区分开。您可以使用空字典文字创建指定键和值类型的空字典文字。
 
-```
+```swift
 var emptyDictionary: [String: Double] = [:]
 ```
 
@@ -315,11 +315,11 @@ _playground-literal_ → **`#colorLiteral`** **`(`** **`red`** **`:`** _expressi
 &#xNAN;_&#x70;layground-literal_ → **`#fileLiteral`** **`(`** **`resourceName`** **`:`** _expression_ **`)`**\
 &#xNAN;_&#x70;layground-literal_ → **`#imageLiteral`** **`(`** **`resourceName`** **`:`** _expression_ **`)`**
 
-### [自我表达](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Self-Expression) <a href="#self-expression" id="self-expression"></a>
+### [自我表达](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Self-Expression)
 
 `self` 表达式是对当前类型或发生它的类型实例的显式引用。它有以下形式：
 
-```
+```swift
 self
 self.<#member name#>
 self[<#subscript index#>]
@@ -331,7 +331,7 @@ self.init(<#initializer arguments#>)
 
 `self` 表达式用于在访问成员时指定范围，当范围内存在同名变量（如函数参数）时提供消歧义。举例来说：
 
-```
+```swift
 class SomeClass {
     var greeting: String
     init(greeting: String) {
@@ -342,7 +342,7 @@ class SomeClass {
 
 在值类型的变异方法中，您可以将该值类型的新实例分配给 `self` 。例如：
 
-```
+```swift
 struct Point {
     var x = 0.0, y = 0.0
     mutating func moveBy(x deltaX: Double, y deltaY: Double) {
@@ -359,11 +359,11 @@ _self-method-expression_ → **`self`** **`.`** _identifier_\
 &#xNAN;_&#x73;elf-subscript-expression_ → **`self`** **`[`** _function-call-argument-list_ **`]`**\
 &#xNAN;_&#x73;elf-initializer-expression_ → **`self`** **`.`** **`init`**
 
-### [超类 Expression](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Superclass-Expression) <a href="#superclass-expression" id="superclass-expression"></a>
+### [超类 Expression](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Superclass-Expression)
 
 一个超类表达式允许一个类与其超类进行交互。它具有以下形式之一：
 
-```
+```swift
 super.<#member name#>
 super[<#subscript index#>]
 super.init(<#initializer arguments#>)
@@ -381,11 +381,11 @@ _superclass-method-expression_ → **`super`** **`.`** _identifier_\
 &#xNAN;_&#x73;uperclass-subscript-expression_ → **`super`** **`[`** _function-call-argument-list_ **`]`**\
 &#xNAN;_&#x73;uperclass-initializer-expression_ → **`super`** **`.`** **`init`**
 
-### [条件表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Conditional-Expression) <a href="#conditional-expression" id="conditional-expression"></a>
+### [条件表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Conditional-Expression)
 
 条件表达式根据条件的值评估到给定的几个值之一。它具有以下形式之一：
 
-```
+```swift
 if <#condition 1#> {
    <#expression used if condition 1 is true#>
 } else if <#condition 2#> {
@@ -421,7 +421,7 @@ default:
 
 每个分支必须产生相同类型的值。由于每个分支的类型检查是独立的，因此有时您需要明确指定值的类型，例如当分支包含不同种类的字面量，或者当分支的值是 `nil` 时。当您需要提供此信息时，请为结果分配的变量添加类型注释，或者为分支的值添加 `as` 强制转换。
 
-```
+```swift
 let number: Double = if someCondition { 10 } else { 12.34 }
 let number = if someCondition { 10 as Double } else { 12.34 }
 ```
@@ -443,11 +443,11 @@ _switch-expression_ → **`switch`** _expression_ **`{`** _switch-expression-cas
 &#xNAN;_&#x73;witch-expression-case_ → _case-label_ _statement_\
 &#xNAN;_&#x73;witch-expression-case_ → _default-label_ _statement_
 
-### [闭包表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Closure-Expression) <a href="#closure-expression" id="closure-expression"></a>
+### [闭包表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Closure-Expression)
 
 闭包表达式创建一个闭包，也称为在其他编程语言中的 lambda 或匿名函数。与函数声明一样，闭包包含语句，并捕获来自其封闭范围的常量和变量。它具有以下形式：
 
-```
+```swift
 { (<#parameters#>) -> <#return type#> in
    <#statements#>
 }
@@ -457,7 +457,7 @@ _switch-expression_ → **`switch`** _expression_ **`{`** _switch-expression-cas
 
 在闭包表达式中写入 `throws` 或 `async` 明确将闭包标记为抛出或异步。
 
-```
+```swift
 { (<#parameters#>) async throws -> <#return type#> in
    <#statements#>
 }
@@ -473,7 +473,7 @@ _switch-expression_ → **`switch`** _expression_ **`{`** _switch-expression-cas
 
 以下闭包表达式是等价的：
 
-```
+```swift
 myFunction { (x: Int, y: Int) -> Int in
     return x + y
 }
@@ -504,7 +504,7 @@ myFunction { $0 + $1 }
 
 捕获列表中的条目在闭包创建时初始化。对于捕获列表中的每个条目，都会将一个常量初始化为在周围作用域中具有相同名称的常量或变量的值。例如，在下面的代码中， `a` 被包含在捕获列表中，但 `b` 没有，这使得它们的行为不同。
 
-```
+```swift
 var a = 0
 var b = 0
 let closure = { [a] in
@@ -522,7 +522,7 @@ closure()
 
 当捕获变量的类型具有引用语义时，这种区别是不可见的。例如，下面的代码中有两个名为 `x` 的东西，一个是外部作用域中的变量，另一个是内部作用域中的常量，但由于引用语义，它们都指向同一个对象。
 
-```
+```swift
 class SimpleClass {
     var value: Int = 0
 }
@@ -541,7 +541,7 @@ closure()
 
 如果表达式值的类型是一个类，您可以在捕获列表中使用 `weak` 或 `unowned` 标记表达式，以捕获对表达式值的弱引用或无主引用。
 
-```
+```swift
 myFunction { print(self.title) }                    // implicit strong capture
 myFunction { [self] in print(self.title) }          // explicit strong capture
 myFunction { [weak self] in print(self!.title) }    // weak capture
@@ -550,7 +550,7 @@ myFunction { [unowned self] in print(self.title) }  // unowned capture
 
 您还可以将任意表达式绑定到捕获列表中的命名值。该表达式在闭包创建时被求值，并且该值以指定的强度被捕获。例如：
 
-```
+```swift
 // Weak capture of "self.parent" as "parent"
 myFunction { [weak parent = self.parent] in print(parent!.title) }
 ```
@@ -577,30 +577,30 @@ _capture-list_ → **`[`** _capture-list-items_ **`]`**\
 &#xNAN;_&#x63;apture-list-item_ → _capture-specifier?_ _self-expression_\
 &#xNAN;_&#x63;apture-specifier_ → **`weak`** | **`unowned`** | **`unowned(safe)`** | **`unowned(unsafe)`**
 
-### [隐式成员表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Implicit-Member-Expression) <a href="#implicit-member-expression" id="implicit-member-expression"></a>
+### [隐式成员表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Implicit-Member-Expression)
 
 隐式成员表达式是一种简化方式，用于在类型推断可以确定隐含类型的上下文中访问类型的成员，例如枚举案例或类型方法。它具有以下形式：
 
-```
+```swift
 .<#member name#>
 ```
 
 例如：
 
-```
+```swift
 var x = MyEnumeration.someValue
 x = .anotherValue
 ```
 
 如果推断的类型是可选的，您还可以在隐式成员表达式中使用非可选类型的成员。
 
-```
+```swift
 var someOptional: MyEnumeration? = .someValue
 ```
 
 隐式成员表达式可以跟在后缀操作符或后缀语法后，如后缀表达式所列。这被称为链式隐式成员表达式。虽然所有链式后缀表达式通常具有相同的类型，但唯一的要求是整个链式隐式成员表达式需要能够转换为其上下文所暗示的类型。具体来说，如果暗示的类型是可选的，则可以使用非可选类型的值；如果暗示的类型是类类型，则可以使用其子类之一的值。例如：
 
-```
+```swift
 class SomeClass {
     static var shared = SomeClass()
     static var sharedSubclass = SomeSubclass()
@@ -623,7 +623,7 @@ let z: SomeClass = .sharedSubclass
 _implicit-member-expression_ → **`.`** _identifier_\
 &#xNAN;_&#x69;mplicit-member-expression_ → **`.`** _identifier_ **`.`** _postfix-expression_
 
-### [带括号的表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Parenthesized-Expression) <a href="#parenthesized-expression" id="parenthesized-expression"></a>
+### [带括号的表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Parenthesized-Expression)
 
 带括号的表达式由一个被括号包围的表达式组成。您可以使用括号通过明确分组表达式来指定操作的优先级。分组括号不会改变表达式的类型——例如， `(1)` 的类型简单地是 `Int` 。
 
@@ -631,11 +631,11 @@ _implicit-member-expression_ → **`.`** _identifier_\
 
 _parenthesized-expression_ → **`(`** _expression_ **`)`**
 
-### [元组表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Tuple-Expression) <a href="#tuple-expression" id="tuple-expression"></a>
+### [元组表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Tuple-Expression)
 
 元组表达式由用逗号分隔的表达式列表组成，列表被括号包围。每个表达式前可以有一个可选的标识符，用冒号分隔 ( `:` )。它具有以下形式：
 
-```
+```swift
 (<#identifier 1#>: <#expression 1#>, <#identifier 2#>: <#expression 2#>, <#...#>)
 ```
 
@@ -653,11 +653,11 @@ _tuple-expression_ → **`(`** **`)`** | **`(`** _tuple-element_ **`,`** _tuple-
 &#xNAN;_&#x74;uple-element-list_ → _tuple-element_ | _tuple-element_ **`,`** _tuple-element-list_\
 &#xNAN;_&#x74;uple-element_ → _expression_ | _identifier_ **`:`** _expression_
 
-### [通配符表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Wildcard-Expression) <a href="#wildcard-expression" id="wildcard-expression"></a>
+### [通配符表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Wildcard-Expression)
 
 通配符表达式用于在赋值过程中显式忽略一个值。例如，在以下赋值中，10 被赋值给 `x` ，而 20 被忽略：
 
-```
+```swift
 (x, _) = (10, 20)
 // x is 10, and 20 is ignored
 ```
@@ -666,11 +666,11 @@ _tuple-expression_ → **`(`** **`)`** | **`(`** _tuple-element_ **`,`** _tuple-
 
 _wildcard-expression_ → **`_`**
 
-### [宏展开表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Macro-Expansion-Expression) <a href="#macro-expansion-expression" id="macro-expansion-expression"></a>
+### [宏展开表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Macro-Expansion-Expression)
 
 宏展开表达式由宏名称后跟一个用逗号分隔的宏参数列表（括号内）组成。宏在编译时展开。宏展开表达式具有以下形式：
 
-```
+```swift
 <#macro name#>(<#macro argument 1#>, <#macro argument 2#>)
 ```
 
@@ -678,7 +678,7 @@ _wildcard-expression_ → **`_`**
 
 宏展开表达式可以作为参数的默认值。当作为函数或方法参数的默认值使用时，宏是使用调用位置的源代码位置进行评估的，而不是它们在函数定义中出现的位置。然而，当默认值是一个包含宏及其他代码的更大表达式时，这些宏是在函数定义中出现的位置进行评估的。
 
-```
+```swift
 func f(a: Int = #line, b: Int = (#line), c: Int = 100 + #line) {
     print(a, b, c)
 }
@@ -703,7 +703,7 @@ f()  // Prints "4 1 101"
 
 对于具有多个角色的嵌套宏和附加宏，扩展过程会重复。嵌套宏扩展表达式从外向内扩展。例如，在下面的代码中， `outerMacro(_:)` 首先扩展，未扩展的对 `innerMacro(_:)` 的调用出现在 `outerMacro(_:)` 接收的抽象语法树中。
 
-```
+```swift
 #outerMacro(12, #innerMacro(34), "some text")
 ```
 
@@ -715,11 +715,11 @@ f()  // Prints "4 1 101"
 
 _macro-expansion-expression_ → **`#`** _identifier_ _generic-argument-clause?_ _function-call-argument-clause?_ _trailing-closures?_
 
-### [关键路径表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Key-Path-Expression) <a href="#key-path-expression" id="key-path-expression"></a>
+### [关键路径表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Key-Path-Expression)
 
 键路径表达式指的是某种类型的属性或下标。您在动态编程任务中使用键路径表达式，例如键值观察。它们具有以下形式：
 
-```
+```swift
 \<#type name#>.<#path#>
 ```
 
@@ -731,7 +731,7 @@ _macro-expansion-expression_ → **`#`** _identifier_ _generic-argument-clause?_
 
 要使用键路径访问一个值，请将键路径传递给所有类型可用的 `subscript(keyPath:)` 下标。例如：
 
-```
+```swift
 struct SomeStructure {
     var someValue: Int
 }
@@ -747,7 +747,7 @@ let value = s[keyPath: pathToProperty]
 
 在类型推断可以确定隐含类型的上下文中，可以省略类型名称。以下代码使用 `\.someProperty` 而不是 `\SomeClass.someProperty` :
 
-```
+```swift
 class SomeClass: NSObject {
     @objc dynamic var someProperty: Int
     init(someProperty: Int) {
@@ -764,7 +764,7 @@ c.observe(\.someProperty) { object, change in
 
 路径可以参考 `self` 来创建身份密钥路径 ( `\.self` )。身份密钥路径指的是整个实例，因此您可以用它在一步中访问和更改存储在变量中的所有数据。例如：
 
-```
+```swift
 var compoundValue = (a: 1, b: 2)
 // Equivalent to compoundValue = (a: 10, b: 20)
 compoundValue[keyPath: \.self] = (a: 10, b: 20)
@@ -772,7 +772,7 @@ compoundValue[keyPath: \.self] = (a: 10, b: 20)
 
 路径可以包含多个属性名称，用点分隔，以引用属性值的属性。此代码使用键路径表达式 `\OuterStructure.outer.someValue` 来访问 `OuterStructure` 类型的 `outer` 属性的 `someValue` 属性：
 
-```
+```swift
 struct OuterStructure {
     var outer: SomeStructure
     init(someValue: Int) {
@@ -791,7 +791,7 @@ let nestedValue = nested[keyPath: nestedKeyPath]
 
 路径可以使用括号包含下标，只要下标的参数类型符合 `Hashable` 协议。此示例使用键路径中的下标来访问数组的第二个元素：
 
-```
+```swift
 let greetings = ["hello", "hola", "bonjour", "안녕"]
 let myGreeting = greetings[keyPath: \[String].[1]]
 // myGreeting is 'hola'
@@ -799,7 +799,7 @@ let myGreeting = greetings[keyPath: \[String].[1]]
 
 在下标中使用的值可以是命名值或字面量。值通过值语义在键路径中被捕获。以下代码在键路径表达式和闭包中都使用了变量 `index` 来访问 `greetings` 数组的第三个元素。当 `index` 被修改时，键路径表达式仍然引用第三个元素，而闭包使用新的索引。
 
-```
+```swift
 var index = 2
 let path = \[String].[index]
 let fn: ([String]) -> String = { strings in strings[index] }
@@ -824,7 +824,7 @@ print(fn(greetings))
 
 路径可以使用可选链和强制解包。此代码在键路径中使用可选链来访问可选字符串的属性：
 
-```
+```swift
 let firstGreeting: String? = greetings.first
 print(firstGreeting?.count as Any)
 // Prints "Optional(5)"
@@ -838,7 +838,7 @@ print(count as Any)
 
 您可以混合和匹配键路径的组件，以访问类型中深层嵌套的值。以下代码通过使用组合这些组件的键路径表达式来访问字典数组的不同值和属性。
 
-```
+```swift
 let interestingNumbers = ["prime": [2, 3, 5, 7, 11, 13, 17],
                           "triangular": [1, 3, 6, 10, 15, 21, 28],
                           "hexagonal": [1, 6, 15, 28, 45, 66, 91]]
@@ -854,7 +854,7 @@ print(interestingNumbers[keyPath: \[String: [Int]].["hexagonal"]!.count.bitWidth
 
 您可以在通常提供函数或闭包的上下文中使用键路径表达式。具体来说，您可以使用根类型为 `SomeType` 且路径产生类型为 `Value` 的键路径表达式，而不使用类型为 `(SomeType) -> Value` 的函数或闭包。
 
-```
+```swift
 struct Task {
     var description: String
     var completed: Bool
@@ -873,7 +873,7 @@ let descriptions2 = toDoList.filter { $0.completed }.map { $0.description }
 
 键路径表达式的任何副作用仅在表达式被求值的时刻进行评估。例如，如果在键路径表达式的下标中进行函数调用，则该函数仅在评估表达式时调用一次，而不是每次使用键路径时都调用。
 
-```
+```swift
 func makeIndex() -> Int {
     print("Made an index")
     return 0
@@ -898,11 +898,11 @@ _key-path-expression_ → **`\`** _type?_ **`.`** _key-path-components_\
 _key-path-postfixes_ → _key-path-postfix_ _key-path-postfixes?_\
 &#xNAN;_&#x6B;ey-path-postfix_ → **`?`** | **`!`** | **`self`** | **`[`** _function-call-argument-list_ **`]`**
 
-### [选择器表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Selector-Expression) <a href="#selector-expression" id="selector-expression"></a>
+### [选择器表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Selector-Expression)
 
 选择器表达式让您访问用于引用方法或属性的 getter 或 setter 的选择器。在 Objective-C 中，它具有以下形式：
 
-```
+```swift
 #selector(<#method name#>)
 #selector(getter: <#property name#>)
 #selector(setter: <#property name#>)
@@ -910,7 +910,7 @@ _key-path-postfixes_ → _key-path-postfix_ _key-path-postfixes?_\
 
 方法名称和属性名称必须引用在 Objective-C 运行时中可用的方法或属性。选择器表达式的值是 `Selector` 类型的实例。例如：
 
-```
+```swift
 class SomeClass: NSObject {
     @objc let property: String
 
@@ -931,7 +931,7 @@ let selectorForPropertyGetter = #selector(getter: SomeClass.property)
 
 方法名称可以包含括号用于分组，以及 `as` 运算符以区分共享名称但具有不同类型签名的方法。例如：
 
-```
+```swift
 extension SomeClass {
     @objc(doSomethingWithString:)
     func doSomething(_ x: String) { }
@@ -953,17 +953,17 @@ _selector-expression_ → **`#selector`** **`(`** _expression_ **`)`**\
 &#xNAN;_&#x73;elector-expression_ → **`#selector`** **`(`** **`getter:`** _expression_ **`)`**\
 &#xNAN;_&#x73;elector-expression_ → **`#selector`** **`(`** **`setter:`** _expression_ **`)`**
 
-### [键路径字符串表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Key-Path-String-Expression) <a href="#key-path-string-expression" id="key-path-string-expression"></a>
+### [键路径字符串表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Key-Path-String-Expression)
 
 键路径字符串表达式让你访问用于引用 Objective-C 中属性的字符串，以便在键值编码和键值观察 API 中使用。它具有以下形式：
 
-```
+```swift
 #keyPath(<#property name#>)
 ```
 
 属性名称必须是对在 Objective-C 运行时中可用属性的引用。在编译时，键路径字符串表达式会被替换为字符串字面量。例如：
 
-```
+```swift
 class SomeClass: NSObject {
     @objc var someProperty: Int
     init(someProperty: Int) {
@@ -984,7 +984,7 @@ if let value = c.value(forKey: keyPath) {
 
 当您在一个类中使用键路径字符串表达式时，可以通过仅写属性名称而不写类名来引用该类的属性。
 
-```
+```swift
 extension SomeClass {
     func getSomeKeyPath() -> String {
         return #keyPath(someProperty)
@@ -1006,7 +1006,7 @@ print(keyPath == c.getSomeKeyPath())
 
 _key-path-string-expression_ → **`#keyPath`** **`(`** _expression_ **`)`**
 
-## [后缀表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Postfix-Expressions) <a href="#postfix-expressions" id="postfix-expressions"></a>
+## [后缀表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Postfix-Expressions)
 
 后缀表达式是通过将后缀运算符或其他后缀语法应用于一个表达式来形成的。从语法上讲，每个基本表达式也是一个后缀表达式。
 
@@ -1026,11 +1026,11 @@ _postfix-expression_ → _primary-expression_\
 &#xNAN;_&#x70;ostfix-expression_ → _forced-value-expression_\
 &#xNAN;_&#x70;ostfix-expression_ → _optional-chaining-expression_
 
-### [函数调用表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Function-Call-Expression) <a href="#function-call-expression" id="function-call-expression"></a>
+### [函数调用表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Function-Call-Expression)
 
 函数调用表达式由函数名称和括号内以逗号分隔的函数参数列表组成。函数调用表达式具有以下形式：
 
-```
+```swift
 <#function name#>(<#argument value 1#>, <#argument value 2#>)
 ```
 
@@ -1038,13 +1038,13 @@ _postfix-expression_ → _primary-expression_\
 
 如果函数定义包含参数的名称，则函数调用必须在其参数值之前包含名称，名称与参数值之间用冒号分隔 ( `:` )。这种类型的函数调用表达式具有以下形式：
 
-```
+```swift
 <#function name#>(<#argument name 1#>: <#argument value 1#>, <#argument name 2#>: <#argument value 2#>)
 ```
 
 函数调用表达式可以在闭合括号后立即包含以闭包表达式形式的尾随闭包。尾随闭包被视为函数的参数，在最后一个带括号的参数后添加。第一个闭包表达式是无标签的；任何额外的闭包表达式前面都有它们的参数标签。下面的示例显示了使用和不使用尾随闭包语法的函数调用的等效版本：
 
-```
+```swift
 // someFunction takes an integer and a closure as its arguments
 someFunction(x: x, f: { $0 == 13 })
 someFunction(x: x) { $0 == 13 }
@@ -1057,7 +1057,7 @@ anotherFunction(x: x) { $0 == 13 } g: { print(99) }
 
 如果尾随闭包是函数的唯一参数，则可以省略括号。
 
-```
+```swift
 // someMethod takes a closure as its only argument
 myData.someMethod() { $0 == 13 }
 myData.someMethod { $0 == 13 }
@@ -1085,7 +1085,7 @@ myData.someMethod { $0 == 13 }
 
 为了简化从 5.3 之前版本的 Swift 迁移代码的过程——这些版本是从右到左进行匹配的——编译器会检查从左到右和从右到左的顺序。如果扫描方向产生不同的结果，将使用旧的从右到左的顺序，并且编译器会生成警告。未来版本的 Swift 将始终使用从左到右的顺序。
 
-```
+```swift
 typealias Callback = (Int) -> Int
 func someFunction(firstClosure: Callback? = nil,
                 secondClosure: Callback? = nil) {
@@ -1115,7 +1115,7 @@ someFunction { return $0 } secondClosure: { return $0 }  // Prints "10 20"
 
 以下两个函数调用是等价的：
 
-```
+```swift
 func unsafeFunction(pointer: UnsafePointer<Int>) {
     // ...
 }
@@ -1148,17 +1148,17 @@ _trailing-closures_ → _closure-expression_ _labeled-trailing-closures?_\
 &#xNAN;_&#x6C;abeled-trailing-closures_ → _labeled-trailing-closure_ _labeled-trailing-closures?_\
 &#xNAN;_&#x6C;abeled-trailing-closure_ → _identifier_ **`:`** _closure-expression_
 
-### [初始化表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Initializer-Expression) <a href="#initializer-expression" id="initializer-expression"></a>
+### [初始化表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Initializer-Expression)
 
 初始化表达式提供对类型初始化器的访问。它具有以下形式：
 
-```
+```swift
 <#expression#>.init(<#initializer arguments#>)
 ```
 
 您在函数调用表达式中使用初始化表达式来初始化类型的新实例。您还使用初始化表达式委托给超类的初始化器。
 
-```
+```swift
 class SomeSubClass: SomeSuperClass {
     override init() {
         // subclass initialization goes here
@@ -1169,7 +1169,7 @@ class SomeSubClass: SomeSuperClass {
 
 像函数一样，初始化器可以作为值使用。例如：
 
-```
+```swift
 // Type annotation is required because String has multiple initializers.
 let initializer: (Int) -> String = String.init
 let oneTwoThree = [1, 2, 3].map(initializer).reduce("", +)
@@ -1179,7 +1179,7 @@ print(oneTwoThree)
 
 如果您按名称指定类型，则可以在不使用初始化程序表达式的情况下访问该类型的初始化程序。在所有其他情况下，您必须使用初始化程序表达式。
 
-```
+```swift
 let s1 = SomeType.init(data: 3)  // Valid
 let s2 = SomeType(data: 1)       // Also valid
 
@@ -1193,17 +1193,17 @@ let s4 = type(of: someValue)(data: 5)       // Error
 _initializer-expression_ → _postfix-expression_ **`.`** **`init`**\
 &#xNAN;_&#x69;nitializer-expression_ → _postfix-expression_ **`.`** **`init`** **`(`** _argument-names_ **`)`**
 
-### [显式成员表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Explicit-Member-Expression) <a href="#explicit-member-expression" id="explicit-member-expression"></a>
+### [显式成员表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Explicit-Member-Expression)
 
 显式成员表达式允许访问命名类型、元组或模块的成员。它由项和其成员标识符之间的一个句点 ( `.` ) 组成。
 
-```
+```swift
 <#expression#>.<#member name#>
 ```
 
 命名类型的成员作为类型声明或扩展的一部分被命名。例如：
 
-```
+```swift
 class SomeClass {
     var someProperty = 42
 }
@@ -1213,7 +1213,7 @@ let y = c.someProperty  // Member access
 
 元组的成员使用整数隐式命名，按出现的顺序，从零开始。例如：
 
-```
+```swift
 var t = (10, 20, 30)
 t.0 = t.1
 // Now t is (20, 20, 30)
@@ -1225,7 +1225,7 @@ t.0 = t.1
 
 要区分仅通过参数名称不同的方法或初始化器，请在括号中包含参数名称，每个参数名称后跟一个冒号 ( `:` )。对于没有名称的参数，请写下一个下划线 ( `_` )。要区分重载方法，请使用类型注释。例如：
 
-```
+```swift
 class SomeClass {
     func someMethod(x: Int, y: Int) {}
     func someMethod(x: Int, z: Int) {}
@@ -1246,7 +1246,7 @@ let d: (Int, Bool) -> Void  = instance.overloadedMethod(x:y:)  // Unambiguous
 
 如果一行的开头出现一个句点，它被理解为显式成员表达式的一部分，而不是隐式成员表达式。例如，以下列表显示了跨多行的链式方法调用：
 
-```
+```swift
 let x = [10, 3, 20, 15, 4]
     .sorted()
     .filter { $0 > 5 }
@@ -1255,7 +1255,7 @@ let x = [10, 3, 20, 15, 4]
 
 您可以将这种多行链式语法与编译器控制语句结合使用，以控制何时调用每个方法。例如，以下代码在 iOS 上使用了不同的过滤规则：
 
-```
+```swift
 let numbers = [10, 20, 33, 43, 50]
 #if os(iOS)
     .filter { $0 < 40 }
@@ -1280,11 +1280,11 @@ _explicit-member-expression_ → _postfix-expression_ **`.`** _decimal-digits_\
 _argument-names_ → _argument-name_ _argument-names?_\
 &#xNAN;_&#x61;rgument-name_ → _identifier_ **`:`**
 
-### [后缀自表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Postfix-Self-Expression) <a href="#postfix-self-expression" id="postfix-self-expression"></a>
+### [后缀自表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Postfix-Self-Expression)
 
 后缀 `self` 表达式由一个表达式或类型名称组成，紧接着 `.self` 。它具有以下形式：
 
-```
+```swift
 <#expression#>.self
 <#type#>.self
 ```
@@ -1297,11 +1297,11 @@ _argument-names_ → _argument-name_ _argument-names?_\
 
 _postfix-self-expression_ → _postfix-expression_ **`.`** **`self`**
 
-### [下标表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Subscript-Expression) <a href="#subscript-expression" id="subscript-expression"></a>
+### [下标表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Subscript-Expression)
 
 下标表达式提供使用相应下标声明的 getter 和 setter 进行下标访问。它具有以下形式：
 
-```
+```swift
 <#expression#>[<#index expressions#>]
 ```
 
@@ -1313,11 +1313,11 @@ _postfix-self-expression_ → _postfix-expression_ **`.`** **`self`**
 
 _subscript-expression_ → _postfix-expression_ **`[`** _function-call-argument-list_ **`]`**
 
-### [强制值表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Forced-Value-Expression) <a href="#forced-value-expression" id="forced-value-expression"></a>
+### [强制值表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Forced-Value-Expression)
 
 强制值表达式解包一个您确定不是 `nil` 的可选值。它具有以下形式：
 
-```
+```swift
 <#expression#>!
 ```
 
@@ -1325,7 +1325,7 @@ _subscript-expression_ → _postfix-expression_ **`[`** _function-call-argument-
 
 强制值表达式的未包装值可以被修改，方法是改变值本身，或者给值的某个成员赋值。例如：
 
-```
+```swift
 var x: Int? = 0
 x! += 1
 // x is now 1
@@ -1340,11 +1340,11 @@ someDictionary["a"]![0] = 100
 
 _forced-value-expression_ → _postfix-expression_ **`!`**
 
-### [可选链表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Optional-Chaining-Expression) <a href="#optional-chaining-expression" id="optional-chaining-expression"></a>
+### [可选链表达式](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/expressions/#Optional-Chaining-Expression)
 
 可选链表达式为在后缀表达式中使用可选值提供了简化的语法。其形式如下：
 
-```
+```swift
 <#expression#>?
 ```
 
@@ -1354,14 +1354,14 @@ _forced-value-expression_ → _postfix-expression_ **`!`**
 
 如果包含可选链表达式的后缀表达式嵌套在其他后缀表达式中，则只有最外层的表达式返回可选类型。在下面的示例中，当 `c` 不是 `nil` 时，它的值被解包并用于评估 `.property` ，`.property` 的值用于评估 `.performAction()` 。整个表达式 `c?.property.performAction()` 的值为可选类型。
 
-```
+```swift
 var c: SomeClass?
 var result: Bool? = c?.property.performAction()
 ```
 
 以下示例展示了上述示例在不使用可选链的情况下的行为。
 
-```
+```swift
 var result: Bool?
 if let unwrappedC = c {
     result = unwrappedC.property.performAction()
@@ -1370,7 +1370,7 @@ if let unwrappedC = c {
 
 可选链表达式的未包装值可以被修改，要么通过改变值本身，要么通过赋值给值的某个成员。如果可选链表达式的值是 `nil` ，则赋值运算符右侧的表达式不会被求值。例如：
 
-```
+```swift
 func someFunctionWithSideEffects() -> Int {
     return 42  // No actual side effects.
 }

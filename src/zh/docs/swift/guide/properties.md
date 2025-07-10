@@ -157,7 +157,7 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 
 然后将 `center` 属性设置为新的值 `(15, 15)` ，这将方块向上和向右移动，移动到下图中深绿色方块所示的新位置。设置 `center` 属性会调用 `center` 的设置器，这会修改存储的 `origin` 属性的 `x` 和 `y` 值，并将方块移动到其新位置。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/computedProperties@2x.png)
+![computedProperties](https://docs.swift.org/swift-book/images/org.swift.tspl/computedProperties@2x.png)
 
 ### [简写设置器声明](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties#Shorthand-Setter-Declaration)
 
@@ -656,7 +656,7 @@ print(SomeClass.computedTypeProperty)
 
 下图说明了如何将这两个音频通道组合在一起以模拟立体声音频电平计。当一个通道的音频电平为 `0` 时，该通道的灯光均未点亮。当音频电平为 `10` 时，该通道的所有灯光均点亮。在此图中，左通道的当前电平为 `9` ，右通道的当前电平为 `7` ：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/staticPropertiesVUMeter@2x.png)
+![staticPropertiesVUMeter](https://docs.swift.org/swift-book/images/org.swift.tspl/staticPropertiesVUMeter@2x.png)
 
 上述描述的音频通道由 `AudioChannel` 结构的实例表示：
 

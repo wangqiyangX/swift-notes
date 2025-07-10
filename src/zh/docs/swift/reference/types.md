@@ -33,11 +33,11 @@ _type_ → _function-type_\
 &#xNAN;_&#x74;ype_ → _self-type_\
 &#xNAN;_&#x74;ype_ → **`(`** _type_ **`)`**
 
-## [类型注解](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Annotation) <a href="#type-annotation" id="type-annotation"></a>
+## [类型注解](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Annotation)
 
 类型注解明确指定变量或表达式的类型。类型注解以冒号 ( `:` ) 开始，并以类型结束，如以下示例所示：
 
-```
+```swift
 let someTuple: (Double, Double) = (3.14159, 2.71828)
 func someFunction(a: Int) { /* ... */ }
 ```
@@ -50,7 +50,7 @@ func someFunction(a: Int) { /* ... */ }
 
 _type-annotation_ → **`:`** _attributes?_ _type_
 
-## [类型标识符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Identifier) <a href="#type-identifier" id="type-identifier"></a>
+## [类型标识符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Identifier)
 
 类型标识符指的是命名类型或命名或复合类型的类型别名。
 
@@ -58,14 +58,14 @@ _type-annotation_ → **`:`** _attributes?_ _type_
 
 有两种情况，类型标识符不指向同名的类型。在第一种情况下，类型标识符指向命名或复合类型的类型别名。例如，在下面的示例中，类型注释中使用的 `Point` 指的是元组类型 `(Int, Int)` 。
 
-```
+```swift
 typealias Point = (Int, Int)
 let origin: Point = (0, 0)
 ```
 
 在第二种情况下，类型标识符使用点 ( `.` ) 语法来引用在其他模块中声明或嵌套在其他类型中的命名类型。例如，以下代码中的类型标识符引用了在 `ExampleModule` 模块中声明的命名类型 `MyType` 。
 
-```
+```swift
 var someValue: ExampleModule.MyType
 ```
 
@@ -74,7 +74,7 @@ var someValue: ExampleModule.MyType
 _type-identifier_ → _type-name_ _generic-argument-clause?_ | _type-name_ _generic-argument-clause?_ **`.`** _type-identifier_\
 &#xNAN;_&#x74;ype-name_ → _identifier_
 
-## [元组类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Tuple-Type) <a href="#tuple-type" id="tuple-type"></a>
+## [元组类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Tuple-Type)
 
 元组类型是一个用逗号分隔的类型列表，括在括号内。
 
@@ -82,7 +82,7 @@ _type-identifier_ → _type-name_ _generic-argument-clause?_ | _type-name_ _gene
 
 当元组类型的元素有名称时，该名称是类型的一部分。
 
-```
+```swift
 var someTuple = (top: 10, bottom: 12)  // someTuple is of type (top: Int, bottom: Int)
 someTuple = (top: 4, bottom: 42) // OK: names match
 someTuple = (9, 99)              // OK: names are inferred
@@ -98,11 +98,11 @@ _tuple-type_ → **`(`** **`)`** | **`(`** _tuple-type-element_ **`,`** _tuple-t
 &#xNAN;_&#x74;uple-type-element_ → _element-name_ _type-annotation_ | _type_\
 &#xNAN;_&#x65;lement-name_ → _identifier_
 
-## [函数类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Function-Type) <a href="#function-type" id="function-type"></a>
+## [函数类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Function-Type)
 
 函数类型表示一个函数、方法或闭包的类型，由一个参数和一个返回类型组成，二者通过一个箭头 ( `->` ) 分隔：
 
-```
+```swift
 (<#parameter type#>) -> <#return type#>
 ```
 
@@ -118,7 +118,7 @@ _tuple-type_ → **`(`** **`)`** | **`(`** _tuple-type-element_ **`,`** _tuple-t
 
 函数和方法中的参数名称不是对应函数类型的一部分。例如：
 
-```
+```swift
 func someFunction(left: Int, right: Int) {}
 func anotherFunction(left: Int, right: Int) {}
 func functionWithDifferentLabels(top: Int, bottom: Int) {}
@@ -139,7 +139,7 @@ f = functionWithDifferentNumberOfArguments // Error
 
 因为参数标签不是函数类型的一部分，所以在编写函数类型时可以省略它们。
 
-```
+```swift
 var operation: (lhs: Int, rhs: Int) -> Int     // Error
 var operation: (_ lhs: Int, _ rhs: Int) -> Int // OK
 var operation: (Int, Int) -> Int               // OK
@@ -167,13 +167,13 @@ var operation: (Int, Int) -> Int               // OK
 
 异步函数的函数类型必须使用 `async` 关键字进行标记。 `async` 关键字是函数类型的一部分，同步函数是异步函数的子类型。因此，您可以在与异步函数相同的地方使用同步函数。有关异步函数的信息，请参阅异步函数和方法。
 
-### [非转义闭包的限制](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Restrictions-for-Nonescaping-Closures) <a href="#restrictions-for-nonescaping-closures" id="restrictions-for-nonescaping-closures"></a>
+### [非转义闭包的限制](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Restrictions-for-Nonescaping-Closures)
 
 一个非逃逸函数的参数不能存储在类型为 `Any` 的属性、变量或常量中，因为这可能允许值逃逸。
 
 一个非逃逸函数的参数不能作为参数传递给另一个非逃逸函数参数。这个限制帮助 Swift 在编译时而不是运行时执行更多的内存访问冲突检查。例如：
 
-```
+```swift
 let external: (() -> Void) -> Void = { _ in () }
 func takesTwoFunctions(first: (() -> Void) -> Void, second: (() -> Void) -> Void) {
     first { first {} }       // Error
@@ -208,17 +208,17 @@ _function-type-argument-list_ → _function-type-argument_ | _function-type-argu
 
 _throws-clause_ → **`throws`** | **`throws`** **`(`** _type_ **`)`**
 
-## [数组类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Array-Type) <a href="#array-type" id="array-type"></a>
+## [数组类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Array-Type)
 
 Swift 语言为 Swift 标准库 `Array<Element>` 类型提供了以下语法糖：
 
-```
+```swift
 [<#type#>]
 ```
 
 换句话说，以下两个声明是等价的：
 
-```
+```swift
 let someArray: Array<String> = ["Alex", "Brian", "Dave"]
 let someArray: [String] = ["Alex", "Brian", "Dave"]
 ```
@@ -227,7 +227,7 @@ let someArray: [String] = ["Alex", "Brian", "Dave"]
 
 您可以通过嵌套成对的方括号来创建多维数组，其中元素的基本类型的名称包含在最内层的方括号中。例如，您可以使用三组方括号创建一个整数的三维数组：
 
-```
+```swift
 var array3D: [[[Int]]] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 ```
 
@@ -239,17 +239,17 @@ For a detailed discussion of the Swift standard library `Array` type, see [Array
 
 _array-type_ → **`[`** _type_ **`]`**
 
-## [字典类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Dictionary-Type) <a href="#dictionary-type" id="dictionary-type"></a>
+## [字典类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Dictionary-Type)
 
 Swift 语言为 Swift 标准库 `Dictionary<Key, Value>` 类型提供了以下语法糖：
 
-```
+```swift
 [<#key type#>: <#value type#>]
 ```
 
 换句话说，以下两个声明是等价的：
 
-```
+```swift
 let someDictionary: [String: Int] = ["Alex": 31, "Paul": 39]
 let someDictionary: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
 ```
@@ -266,11 +266,11 @@ let someDictionary: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
 
 _dictionary-type_ → **`[`** _type_ **`:`** _type_ **`]`**
 
-## [可选类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Optional-Type) <a href="#optional-type" id="optional-type"></a>
+## [可选类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Optional-Type)
 
 Swift 语言将后缀 `?` 定义为命名类型 `Optional<Wrapped>` 的语法糖，该类型在 Swift 标准库中定义。换句话说，以下两个声明是等价的：
 
-```
+```swift
 var optionalInteger: Int?
 var optionalInteger: Optional<Int>
 ```
@@ -281,7 +281,7 @@ var optionalInteger: Optional<Int>
 
 如果可选类型的实例包含一个值，您可以使用后缀运算符 `!` 访问该值，如下所示：
 
-```
+```swift
 optionalInteger = 42
 optionalInteger! // 42
 ```
@@ -296,11 +296,11 @@ optionalInteger! // 42
 
 _optional-type_ → _type_ **`?`**
 
-## [隐式解包可选类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Implicitly-Unwrapped-Optional-Type) <a href="#implicitly-unwrapped-optional-type" id="implicitly-unwrapped-optional-type"></a>
+## [隐式解包可选类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Implicitly-Unwrapped-Optional-Type)
 
 Swift 语言将后缀 `!` 定义为命名类型 `Optional<Wrapped>` 的语法糖，该类型在 Swift 标准库中定义，具有在访问时自动解包的附加行为。如果您尝试使用值为 `nil` 的隐式解包可选项，您将会遇到运行时错误。除了隐式解包行为外，以下两个声明是等价的：
 
-```
+```swift
 var implicitlyUnwrappedString: String!
 var explicitlyUnwrappedString: Optional<String>
 ```
@@ -309,7 +309,7 @@ var explicitlyUnwrappedString: Optional<String>
 
 因为隐式解包改变了包含该类型的声明的意义，所以嵌套在元组类型或泛型类型中的可选类型——例如字典或数组的元素类型——不能被标记为隐式解包。例如：
 
-```
+```swift
 let tupleOfImplicitlyUnwrappedElements: (Int!, Int!)  // Error
 let implicitlyUnwrappedTuple: (Int, Int)!             // OK
 
@@ -330,13 +330,13 @@ let implicitlyUnwrappedArray: [Int]!                  // OK
 
 _implicitly-unwrapped-optional-type_ → _type_ **`!`**
 
-## [协议组合类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Protocol-Composition-Type) <a href="#protocol-composition-type" id="protocol-composition-type"></a>
+## [协议组合类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Protocol-Composition-Type)
 
 协议组合类型定义了一种类型，该类型符合指定协议列表中的每个协议，或者是一种子类并符合指定协议列表中的每个协议。协议组合类型仅在类型注释、通用参数子句和通用 `where` 子句中指定类型时使用。
 
 协议组合类型具有以下形式：
 
-```
+```swift
 <#Protocol 1#> & <#Protocol 2#>
 ```
 
@@ -350,7 +350,7 @@ _implicitly-unwrapped-optional-type_ → _type_ **`!`**
 
 当协议组合类型包含类型别名时，允许同一协议在定义中出现多次 — 重复项会被忽略。例如，下面代码中 `PQR` 的定义等价于 `P & Q & R` 。
 
-```
+```swift
 typealias PQ = P & Q
 typealias PQR = PQ & Q & R
 ```
@@ -360,7 +360,7 @@ typealias PQR = PQ & Q & R
 _protocol-composition-type_ → _type-identifier_ **`&`** _protocol-composition-continuation_\
 &#xNAN;_&#x70;rotocol-composition-continuation_ → _type-identifier_ | _protocol-composition-type_
 
-## [不透明类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Opaque-Type) <a href="#opaque-type" id="opaque-type"></a>
+## [不透明类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Opaque-Type)
 
 不透明类型定义了一种符合协议或协议组合的类型，而不指定底层具体类型。
 
@@ -368,7 +368,7 @@ _protocol-composition-type_ → _type-identifier_ **`&`** _protocol-composition-
 
 不透明类型具有以下形式：
 
-```
+```swift
 some <#constraint#>
 ```
 
@@ -384,13 +384,13 @@ some <#constraint#>
 
 _opaque-type_ → **`some`** _type_
 
-## [封装协议类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Boxed-Protocol-Type) <a href="#boxed-protocol-type" id="boxed-protocol-type"></a>
+## [封装协议类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Boxed-Protocol-Type)
 
 封装协议类型定义了一个符合协议或协议组合的类型，并且该符合的类型在程序运行时可以变化。
 
 封装协议类型具有以下形式：
 
-```
+```swift
 any <#constraint#>
 ```
 
@@ -404,7 +404,7 @@ any <#constraint#>
 
 _boxed-protocol-type_ → **`any`** _type_
 
-## [元类型 类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Metatype-Type) <a href="#metatype-type" id="metatype-type"></a>
+## [元类型 类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Metatype-Type)
 
 元类型指的是任何类型的类型，包括类类型、结构类型、枚举类型和协议类型。
 
@@ -412,7 +412,7 @@ _boxed-protocol-type_ → **`any`** _type_
 
 您可以使用后缀 `self` 表达式将类型作为值进行访问。例如， `SomeClass.self` 返回 `SomeClass` 本身，而不是 `SomeClass` 的一个实例。并且 `SomeProtocol.self` 返回 `SomeProtocol` 本身，而不是在运行时符合 `SomeProtocol` 的类型的一个实例。您可以使用类型的实例调用 `type(of:)` 函数，以将该实例的动态运行时类型作为值进行访问，如以下示例所示：
 
-```
+```swift
 class SomeBaseClass {
     class func printClassName() {
         print("SomeBaseClass")
@@ -434,7 +434,7 @@ type(of: someInstance).printClassName()
 
 使用初始化表达式从该类型的 metatype 值构造该类型的实例。对于类实例，调用的初始化程序必须标记为 `required` 关键字，或者整个类标记为 `final` 关键字。
 
-```
+```swift
 class AnotherSubClass: SomeBaseClass {
     let string: String
     required init(string: String) {
@@ -452,7 +452,7 @@ let anotherInstance = metatype.init(string: "some string")
 
 _metatype-type_ → _type_ **`.`** **`Type`** | _type_ **`.`** **`Protocol`**
 
-## [任何类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Any-Type) <a href="#any-type" id="any-type"></a>
+## [任何类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Any-Type)
 
 `Any` 类型可以包含来自所有其他类型的值。 `Any` 可以用作以下任意类型实例的具体类型：
 
@@ -461,13 +461,13 @@ _metatype-type_ → _type_ **`.`** **`Type`** | _type_ **`.`** **`Protocol`**
 - 一个包含任何类型组件的元组
 - 一个闭包或函数类型
 
-```
+```swift
 let mixed: [Any] = ["one", 2, true, (4, 5.3), { () -> Int in return 6 }]
 ```
 
 当您将 `Any` 作为实例的具体类型使用时，需要在访问其属性或方法之前将实例转换为已知类型。具有具体类型 `Any` 的实例保持其原始动态类型，并可以使用类型转换运算符中的一个进行转换 — `as` 、 `as?` 或 `as!` 。例如，请使用 `as?` 有条件地将异构数组中的第一个对象降级为 \{{6 \}}，如下所示：
 
-```
+```swift
 if let first = mixed.first as? String {
     print("The first item, '\(first)', is a string.")
 }
@@ -482,7 +482,7 @@ Any 类型的语法
 
 _any-type_ → **`Any`**
 
-## [自我类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Self-Type) <a href="#self-type" id="self-type"></a>
+## [自我类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Self-Type)
 
 `Self` 类型不是一个具体类型，而是让您方便地引用当前类型，而无需重复或知道该类型的名称。
 
@@ -497,7 +497,7 @@ _any-type_ → **`Any`**
 
 例如，下面的代码显示了一个实例方法 `f` ，其返回类型是 `Self` 。
 
-```
+```swift
 class Superclass {
     func f() -> Self { return self }
 }
@@ -527,7 +527,7 @@ print(type(of: z.f()))
 
 _self-type_ → **`Self`**
 
-## [类型继承条款](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Inheritance-Clause) <a href="#type-inheritance-clause" id="type-inheritance-clause"></a>
+## [类型继承条款](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Inheritance-Clause)
 
 类型继承子句用于指定命名类型继承自哪个类以及命名类型符合哪些协议。类型继承子句以冒号 ( `:` ) 开始，后面跟着类型标识符的列表。
 
@@ -542,7 +542,7 @@ _self-type_ → **`Self`**
 _type-inheritance-clause_ → **`:`** _type-inheritance-list_\
 &#xNAN;_&#x74;ype-inheritance-list_ → _attributes?_ _type-identifier_ | _attributes?_ _type-identifier_ **`,`** _type-inheritance-list_
 
-## [类型推断](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Inference) <a href="#type-inference" id="type-inference"></a>
+## [类型推断](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Inference)
 
 Swift 广泛使用类型推断，允许你省略代码中许多变量和表达式的类型或部分类型。例如， instead of writing `var x: Int = 0` , 你可以写 `var x = 0` , 完全省略类型——编译器正确推断出 `x` 表示类型 `Int` 的值。同样，当可以从上下文推断出完整类型时，你可以省略部分类型。例如，如果你写 `let dict: Dictionary = ["A": 1]` ，编译器推断出 `dict` 的类型是 `Dictionary<String, Int>` 。
 
@@ -550,7 +550,7 @@ Swift 广泛使用类型推断，允许你省略代码中许多变量和表达�
 
 在 Swift 中，类型信息也可以反向流动——从根部向叶子流动。在以下示例中，例如，常量 `eFloat` 上的显式类型注释 ( `: Float` ) 导致数字字面量 `2.71828` 的推断类型为 `Float` ，而不是 `Double` 。
 
-```
+```swift
 let e = 2.71828 // The type of e is inferred to be Double.
 let eFloat: Float = 2.71828 // The type of eFloat is Float.
 ```

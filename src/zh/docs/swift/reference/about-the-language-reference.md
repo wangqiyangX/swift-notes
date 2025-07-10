@@ -10,7 +10,7 @@ description: 阅读正式语法使用的符号说明。
 
 Swift 语言相对较小，因为许多在 Swift 代码中几乎随处可见的常见类型、函数和运算符实际上是在 Swift 标准库中定义的。尽管这些类型、函数和运算符并不是 Swift 语言本身的一部分，但它们在本书这一部分的讨论和代码示例中被广泛使用。
 
-## [如何阅读语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/aboutthelanguagereference#How-to-Read-the-Grammar) <a href="#how-to-read-the-grammar" id="how-to-read-the-grammar"></a>
+## [如何阅读语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/aboutthelanguagereference#How-to-Read-the-Grammar)
 
 用于描述 Swift 编程语言的正式语法的符号遵循一些约定：
 

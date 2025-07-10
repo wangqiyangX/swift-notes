@@ -8,7 +8,7 @@
 
 ## [下标语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/subscripts#Subscript-Syntax)
 
-下标使您能够通过在实例名称后用方括号写入一个或多个值来查询类型的实例。它们的语法类似于实例方法语法和计算属性语法。您使用 `subscript` 关键字编写下标定义，并以与实例方法相同的方式指定一个或多个输入参数和返回类型。与实例方法不同，下标可以<mark style="color:blue;">是可读写或只读</mark>。这种行为通过 getter 和 setter 以与计算属性相同的方式进行传达：
+下标使您能够通过在实例名称后用方括号写入一个或多个值来查询类型的实例。它们的语法类似于实例方法语法和计算属性语法。您使用 `subscript` 关键字编写下标定义，并以与实例方法相同的方式指定一个或多个输入参数和返回类型。与实例方法不同，下标可以是可读写或只读。这种行为通过 `getter` 和 `setter` 以与计算属性相同的方式进行传达：
 
 ```swift
 subscript(index: Int) -> Int {
@@ -21,7 +21,7 @@ subscript(index: Int) -> Int {
 }
 ```
 
-`newValue` 的类型与下标的返回值相同。与计算属性一样，您可以选择不指定 setter 的 `(newValue)` 参数。如果您自己不提供，您的 setter 会提供一个名为 `newValue` 的默认参数。
+`newValue` 的类型与下标的返回值相同。与计算属性一样，您可以选择不指定 `setter` 的 `(newValue)` 参数。如果您自己不提供，您的 setter 会提供一个名为 `newValue` 的默认参数。
 
 与只读计算属性一样，您可以通过删除 `get` 关键字及其大括号来简化只读下标的声明：
 
@@ -107,7 +107,7 @@ struct Matrix {
 }
 ```
 
-`Matrix` 提供了一个初始化器，它接受两个参数，分别称为 `rows` 和 `columns` ，并创建一个足够大的数组以存储 `rows * columns` 个类型为 `Double` 的值。矩阵中的每个位置都被赋予初始值 `0.0` 。为此，数组的大小和初始单元格值 `0.0` 会被传递给一个数组初始化器，该初始化器创建并初始化一个正确大小的新数组。这个初始化器在<mark style="color:blue;">创建具有默认值的数组</mark>中有更详细的描述。
+`Matrix` 提供了一个初始化器，它接受两个参数，分别称为 `rows` 和 `columns` ，并创建一个足够大的数组以存储 `rows * columns` 个类型为 `Double` 的值。矩阵中的每个位置都被赋予初始值 `0.0` 。为此，数组的大小和初始单元格值 `0.0` 会被传递给一个数组初始化器，该初始化器创建并初始化一个正确大小的新数组。这个初始化器在[创建具有默认值的数组](collection-types/#创建具有默认值的数组)中有更详细的描述。
 
 您可以通过将适当的行数和列数传递给其初始化器来构造一个新的 `Matrix` 实例：
 
@@ -117,7 +117,7 @@ var matrix = Matrix(rows: 2, columns: 2)
 
 上面的示例创建了一个新的 `Matrix` 实例，具有两行两列。该 `grid` 数组对于这个 `Matrix` 实例实际上是矩阵的扁平化版本，从左上角读取到右下角：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix01@2x.png)
+![subscriptMatrix01](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix01@2x.png)
 
 矩阵中的值可以通过将行和列值传递到下标中来设置，值之间用逗号分隔：
 
@@ -128,7 +128,7 @@ matrix[1, 0] = 3.2
 
 这两个语句调用下标的设置器，将 `1.5` 的值设置在矩阵的右上角位置（其中 `row` 是 `0` ，而 `column` 是 `1` ），并在左下角位置设置 `3.2` （其中 `row` 是 `1` ，而 `column` 是 `0` ）：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix02@2x.png)
+![subscriptMatrix02](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix02@2x.png)
 
 `Matrix` 下标的获取器和设置器都包含一个断言，以检查下标的 `row` 和 `column` 值是否有效。为了辅助这些断言， `Matrix` 包含一个名为 `indexIsValid(row:column:)` 的便利方法，该方法检查请求的 `row` 和 `column` 是否在矩阵的边界内：
 

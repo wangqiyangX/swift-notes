@@ -10,7 +10,7 @@ Swift 的词法结构描述了哪些字符序列形成语言的有效标记。�
 
 在大多数情况下，令牌是通过考虑输入文本中可能的最长子字符串，从 Swift 源文件的字符生成的，遵循下面指定的语法约束。这种行为被称为最长匹配或最大贪婪匹配。
 
-## [空白和注释](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Whitespace-and-Comments) <a href="#whitespace-and-comments" id="whitespace-and-comments"></a>
+## [空白和注释](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Whitespace-and-Comments)
 
 空白有两个用途：在源文件中分隔令牌，并区分前缀、后缀和中缀运算符（参见运算符），但其他情况下被忽略。以下字符被视为空白字符：空格 (U+0020)、换行符 (U+000A)、回车符 (U+000D)、水平制表符 (U+0009)、垂直制表符 (U+000B)、换页符 (U+000C) 和空字符 (U+0000)。
 
@@ -45,7 +45,7 @@ Swift 的词法结构描述了哪些字符序列形成语言的有效标记。�
 > &#xNAN;_&#x6D;ultiline-comment-text-item_ → _comment-text-item_\
 > &#xNAN;_&#x6D;ultiline-comment-text-item_ → Any Unicode scalar value except **`/*`** or **`*/`**
 
-## [标识符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Identifiers) <a href="#identifiers" id="identifiers"></a>
+## [标识符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Identifiers)
 
 标识符以大写或小写字母 A 到 Z、下划线 ( `_` )、基础多语言平面中的非组合字母数字 Unicode 字符，或不在私有使用区域的基础多语言平面外的字符开头。在第一个字符之后，数字和组合 Unicode 字符也是允许的。
 
@@ -90,7 +90,7 @@ Swift 的词法结构描述了哪些字符序列形成语言的有效标记。�
 > _implicit-parameter-name_ → **`$`** _decimal-digits_\
 > &#xNAN;_&#x70;roperty-wrapper-projection_ → **`$`** _identifier-characters_
 
-## [关键字和标点符号](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Keywords-and-Punctuation) <a href="#keywords-and-punctuation" id="keywords-and-punctuation"></a>
+## [关键字和标点符号](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Keywords-and-Punctuation)
 
 以下关键字是保留的，不能用作标识符，除非使用反引号进行转义，正如上面在标识符中所描述的那样。除 `inout` 、 `var` 和 `let` 之外的关键字可以在函数声明或函数调用中用作参数名，而无需使用反引号进行转义。当成员的名称与关键字相同时，引用该成员时无需使用反引号进行转义，除非在引用成员和使用关键字之间存在歧义——例如， `self` 、 `Type` 和 `Protocol` 在显式成员表达式中具有特殊含义，因此在该上下文中必须使用反引号进行转义。
 
@@ -108,13 +108,13 @@ Swift 的词法结构描述了哪些字符序列形成语言的有效标记。�
 
 以下标记被保留为标点符号，不能用作自定义运算符： `(` , `)` , `{` , `}` , `[` , `]` , `.` , `,` , `:` , `;` , `=` , `@` , `#` , `&` （作为前缀运算符）， `->` , `` ` `` , `?` 以及 `!` （作为后缀运算符）。
 
-## [字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Literals) <a href="#literals" id="literals"></a>
+## [字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Literals)
 
 字面量是值的类型（例如数字或字符串）的源代码表示。
 
 以下是字面量的示例：
 
-```
+```swift
 42               // Integer literal
 3.14159          // Floating-point literal
 "Hello, world!"  // String literal
@@ -142,7 +142,7 @@ true             // Boolean literal
 > &#xNAN;_&#x62;oolean-literal_ → **`true`** | **`false`**\
 > &#xNAN;_&#x6E;il-literal_ → **`nil`**
 
-### [整数字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Integer-Literals) <a href="#integer-literals" id="integer-literals"></a>
+### [整数字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Integer-Literals)
 
 整数字面量表示不确定精度的整数值。默认情况下，整数字面量以十进制表示；您可以使用前缀指定其他进制。二进制字面量以 `0b` 开头，八进制字面量以 `0o` 开头，十六进制字面量以 `0x` 开头。
 
@@ -182,7 +182,7 @@ true             // Boolean literal
 > &#xNAN;_&#x68;exadecimal-literal-character_ → _hexadecimal-digit_ | **`_`**\
 > &#xNAN;_&#x68;exadecimal-literal-characters_ → _hexadecimal-literal-character_ _hexadecimal-literal-characters?_
 
-### [浮点字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Floating-Point-Literals) <a href="#floating-point-literals" id="floating-point-literals"></a>
+### [浮点字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Floating-Point-Literals)
 
 浮点字面量表示不确定精度的浮点值。
 
@@ -213,11 +213,11 @@ true             // Boolean literal
 > &#xNAN;_&#x66;loating-point-p_ → **`p`** | **`P`**\
 > &#xNAN;_&#x73;ign_ → **`+`** | **`-`**
 
-### [字符串字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#String-Literals) <a href="#string-literals" id="string-literals"></a>
+### [字符串字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#String-Literals)
 
 字符串字面量是由引号包围的一系列字符。单行字符串字面量由双引号包围，具有以下形式：
 
-```
+```swift
 "<#characters#>"
 ```
 
@@ -225,7 +225,7 @@ true             // Boolean literal
 
 多行字符串字面量由三个双引号包围，具有以下形式：
 
-```
+```swift
 """
 <#characters#>
 """
@@ -256,7 +256,7 @@ true             // Boolean literal
 
 例如，以下所有字符串字面量具有相同的值：
 
-```
+```swift
 "1 2 3"
 "1 2 \("3")"
 "1 2 \(3)"
@@ -266,7 +266,7 @@ let x = 3; "1 2 \(x)"
 
 由扩展分隔符限定的字符串是被引号包围并且用一个或多个数字符号（ `#` ）平衡的一系列字符。由扩展分隔符限定的字符串具有以下形式：
 
-```
+```swift
 #"<#characters#>"#
 
 
@@ -279,7 +279,7 @@ let x = 3; "1 2 \(x)"
 
 以下示例显示了一个字符串字面量和一个由扩展分隔符限定的字符串，它们创建了等效的字符串值：
 
-```
+```swift
 let string = #"\(x) \ " \u{2603}"#
 let escaped = "\\(x) \\ \" \\u{2603}"
 print(string)
@@ -290,7 +290,7 @@ print(string == escaped)
 
 如果您使用多个数字符号来形成由扩展分隔符分隔的字符串，请不要在数字符号之间放置空格：
 
-```
+```swift
 print(###"Line 1\###nLine 2"###) // OK
 print(# # #"Line 1\# # #nLine 2"# # #) // Error
 ```
@@ -301,7 +301,7 @@ print(# # #"Line 1\# # #nLine 2"# # #) // Error
 
 通过 `+` 运算符连接的字符串字面量在编译时连接。例如，下面示例中的 `textA` 和 `textB` 的值是相同的——不执行运行时连接。
 
-```
+```swift
 let textA = "Hello " + "world"
 let textB = "Hello world"
 ```
@@ -345,11 +345,11 @@ let textB = "Hello world"
 >
 > _escaped-newline_ → _escape-sequence_ _inline-spaces?_ _line-break_
 
-### [正则表达式字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Regular-Expression-Literals) <a href="#regular-expression-literals" id="regular-expression-literals"></a>
+### [正则表达式字面量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Regular-Expression-Literals)
 
 正则表达式字面量是一系列字符，以斜杠（ `/` ）为边界，具有以下形式：
 
-```
+```swift
 /<#regular expression#>/
 ```
 
@@ -359,7 +359,7 @@ let textB = "Hello world"
 
 用扩展定界符分隔的正则表达式字面量是由斜杠（ `/` ）和一个或多个井号（ `#` ）所包围的一系列字符。用扩展定界符分隔的正则表达式字面量具有以下形式：
 
-```
+```swift
 #/<#regular expression#>/#
 
 
@@ -372,7 +372,7 @@ let textB = "Hello world"
 
 如果您使用多个数字符号来形成一个由扩展定界符限定的正则表达式字面量，请勿在数字符号之间放置空格：
 
-```
+```swift
 let regex1 = ##/abc/##       // OK
 let regex2 = # #/abc/# #     // Error
 ```
@@ -389,7 +389,7 @@ let regex2 = # #/abc/# #     // Error
 >
 > _extended-regular-expression-literal-delimiter_ → **`#`** _extended-regular-expression-literal-delimiter?_
 
-## [运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Operators) <a href="#operators" id="operators"></a>
+## [运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure#Operators)
 
 Swift 标准库定义了许多供您使用的运算符，其中许多在基本运算符和高级运算符中进行了讨论。本节描述了可以用于定义自定义运算符的字符。
 

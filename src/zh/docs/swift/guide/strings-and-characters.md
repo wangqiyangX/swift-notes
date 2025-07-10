@@ -74,7 +74,7 @@ It also ends with a line break.
 
 多行字符串可以缩进以匹配周围的代码。关闭引号前的空白 ( `"""` ) 告诉 Swift 忽略所有其他行之前的空白。然而，如果你在行的开头写入空白，除了关闭引号前的空白外，该空白也会被包含在内。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/multilineStringWhitespace@2x.png)
+![multilineStringWhitespace](https://docs.swift.org/swift-book/images/org.swift.tspl/multilineStringWhitespace@2x.png)
 
 在上面的示例中，尽管整个多行字符串字面量是缩进的，但字符串中的第一行和最后一行并没有以任何空白开头。中间行的缩进比关闭引号多，因此它以额外的四个空格缩进开始。
 
@@ -466,7 +466,7 @@ let newString = String(beginning)
 
 在上面的例子中， `greeting` 是一个字符串，这意味着它有一个内存区域，用于存储构成该字符串的字符。因为 `beginning` 是 `greeting` 的子字符串，所以它重用了 `greeting` 使用的内存。相比之下， `newString` 是一个字符串——当它从子字符串创建时，它有自己的存储。下图显示了这些关系：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/stringSubstring@2x.png)
+![stringSubstring](https://docs.swift.org/swift-book/images/org.swift.tspl/stringSubstring@2x.png)
 
 > 注意
 >
@@ -604,7 +604,7 @@ let dogString = "Dog‼🐶"
 
 您可以通过遍历其 `utf8` 属性来访问 `String` 的 UTF-8 表示。该属性的类型为 `String.UTF8View` ，是一个无符号 8 位 ( `UInt8` ) 值的集合，每个值对应字符串的 UTF-8 表示中的一个字节：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/UTF8@2x.png)
+![UTF8](https://docs.swift.org/swift-book/images/org.swift.tspl/UTF8@2x.png)
 
 ```swift
 for codeUnit in dogString.utf8 {
@@ -620,7 +620,7 @@ print("")
 
 您可以通过迭代其 `utf16` 属性来访问 `String` 的 UTF-16 表示。该属性的类型为 `String.UTF16View` ，它是一个无符号 16 位 ( `UInt16` ) 值的集合，表示字符串的 UTF-16 表示中的每个 16 位代码单元：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/UTF16@2x.png)
+![UTF16](https://docs.swift.org/swift-book/images/org.swift.tspl/UTF16@2x.png)
 
 ```swift
 for codeUnit in dogString.utf16 {
@@ -642,7 +642,7 @@ print("")
 
 每个 `UnicodeScalar` 都有一个 `value` 属性，该属性返回标量的 21 位值，以 `UInt32` 值表示：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/UnicodeScalar@2x.png)
+![UnicodeScalar](https://docs.swift.org/swift-book/images/org.swift.tspl/UnicodeScalar@2x.png)
 
 ```swift
 for scalar in dogString.unicodeScalars {

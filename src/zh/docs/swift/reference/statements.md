@@ -25,7 +25,7 @@ _statement_ → _expression_ **`;`**_?_\
 &#xNAN;_&#x73;tatement_ → _compiler-control-statement_\
 &#xNAN;_&#x73;tatements_ → _statement_ _statements?_
 
-## [循环语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Loop-Statements) <a href="#loop-statements" id="loop-statements"></a>
+## [循环语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Loop-Statements)
 
 循环语句允许根据循环中指定的条件重复执行一段代码。Swift 有三种循环语句：一个 `for` - `in` 语句，一个 `while` 语句，以及一个 `repeat` - `while` 语句。
 
@@ -37,13 +37,13 @@ _loop-statement_ → _for-in-statement_\
 &#xNAN;_&#x6C;oop-statement_ → _while-statement_\
 &#xNAN;_&#x6C;oop-statement_ → _repeat-while-statement_
 
-### [For-In 语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#For-In-Statement) <a href="#for-in-statement" id="for-in-statement"></a>
+### [For-In 语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#For-In-Statement)
 
 一个 `for` - `in` 语句允许对符合 `Sequence` 协议的集合（或任何类型）中的每个项目执行一次代码块。
 
 一个 `for` - `in` 语句具有以下形式：
 
-```
+```swift
 for <#item#> in <#collection#> {
    <#statements#>
 }
@@ -55,13 +55,13 @@ Grammar of a for-in statement
 
 _for-in-statement_ → **`for`** **`case`**_?_ _pattern_ **`in`** _expression_ _where-clause?_ _code-block_
 
-### [当语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#While-Statement) <a href="#while-statement" id="while-statement"></a>
+### [当语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#While-Statement)
 
 一个 `while` 语句允许代码块重复执行，只要条件保持为真。
 
 一个 `while` 语句具有以下形式：
 
-```
+```swift
 while <#condition#> {
    <#statements#>
 }
@@ -89,13 +89,13 @@ _condition-list_ → _condition_ | _condition_ **`,`** _condition-list_\
 _case-condition_ → **`case`** _pattern_ _initializer_\
 &#xNAN;_&#x6F;ptional-binding-condition_ → **`let`** _pattern_ _initializer?_ | **`var`** _pattern_ _initializer?_
 
-### [重复-当语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Repeat-While-Statement) <a href="#repeat-while-statement" id="repeat-while-statement"></a>
+### [重复-当语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Repeat-While-Statement)
 
 一个 `repeat` - `while` 语句允许一段代码在条件保持为真时执行一次或多次。
 
 一个 `repeat` - `while` 语句具有以下形式：
 
-```
+```swift
 repeat {
    <#statements#>
 } while <#condition#>
@@ -116,7 +116,7 @@ Grammar of a repeat-while statement
 
 _repeat-while-statement_ → **`repeat`** _code-block_ **`while`** _expression_
 
-## [分支语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Branch-Statements) <a href="#branch-statements" id="branch-statements"></a>
+## [分支语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Branch-Statements)
 
 分支语句允许程序根据一个或多个条件的值执行某些代码部分。分支语句中指定的条件值控制程序如何分支，因此控制执行哪个代码块。Swift 有三种分支语句：一个 `if` 语句，一个 `guard` 语句和一个 `switch` 语句。
 
@@ -128,7 +128,7 @@ _branch-statement_ → _if-statement_\
 &#xNAN;_&#x62;ranch-statement_ → _guard-statement_\
 &#xNAN;_&#x62;ranch-statement_ → _switch-statement_
 
-### [如果语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#If-Statement) <a href="#if-statement" id="if-statement"></a>
+### [如果语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#If-Statement)
 
 一个 `if` 语句用于根据一个或多个条件的评估执行代码。
 
@@ -136,7 +136,7 @@ _branch-statement_ → _if-statement_\
 
 第一种形式仅在条件为真时执行代码，具有以下形式：
 
-```
+```swift
 if <#condition#> {
    <#statements#>
 }
@@ -144,7 +144,7 @@ if <#condition#> {
 
 `if` 语句的第二种形式提供了一个额外的 else 子句（由 `else` 关键字引入），用于在条件为真时执行一部分代码，在相同条件为假时执行另一部分代码。当存在单个 else 子句时， `if` 语句具有以下形式：
 
-```
+```swift
 if <#condition#> {
    <#statements to execute if condition is true#>
 } else {
@@ -154,7 +154,7 @@ if <#condition#> {
 
 `if` 语句的 else 子句可以包含另一个 `if` 语句以测试多个条件。以这种方式链接在一起的 `if` 语句具有以下形式：
 
-```
+```swift
 if <#condition 1#> {
    <#statements to execute if condition 1 is true#>
 } else if <#condition 2#> {
@@ -171,13 +171,13 @@ Grammar of an if statement
 _if-statement_ → **`if`** _condition-list_ _code-block_ _else-clause?_\
 &#xNAN;_&#x65;lse-clause_ → **`else`** _code-block_ | **`else`** _if-statement_
 
-### [Guard Statement](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Guard-Statement) <a href="#guard-statement" id="guard-statement"></a>
+### [Guard Statement](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Guard-Statement)
 
 A `guard` 语句用于在一个或多个条件不满足时将程序控制转移出一个作用域。
 
 一个 `guard` 语句具有以下形式：
 
-```
+```swift
 guard <#condition#> else {
    <#statements#>
 }
@@ -200,13 +200,13 @@ Grammar of a guard statement
 
 _guard-statement_ → **`guard`** _condition-list_ **`else`** _code-block_
 
-### [开关语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Switch-Statement) <a href="#switch-statement" id="switch-statement"></a>
+### [开关语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Switch-Statement)
 
 A `switch` 语句允许根据控制表达式的值执行特定代码块。
 
 一个 `switch` 语句具有以下形式：
 
-```
+```swift
 switch <#control expression#> {
 case <#pattern 1#>:
     <#statements#>
@@ -226,7 +226,7 @@ default:
 
 一个 `switch` 语句可以选择性地在每个模式后包含一个 `where` 子句。一个 where 子句由 `where` 关键字引入，后跟一个表达式，旨在在将模式视为与控制表达式匹配之前提供额外的条件。如果存在 `where` 子句，则只有当控制表达式的值与该案例的模式之一匹配，并且 `where` 子句的表达式求值为 `true` 时，相关案例中的语句才会执行。例如，下面示例中的控制表达式只有在它是一个包含两个相同值元素的元组时才与该案例匹配，例如 `(1, 1)` 。
 
-```
+```swift
 case let (x, y) where x == y:
 ```
 
@@ -248,7 +248,7 @@ case let (x, y) where x == y:
 
 以下示例切换了 Swift 标准库的 `Mirror.AncestorRepresentation` 枚举的所有三个现有案例。如果将来添加其他案例，编译器会生成警告，指示您需要更新 switch 语句以考虑新案例。
 
-```
+```swift
 let representation: Mirror.AncestorRepresentation = .generated
 switch representation {
 case .customized:
@@ -288,7 +288,7 @@ _conditional-switch-case_ → _switch-if-directive-clause_ _switch-elseif-direct
 &#xNAN;_&#x73;witch-elseif-directive-clause_ → _elseif-directive_ _compilation-condition_ _switch-cases?_\
 &#xNAN;_&#x73;witch-else-directive-clause_ → _else-directive_ _switch-cases?_
 
-## [带标签的语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Labeled-Statement) <a href="#labeled-statement" id="labeled-statement"></a>
+## [带标签的语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Labeled-Statement)
 
 您可以在循环语句、 `if` 语句、 `switch` 语句或 `do` 语句前加上语句标签，语句标签由标签名称后面紧跟一个冒号 (:) 组成。使用语句标签与 `break` 和 `continue` 语句，以明确您希望如何在循环语句或 `switch` 语句中改变控制流，如下面的 Break Statement 和 Continue Statement 中所讨论的。
 
@@ -306,7 +306,7 @@ _labeled-statement_ → _statement-label_ _loop-statement_\
 _statement-label_ → _label-name_ **`:`**\
 &#xNAN;_&#x6C;abel-name_ → _identifier_
 
-## [控制转移语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Control-Transfer-Statements) <a href="#control-transfer-statements" id="control-transfer-statements"></a>
+## [控制转移语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Control-Transfer-Statements)
 
 控制转移语句可以通过无条件地将程序控制从一段代码转移到另一段代码来改变程序中代码的执行顺序。Swift 有五个控制转移语句：一个 `break` 语句，一个 `continue` 语句，一个 `fallthrough` 语句，一个 `return` 语句，以及一个 `throw` 语句。
 
@@ -318,11 +318,11 @@ _control-transfer-statement_ → _break-statement_\
 &#xNAN;_&#x63;ontrol-transfer-statement_ → _return-statement_\
 &#xNAN;_&#x63;ontrol-transfer-statement_ → _throw-statement_
 
-### [中断语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Break-Statement) <a href="#break-statement" id="break-statement"></a>
+### [中断语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Break-Statement)
 
 一个 `break` 语句结束循环、一个 `if` 语句或一个 `switch` 语句的程序执行。一个 `break` 语句可以只包含 `break` 关键字，或者可以包含 `break` 关键字后面跟着一个语句标签的名称，如下所示。
 
-```
+```swift
 break
 break <#label name#>
 ```
@@ -339,11 +339,11 @@ Grammar of a break statement
 
 _break-statement_ → **`break`** _label-name?_
 
-### [Continue Statement](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Continue-Statement) <a href="#continue-statement" id="continue-statement"></a>
+### [Continue Statement](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Continue-Statement)
 
 一个 `continue` 语句结束当前循环语句的执行，但并不会停止循环语句的执行。一个 `continue` 语句可以仅由 `continue` 关键字组成，或者可以由 `continue` 关键字后接语句标签名称组成，如下所示。
 
-```
+```swift
 continue
 continue <#label name#>
 ```
@@ -362,7 +362,7 @@ Grammar of a continue statement
 
 _continue-statement_ → **`continue`** _label-name?_
 
-### [掉落语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Fallthrough-Statement) <a href="#fallthrough-statement" id="fallthrough-statement"></a>
+### [掉落语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Fallthrough-Statement)
 
 一个 `fallthrough` 语句由 `fallthrough` 关键字组成，仅在 `switch` 语句的 case 块中出现。一个 `fallthrough` 语句使程序的执行从 `switch` 语句中的一个 case 继续到下一个 case。即使 case 标签的模式与 `switch` 语句的控制表达式的值不匹配，程序的执行仍继续到下一个 case。
 
@@ -374,13 +374,13 @@ Grammar of a fallthrough statement
 
 _fallthrough-statement_ → **`fallthrough`**
 
-### [返回语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Return-Statement) <a href="#return-statement" id="return-statement"></a>
+### [返回语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Return-Statement)
 
 一个 `return` 语句发生在函数或方法定义的主体中，并导致程序执行返回到调用的函数或方法。程序执行在函数或方法调用后立即继续。
 
 一个 `return` 语句可以仅由 `return` 关键字组成，或者可以由 `return` 关键字后跟一个表达式组成，如下所示。
 
-```
+```swift
 return
 return <#expression#>
 ```
@@ -397,7 +397,7 @@ Grammar of a return statement
 
 _return-statement_ → **`return`** _expression?_
 
-### [抛出语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Throw-Statement) <a href="#throw-statement" id="throw-statement"></a>
+### [抛出语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Throw-Statement)
 
 在抛出函数或方法的主体中，或者在其类型标记为 `throws` 关键字的闭包表达式的主体中，会发生 `throw` 语句。
 
@@ -405,7 +405,7 @@ _return-statement_ → **`return`** _expression?_
 
 `throw` 语句由 `throw` 关键字后跟一个表达式组成，如下所示。
 
-```
+```swift
 throw <#expression#>
 ```
 
@@ -417,13 +417,13 @@ Grammar of a throw statement
 
 _throw-statement_ → **`throw`** _expression_
 
-## [延迟语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Defer-Statement) <a href="#defer-statement" id="defer-statement"></a>
+## [延迟语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Defer-Statement)
 
 在 `defer` 语句中使用它是在转移程序控制到 `defer` 语句出现的作用域外之前执行代码。
 
 一个 `defer` 语句具有以下形式：
 
-```
+```swift
 defer {
     <#statements#>
 }
@@ -433,7 +433,7 @@ defer {
 
 在围绕 `defer` 语句的作用域结束时执行 `defer` 语句中的语句。
 
-```
+```swift
 func f(x: Int) {
   defer { print("First defer") }
 
@@ -457,7 +457,7 @@ f(x: 5)
 
 如果多个 `defer` 语句出现在同一作用域中，它们出现的顺序是它们执行顺序的反向。在给定作用域中首先执行最后一个 `defer` 语句意味着该最后一个 `defer` 语句内部的语句可以引用将由其他 `defer` 语句清理的资源。
 
-```
+```swift
 func f() {
     defer { print("First defer") }
     defer { print("Second defer") }
@@ -475,7 +475,7 @@ Grammar of a defer statement
 
 _defer-statement_ → **`defer`** _code-block_
 
-## [语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Do-Statement) <a href="#do-statement" id="do-statement"></a>
+## [语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Do-Statement)
 
 `do` 语句用于引入一个新的作用域，并可以选择性地包含一个或多个 `catch` 子句，这些子句包含匹配已定义错误条件的模式。在 `do` 语句的作用域中声明的变量和常量只能在该作用域内访问。
 
@@ -483,7 +483,7 @@ Swift 中的 `do` 语句类似于 C 中用于限定代码块的花括号 ( `{}` 
 
 一个 `do` 语句具有以下形式：
 
-```
+```swift
 do {
     try <#expression#>
     <#statements#>
@@ -500,7 +500,7 @@ do {
 
 A `do` 语句可以选择性地指定它抛出的错误类型，其形式如下：
 
-```
+```swift
 do throws(<#type#>) {
     try <#expression#>
 } catch <#pattern> {
@@ -536,7 +536,7 @@ _do-statement_ → **`do`** _throws-clause?_ _code-block_ _catch-clauses?_\
 &#xNAN;_&#x63;atch-pattern-list_ → _catch-pattern_ | _catch-pattern_ **`,`** _catch-pattern-list_\
 &#xNAN;_&#x63;atch-pattern_ → _pattern_ _where-clause?_
 
-## [编译器控制语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Compiler-Control-Statements) <a href="#compiler-control-statements" id="compiler-control-statements"></a>
+## [编译器控制语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Compiler-Control-Statements)
 
 编译器控制语句允许程序更改编译器行为的某些方面。Swift 有三种编译器控制语句：条件编译块、行控制语句和编译时诊断语句。
 
@@ -546,13 +546,13 @@ _compiler-control-statement_ → _conditional-compilation-block_\
 &#xNAN;_&#x63;ompiler-control-statement_ → _line-control-statement_\
 &#xNAN;_&#x63;ompiler-control-statement_ → _diagnostic-statement_
 
-### [条件编译块](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Conditional-Compilation-Block) <a href="#conditional-compilation-block" id="conditional-compilation-block"></a>
+### [条件编译块](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Conditional-Compilation-Block)
 
 条件编译块允许根据一个或多个编译条件的值有条件地编译代码。
 
 每个条件编译块以 `#if` 编译指令开始，以 `#endif` 编译指令结束。一个简单的条件编译块具有以下形式：
 
-```
+```swift
 #if <#compilation condition#>
     <#statements#>
 #endif
@@ -573,7 +573,7 @@ _compiler-control-statement_ → _conditional-compilation-block_\
 
 对于 `swift()` 和 `compiler()` 平台条件的版本号由一个主版本号、可选的次版本号、可选的补丁号等组成，各部分之间用点 ( `.` ) 分隔。比较运算符和版本号之间不得有空格。对于 `compiler()` 的版本是编译器版本，无论传递给编译器的 Swift 版本设置是什么。对于 `swift()` 的版本是当前正在编译的语言版本。例如，如果您在 Swift 4.2 模式下使用 Swift 5 编译器编译代码，则编译器版本为 5，语言版本为 4.2。在这些设置下，以下代码打印所有三条消息：
 
-```
+```swift
 #if compiler(>=5)
 print("Compiled with the Swift 5 compiler or later")
 #endif
@@ -600,7 +600,7 @@ The `arch(arm)` platform condition doesn’t return `true` for ARM 64 devices. T
 
 与 `if` 语句类似，您可以添加多个条件分支以测试不同的编译条件。您可以使用 `#elseif` 子句添加任意数量的其他分支。您还可以使用 `#else` 子句添加最后一个额外分支。包含多个分支的条件编译块具有以下形式：
 
-```
+```swift
 #if <#compilation condition 1#>
     <#statements to compile if compilation condition 1 is true#>
 #elseif <#compilation condition 2#>
@@ -650,13 +650,13 @@ _operating-system_ → **`macOS`** | **`iOS`** | **`watchOS`** | **`tvOS`** | **
 &#xNAN;_&#x73;wift-version-continuation_ → **`.`** _decimal-digits_ _swift-version-continuation?_\
 &#xNAN;_&#x65;nvironment_ → **`simulator`** | **`macCatalyst`**
 
-### [行控制语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Line-Control-Statement) <a href="#line-control-statement" id="line-control-statement"></a>
+### [行控制语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Line-Control-Statement)
 
 行控制语句用于指定一个行号和文件名，这可以与正在编译的源代码的行号和文件名不同。使用行控制语句可以更改 Swift 用于诊断和调试目的的源代码位置。
 
 行控制语句有以下几种形式：
 
-```
+```swift
 #sourceLocation(file: <#file path#>, line: <#line number#>)
 #sourceLocation()
 ```
@@ -672,17 +672,17 @@ _line-control-statement_ → **`#sourceLocation`** **`(`** **`file:`** _file-pat
 &#xNAN;_&#x6C;ine-number_ → A decimal integer greater than zero\
 &#xNAN;_&#x66;ile-path_ → _static-string-literal_
 
-### [编译时诊断语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Compile-Time-Diagnostic-Statement) <a href="#compile-time-diagnostic-statement" id="compile-time-diagnostic-statement"></a>
+### [编译时诊断语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Compile-Time-Diagnostic-Statement)
 
 在 Swift 5.9 之前， `#warning` 和 `#error` 语句在编译时会发出诊断。此行为现在由 Swift 标准库中的 `warning(_:)` 和 `error(_:)` 宏提供。
 
-## [可用性条件](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Availability-Condition) <a href="#availability-condition" id="availability-condition"></a>
+## [可用性条件](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#Availability-Condition)
 
 可用性条件用作 `if` 、 `while` 和 `guard` 语句的条件，以根据指定的平台参数查询 APIs 在运行时的可用性。
 
 可用性条件具有以下形式：
 
-```
+```swift
 if #available(<#platform name#> <#version#>, <#...#>, *) {
     <#statements to execute if the APIs are available#>
 } else {
@@ -696,7 +696,7 @@ if #available(<#platform name#> <#version#>, <#...#>, *) {
 
 与布尔条件不同，您不能使用逻辑运算符如 `&&` 和 `||` 来组合可用性条件。不要使用 `!` 来否定可用性条件，而是使用不可用性条件，其形式如下：
 
-```
+```swift
 if #unavailable(<#platform name#> <#version#>, <#...#>) {
     <#fallback statements to execute if the APIs are unavailable#>
 } else {
