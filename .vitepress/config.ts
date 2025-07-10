@@ -4,6 +4,7 @@ import { defineConfig, type DefaultTheme } from "vitepress";
 export default defineConfig({
   srcDir: "src",
   srcExclude: ["**/README.md", "**/TODO.md"],
+  base: "/swift-notes/",
 
   lang: "zh-Hans",
   title: "Swift 开发笔记",
