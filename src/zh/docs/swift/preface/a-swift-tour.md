@@ -949,5 +949,6 @@ anyCommonElements([1, 2, 3], [3])
 编写 `<T: Equatable>` 与编写 `<T> ... where T: Equatable` 是一样的。
 
 > 测试版软件
+>
 > 本文档包含关于正在开发中的 API 或技术的初步信息。这些信息可能会发生变化，根据本文档实现的软件应在最终操作系统软件上进行测试。
-> 了解更多关于使用 Apple 测试版软件的信息。
+> 了解更多关于使用[Apple 测试版软件](https://developer.apple.com/support/beta-software/)的信息。

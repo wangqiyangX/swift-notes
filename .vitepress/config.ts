@@ -9,6 +9,15 @@ export default defineConfig({
   title: "Swift 开发笔记",
   description: "记录开发",
 
+  rewrites: {
+    "zh/:rest*": ":rest*",
+  },
+
+  locales: {
+    root: { label: "简体中文" },
+    en: { label: "English" },
+  },
+
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
@@ -68,6 +77,10 @@ export default defineConfig({
         base: "/docs/swift/",
         items: sidebarSwift(),
       },
+      "/posts/": {
+        base: "/posts/",
+        items: sidebarPosts(),
+      },
     },
 
     editLink: {
@@ -126,8 +139,18 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: "博客",
-      link: "/posts",
+      link: "/posts/",
       activeMatch: "/posts",
+    },
+    {
+      text: "项目",
+      activeMatch: "/projects",
+      items: [
+        {
+          text: "代码示例",
+          link: "/projects/examples",
+        },
+      ],
     },
     {
       text: "文档",
@@ -135,7 +158,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: "Swift",
-          link: "/docs/swift/a-swift-tour",
+          link: "/docs/swift/preface/about-swift",
         },
       ],
     },
@@ -145,8 +168,23 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarSwift(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: "入门",
-      link: "tour",
+      text: "开始",
+      collapsed: false,
+      base: "/docs/swift/preface/",
+      items: [
+        {
+          text: "关于 Swift",
+          link: "about-swift",
+        },
+        {
+          text: "版本兼容性",
+          link: "version-compatibility",
+        },
+        {
+          text: "Swift 入门之旅",
+          link: "a-swift-tour",
+        },
+      ],
     },
     {
       text: "指南",
@@ -154,7 +192,7 @@ function sidebarSwift(): DefaultTheme.SidebarItem[] {
       base: "/docs/swift/guide/",
       items: [
         {
-          text: "基础",
+          text: "基础语法",
           link: "the-basics",
         },
         {
@@ -299,6 +337,22 @@ function sidebarSwift(): DefaultTheme.SidebarItem[] {
         {
           text: "声明",
           link: "declarations",
+        },
+      ],
+    },
+  ];
+}
+
+function sidebarPosts(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "教程",
+      collapsed: true,
+      base: "/posts/tutorials/",
+      items: [
+        {
+          text: "Button 教程",
+          link: "the-ultimate-swiftui-button-tutorial",
         },
       ],
     },
