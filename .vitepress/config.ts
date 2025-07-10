@@ -64,7 +64,7 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: "https://wangqiyang.com",
+    hostname: "https://wangqiyangx.github.io/swift-notes",
     transformItems(items) {
       return items.filter((item) => !item.url.includes("migration"));
     },
@@ -85,13 +85,17 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern:
-        "https://github.com/wangqiyangx/swift-notes/edit/main/content/:path",
+      pattern: "https://github.com/wangqiyangx/swift-notes/edit/main/src/:path",
       text: "在 GitHub 上编辑此页面",
     },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/wangqiyangx/swift-notes" },
+      {
+        icon: "github",
+        link: "https://github.com/wangqiyangx/swift-notes",
+        ariaLabel: "GitHub",
+      },
+      { icon: "twitter", link: "", ariaLabel: "推特" },
     ],
 
     search: {
@@ -101,7 +105,7 @@ export default defineConfig({
 
     footer: {
       message: "基于 MIT 许可发布",
-      copyright: `版权所有 © 2025-${new Date().getFullYear()} 启阳`,
+      copyright: `版权所有 © 2025-${new Date().getFullYear()} @启阳`,
     },
 
     docFooter: {
@@ -116,6 +120,11 @@ export default defineConfig({
 
     lastUpdated: {
       text: "最后更新于",
+      formatOptions: {
+        forceLocale: true,
+        dateStyle: "full",
+        timeStyle: "medium",
+      },
     },
 
     notFound: {
