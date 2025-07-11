@@ -1,6 +1,22 @@
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
-import { defineConfig, type DefaultTheme } from "vitepress";
+import { defineConfig, HeadConfig, type DefaultTheme } from "vitepress";
 import { genFeed } from "./genFeed.ts";
+
+const umamiScript: HeadConfig = [
+  "script",
+  {
+    defer: "true",
+    src: "https://cloud.umami.is/script.js",
+    "data-website-id": "860fa816-3591-4fb6-8406-9bcfdbd045f0",
+  },
+];
+
+const baseHeaders: HeadConfig[] = [];
+
+const headers =
+  process.env.NODE_ENV === "production"
+    ? [...baseHeaders, umamiScript]
+    : baseHeaders;
 
 export default defineConfig({
   srcDir: "src",
@@ -23,6 +39,8 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
+
+  head: headers,
 
   markdown: {
     math: true,
@@ -96,7 +114,7 @@ export default defineConfig({
         link: "https://github.com/wangqiyangx/swift-notes",
         ariaLabel: "GitHub",
       },
-      { icon: "x", link: "https://x.com/wangqiyangx:", ariaLabel: "X" },
+      { icon: "x", link: "https://x.com/wangqiyangx", ariaLabel: "X" },
     ],
 
     search: {
@@ -359,12 +377,6 @@ function sidebarSwift(): DefaultTheme.SidebarItem[] {
 function sidebarPosts(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: "Feed",
-      collapsed: true,
-      base: "/feed.rss",
-      items: [],
-    },
-    {
       text: "教程",
       collapsed: true,
       base: "/posts/tutorials/",
@@ -374,6 +386,11 @@ function sidebarPosts(): DefaultTheme.SidebarItem[] {
           link: "the-ultimate-swiftui-button-tutorial",
         },
       ],
+    },
+    {
+      text: "RSS 订阅",
+      base: "/",
+      link: "/feed.rss",
     },
   ];
 }
