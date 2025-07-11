@@ -17,13 +17,13 @@
     }
   ],
   "defaultLocale": {
-    "label": "简体中文",
-    "lang": "zh"
+    "label": "English",
+    "lang": "en"
   },
   "locales": [
     {
-      "label": "English",
-      "lang": "en"
+      "label": "简体中文",
+      "lang": "zh"
     }
   ],
   "outDir": ".vitepress/dist/_translations",
