@@ -135,11 +135,13 @@ for beverage in Beverage.allCases {
 
 例如，假设一个库存跟踪系统需要通过两种不同类型的条形码来跟踪产品。一些产品用 UPC 格式的 1D 条形码标记，使用数字 `0` 到 `9` 。每个条形码都有一个数字系统数字，后面跟着五个制造商代码数字和五个产品代码数字。最后是一个校验位，以验证代码是否被正确扫描：
 
-![barcode_UPC](https://docs.swift.org/swift-book/images/org.swift.tspl/barcode_UPC@2x.png)
+![barcode_UPC](https://docs.swift.org/swift-book/images/org.swift.tspl/barcode_UPC@2x.png){.light-only}
+![barcode_UPC~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/barcode_UPC~dark@2x.png){.dark-only}
 
 其他产品使用 QR 码格式的 2D 条形码标记，可以使用任何 ISO 8859-1 字符，并且可以编码最长为 2,953 个字符的字符串：
 
-![barcode_QR](https://docs.swift.org/swift-book/images/org.swift.tspl/barcode_QR@2x.png)
+![barcode_QR](https://docs.swift.org/swift-book/images/org.swift.tspl/barcode_QR@2x.png){.light-only}
+![barcode_QR~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/barcode_QR~dark@2x.png){.dark-only}
 
 对于库存跟踪系统，将 UPC 条形码存储为四个整数的元组，以及将 QR 码条形码存储为任意长度的字符串是很方便的。
 

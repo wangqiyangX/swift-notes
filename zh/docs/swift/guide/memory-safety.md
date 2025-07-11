@@ -27,7 +27,8 @@ print("We're number \(one)!")
 
 通过考虑如何更新写在纸上的预算，你可以看到一个类似的问题。更新预算是一个两步过程：首先你添加项目的名称和价格，然后你更改总金额以反映当前列表上的项目。在更新之前和之后，你可以从预算中读取任何信息并得到正确的答案，如下图所示。
 
-![memory_shopping](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_shopping@2x.png)
+![memory_shopping](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_shopping@2x.png){.light-only}
+![memory_shopping~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_shopping~dark@2x.png){.dark-only}
 
 在您将项目添加到预算的过程中，它处于临时的无效状态，因为总金额尚未更新以反映新添加的项目。在添加项目的过程中读取总金额会给您不正确的信息。
 
@@ -90,7 +91,8 @@ increment(&stepSize)
 
 在上面的代码中， `stepSize` 是一个全局变量，并且通常可以从 `increment(_:)` 中访问。然而，对 `stepSize` 的读取访问与对 `number` 的写入访问重叠。如下面的图所示， `number` 和 `stepSize` 都指向内存中的同一个位置。读取和写入访问指向相同的内存并且它们重叠，产生了冲突。
 
-![memory_increment](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_increment@2x.png)
+![memory_increment](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_increment@2x.png){.light-only}
+![memory_increment~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_increment~dark@2x.png){.dark-only}
 
 解决此冲突的一种方法是显式地复制 `stepSize` :
 
@@ -163,7 +165,8 @@ oscar.shareHealth(with: &maria)  // OK
 
 在上面的示例中，调用 `shareHealth(with:)` 方法让 Oscar 的玩家与 Maria 的玩家共享健康不会引起冲突。在方法调用期间对 `oscar` 有写入访问，因为 `oscar` 是在变更方法中 `self` 的值，并且在相同的时间段内对 `maria` 也有写入访问，因为 `maria` 被作为一个输入输出参数传递。如下图所示，它们访问的是内存中的不同位置。尽管这两个写入访问在时间上重叠，但它们并不冲突。
 
-![memory_share_health_maria](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_share_health_maria@2x.png)
+![memory_share_health_maria](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_share_health_maria@2x.png){.light-only}
+![memory_share_health_maria~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_share_health_maria~dark@2x.png){.dark-only}
 
 但是，如果将 `oscar` 作为参数传递给 `shareHealth(with:)` ，那么就会发生冲突：
 
@@ -174,7 +177,8 @@ oscar.shareHealth(with: &oscar)
 
 变更方法在方法的整个执行时间内需要对 `self` 进行写入访问，而输入输出参数在相同的时间段内需要对 `teammate` 进行写入访问。在方法中， `self` 和 `teammate` 都指向内存中的同一个位置——如下图所示。这两个写入访问指向相同的内存并且它们重叠，产生了冲突。
 
-![memory_share_health_oscar](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_share_health_oscar@2x.png)
+![memory_share_health_oscar](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_share_health_oscar@2x.png){.light-only}
+![memory_share_health_oscar~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/memory_share_health_oscar~dark@2x.png){.dark-only}
 
 ## [属性的冲突访问](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/memorysafety#Conflicting-Access-to-Properties)
 

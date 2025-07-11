@@ -20,7 +20,8 @@ Swift 支持 C 中的所有位运算符，如下所述。
 
 按位非运算符 ( `~` ) 反转数字中的所有位：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseNOT@2x.png)
+![bitwiseNOT](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseNOT@2x.png){.light-only}
+![bitwiseNOT~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseNOT~dark@2x.png){.dark-only}
 
 按位非运算符是一个前缀运算符，它出现在其操作的值之前，没有任何空格：
 
@@ -37,7 +38,8 @@ let invertedBits = ~initialBits  // 等于 11110000
 
 位运算 AND 运算符 ( `&` ) 将两个数字的位结合在一起。当输入数字中的位都等于 `1` 时，它返回一个新数字，其位设置为 `1` ：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseAND@2x.png)
+![bitwiseAND](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseAND@2x.png){.light-only}
+![bitwiseAND~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseAND~dark@2x.png){.dark-only}
 
 在下面的示例中， `firstSixBits` 和 `lastSixBits` 的值都有四个中间位等于 `1` 。按位与操作符将它们结合成数字 `00111100` ，其无符号十进制值为 `60` ：
 
@@ -51,7 +53,8 @@ let middleFourBits = firstSixBits & lastSixBits  // 等于 00111100
 
 按位或操作符 ( `|` ) 比较两个数字的位。如果任一输入数字中的位等于 `1` ，则操作符返回一个新数字，其位设置为 `1` ：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseOR@2x.png)
+![bitwiseOR](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseOR@2x.png){.light-only}
+![bitwiseOR~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseOR~dark@2x.png){.dark-only}
 
 在下面的示例中， `someBits` 和 `moreBits` 的值有不同的位设置为 `1` 。按位或操作符将它们结合成数字 `11111110` ，其无符号十进制值等于 `254` ：
 
@@ -65,7 +68,8 @@ let combinedbits = someBits | moreBits  // 等于 11111110
 
 按位异或运算符，或称为“排他或运算符” ( `^` )，比较两个数字的位。该运算符返回一个新数字，其位在输入位不同的地方设置为 `1` ，在输入位相同的地方设置为 `0` ：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseXOR@2x.png)
+![bitwiseXOR](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseXOR@2x.png){.light-only}
+![bitwiseXOR~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitwiseXOR~dark@2x.png){.dark-only}{.light-only}
 
 在下面的示例中， `firstBits` 和 `otherBits` 的值在一个位置各自有一个位设置为 `1` ，而另一个则没有。按位异或运算符在其输出值中将这两个位都设置为 `1` 。 `firstBits` 和 `otherBits` 中的其余位匹配，并在输出值中设置为 `0` ：
 
@@ -93,7 +97,8 @@ let outputBits = firstBits ^ otherBits  // 等于 00010001
 
 下面的插图显示了 `11111111 << 1` （向左移位的 `11111111` ，移位 `1` 位）和 `11111111 >> 1` （向右移位的 `11111111` ，移位 `1` 位）的结果。绿色数字为移位，灰色数字被丢弃，粉色 0 被插入：
 
-![bitshiftUnsigned](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftUnsigned@2x.png)
+![bitshiftUnsigned](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftUnsigned@2x.png){.light-only}
+![bitshiftUnsigned~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftUnsigned~dark@2x.png){.dark-only}
 
 以下是 Swift 代码中位移的样子：
 
@@ -133,7 +138,8 @@ redComponent 是通过对数字 `0xCC6699` 和 `0xFF0000` 进行按位与操作�
 
 其余的位（称为值位）存储实际值。正数的存储方式与无符号整数完全相同，从 `0` 开始向上计数。以下是数字 `4` 的 `Int8` 内部位的样子：
 
-![bitshiftSignedFour](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedFour@2x.png)
+![bitshiftSignedFour](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedFour@2x.png){.light-only}
+![bitshiftSignedFour~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedFour~dark@2x.png){.dark-only}
 
 符号位是 `0` （表示“正数”），七个值位就是数字 `4` ，以二进制表示。
 
@@ -141,21 +147,25 @@ redComponent 是通过对数字 `0xCC6699` 和 `0xFF0000` 进行按位与操作�
 
 这是数字 `-4` 在 `Int8` 中的位的表示：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedMinusFour@2x.png)
+![bitshiftSignedMinusFour](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedMinusFour@2x.png){.light-only}
+![bitshiftSignedMinusFour~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedMinusFour~dark@2x.png){.dark-only}
 
 这次，符号位是 `1` （表示“负数”），七个位的值的二进制值为 `124` （即 `128 - 4` ）：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedMinusFourValue@2x.png)
+![bitshiftSignedMinusFourValue](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedMinusFourValue@2x.png){.light-only}
+![bitshiftSignedMinusFourValue~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedMinusFourValue~dark@2x.png){.dark-only}
 
 这种负数的编码被称为二的**补码表示**。它可能看起来是表示负数的一种不寻常方式，但它有几个优点。
 
 首先，您可以通过对所有八位（包括符号位）进行标准的二进制加法，将 `-1` 添加到 `-4` ，并在完成后丢弃任何不适合这八位的内容：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedAddition@2x.png)
+![bitshiftSignedAddition](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedAddition@2x.png){.light-only}
+![bitshiftSignedAddition~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedAddition~dark@2x.png){.dark-only}
 
 其次，二的补码表示还允许你像正数一样将负数的位向左和向右移动，并且每次向左移动时仍然会使其翻倍，向右移动时则会使其减半。为了实现这一点，当有符号整数向右移动时，会使用一个额外的规则：当你向右移动有符号整数时，应用与无符号整数相同的规则，但将左侧的任何空位**填充为符号位**，而不是零。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSigned@2x.png)
+![bitshiftSigned](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSigned@2x.png){.light-only}
+![bitshiftSigned~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSigned~dark@2x.png){.dark-only}
 
 此操作确保有符号整数在向右移动后具有相同的符号，这被称为**算术右移**。
 
@@ -197,7 +207,8 @@ unsignedOverflow = unsignedOverflow &+ 1
 
 变量 `unsignedOverflow` 被初始化为 `UInt8` 可以容纳的最大值 ( `255` ，或 `11111111` 以二进制表示)。然后它通过溢出加法运算符 ( `&+` ) 增加 `1` 。这使其二进制表示超过了 `UInt8` 可以容纳的大小，导致它溢出其界限，如下图所示。溢出加法后仍然在 `UInt8` 范围内的值是 `00000000` ，或零。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowAddition@2x.png)
+![overflowAddition](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowAddition@2x.png){.light-only}
+![overflowAddition~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowAddition~dark@2x.png){.dark-only}
 
 当无符号整数允许在负方向溢出时，会发生类似的情况。以下是使用溢出减法运算符 ( `&-` ) 的示例：
 
@@ -210,7 +221,8 @@ unsignedOverflow = unsignedOverflow &- 1
 
 `UInt8` 能持有的最小值为零，或者在二进制中为 `00000000` 。如果你使用溢出减法运算符 ( `&-` ) 从 `00000000` 中减去 `1` ，该数字将会溢出并循环回 `11111111` ，或者在十进制中为 `255` 。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowUnsignedSubtraction@2x.png)
+![overflowUnsignedSubtraction](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowUnsignedSubtraction@2x.png){.light-only}
+![overflowUnsignedSubtraction~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowUnsignedSubtraction~dark@2x.png){.dark-only}
 
 溢出也会发生在带符号整数上。所有带符号整数的加法和减法都是以按位方式执行的，符号位作为加或减的数字的一部分，正如在按位左移和右移运算符中所描述的。
 
@@ -223,7 +235,8 @@ signedOverflow = signedOverflow &- 1
 
 一个 `Int8` 可以容纳的最小值是 `-128` ，或在二进制中是 `10000000` 。用溢出运算符从这个二进制数中减去 `1` 得到的二进制值是 `01111111` ，这会切换符号位并给出正值 `127` ，这是一个 `Int8` 可以持有的最大正值。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowSignedSubtraction@2x.png)
+![overflowSignedSubtraction](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowSignedSubtraction@2x.png){.light-only}
+![overflowSignedSubtraction~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowSignedSubtraction~dark@2x.png){.dark-only}
 
 对于带符号和不带符号的整数，正方向的溢出从最大有效整数值回绕到最小值，而负方向的溢出从最小值回绕到最大值。
 
@@ -310,7 +323,8 @@ let combinedVector = vector + anotherVector
 
 此示例将向量 `(3.0, 1.0)` 和 `(2.0, 4.0)` 相加，以生成向量 `(5.0, 5.0)` ，如下所示。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/vectorAddition@2x.png)
+![vectorAddition](https://docs.swift.org/swift-book/images/org.swift.tspl/vectorAddition@2x.png){.light-only}
+![vectorAddition~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/vectorAddition~dark@2x.png){.dark-only}
 
 ### [前缀和后缀运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators#Prefix-and-Postfix-Operators)
 

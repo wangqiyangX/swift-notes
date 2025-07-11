@@ -82,7 +82,8 @@ Swift 支持所有数字类型的四个标准算术运算符：
 
 这里是余数运算符的工作原理。要计算 `9 % 4` ，你首先要计算有多少个 `4` 可以放入 `9` 中：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/remainderInteger@2x.png)
+![remainderInteger](https://docs.swift.org/swift-book/images/org.swift.tspl/remainderInteger@2x.png){.light-only}
+![remainderInteger~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/remainderInteger~dark@2x.png){.dark-only}
 
 你可以在 `9` 中放入两个 `4` ，余数是 `1` （以橙色显示）。
 

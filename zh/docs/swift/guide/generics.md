@@ -127,7 +127,8 @@ swapTwoValues(&someString, &anotherString)
 
 下图显示了栈的推入和弹出行为：
 
-![stackPushPop](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPushPop@2x.png)
+![stackPushPop](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPushPop@2x.png){.light-only}
+![stackPushPop~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPushPop~dark@2x.png){.dark-only}
 
 1. 当前栈上有三个值。
 2. 第四个值被推入栈顶。
@@ -190,7 +191,8 @@ stackOfStrings.push("cuatro")
 
 这里是推送这四个值到堆栈后 `stackOfStrings` 的样子：
 
-![stackPushedFourStrings](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPushedFourStrings@2x.png)
+![stackPushedFourStrings](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPushedFourStrings@2x.png){.light-only}
+![stackPushedFourStrings~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPushedFourStrings~dark@2x.png){.dark-only}
 
 从堆栈中弹出一个值会移除并返回顶部值， `"cuatro"` :
 
@@ -201,7 +203,8 @@ let fromTheTop = stackOfStrings.pop()
 
 弹出顶部值后，堆栈的样子如下：
 
-![stackPoppedOneString](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPoppedOneString@2x.png)
+![stackPoppedOneString](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPoppedOneString@2x.png){.light-only}
+![stackPoppedOneString~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/stackPoppedOneString~dark@2x.png){.dark-only}
 
 ## [扩展泛型类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics#Extending-a-Generic-Type)
 

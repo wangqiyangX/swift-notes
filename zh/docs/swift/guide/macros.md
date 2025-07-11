@@ -8,7 +8,10 @@ description: 使用宏在编译时生成代码。
 
 宏在编译时转换您的源代码，让您避免手动编写重复代码。在编译过程中，Swift 会在正常构建您的代码之前展开您代码中的任何宏。
 
-![A diagram showing an overview of macro expansion.  On the left, a stylized representation of Swift code.  On the right, the same code with several lines added by the macro.](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion@2x.png)
+![macro-expansion](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion@2x.png){.light-only}
+![macro-expansion~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion~dark@2x.png){.dark-only}{.light-only}
+![macro-expansion~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion~dark@2x.png){.light-only}
+![macro-expansion~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion~dark~dark@2x.png){.dark-only}{.dark-only}
 
 扩展宏始终是一个附加操作：宏添加新代码，但它们从不删除或修改现有代码。
 
@@ -154,7 +157,10 @@ public macro OptionSet<RawType>() =
 
 在构建使用宏的 Swift 代码时，编译器调用宏的实现来扩展它们。
 
-![Diagram showing the four steps of expanding macros.  The input is Swift source code.  This becomes a tree, representing the code’s structure.  The macro implementation adds branches to the tree.  The result is Swift source with additional code.](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion-full@2x.png)
+![macro-expansion-full](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion-full@2x.png){.light-only}
+![macro-expansion-full~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion-full~dark@2x.png){.dark-only}{.light-only}
+![macro-expansion-full~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion-full~dark@2x.png){.light-only}
+![macro-expansion-full~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-expansion-full~dark~dark@2x.png){.dark-only}{.dark-only}
 
 具体来说，Swift 以以下方式扩展宏：
 
@@ -173,7 +179,10 @@ let magicNumber = #fourCharacterCode("ABCD")
 
 为了展开上述代码中的宏，编译器读取 Swift 文件并创建一个在内存中的代码表示，称为抽象语法树（AST）。AST 使代码的结构显式化，这使得编写与该结构交互的代码变得更容易——例如编译器或宏实现。以下是上述代码的 AST 表示，略微简化，省略了一些额外的细节：
 
-![A tree diagram, with a constant as the root element.  The constant has a name, magic number, and a value.  The constant’s value is a macro call.  The macro call has a name, fourCharacterCode, and arguments.  The argument is a string literal, ABCD.](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-original@2x.png)
+![macro-ast-original](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-original@2x.png){.light-only}
+![macro-ast-original~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-original~dark@2x.png){.dark-only}{.light-only}
+![macro-ast-original~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-original~dark@2x.png){.light-only}
+![macro-ast-original~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-original~dark~dark@2x.png){.dark-only}{.dark-only}
 
 上面的图表显示了这段代码在内存中是如何表示的。AST 中的每个元素对应源代码的一部分。“常量声明”AST 元素下有两个子元素，分别表示常量声明的两个部分：它的名称和它的值。“宏调用”元素有子元素，表示宏的名称和传递给宏的参数列表。
 
@@ -181,7 +190,10 @@ let magicNumber = #fourCharacterCode("ABCD")
 
 编译器找到代码中调用宏的地方，并加载实现这些宏的外部二进制文件。对于每个宏调用，编译器将部分 AST 传递给该宏的实现。以下是该部分 AST 的表示：
 
-![A tree diagram, with a macro call as the root element.  The macro call has a name, fourCharacterCode, and arguments.  The argument is a string literal, ABCD.](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-input@2x.png)
+![macro-ast-input](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-input@2x.png){.light-only}
+![macro-ast-input~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-input~dark@2x.png){.dark-only}{.light-only}
+![macro-ast-input~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-input~dark@2x.png){.light-only}
+![macro-ast-input~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-input~dark~dark@2x.png){.dark-only}{.dark-only}
 
 `#fourCharacterCode` 宏的实现会在展开宏时将此部分 AST 作为其输入。宏的实现仅对其接收到的部分 AST 进行操作，这意味着无论前后代码是什么，宏总是以相同的方式展开。这一限制有助于使宏展开更易于理解，并且帮助您的代码更快地构建，因为 Swift 可以避免展开未更改的宏。
 
@@ -194,11 +206,17 @@ Swift 帮助宏作者通过限制实现宏的代码，避免意外读取其他�
 
 实现 `#fourCharacterCode` 生成一个包含展开代码的新 AST。以下是该代码返回给编译器的内容：
 
-![A tree diagram with the integer literal 1145258561 of type UInt32.](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-output@2x.png)
+![macro-ast-output](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-output@2x.png){.light-only}
+![macro-ast-output~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-output~dark@2x.png){.dark-only}{.light-only}
+![macro-ast-output~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-output~dark@2x.png){.light-only}
+![macro-ast-output~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-output~dark~dark@2x.png){.dark-only}{.dark-only}
 
 当编译器接收到此展开时，它将包含宏调用的 AST 元素替换为包含宏展开的元素。宏展开后，编译器再次检查以确保程序在语法上仍然有效 Swift 并且所有类型都是正确的。这将产生一个可以像往常一样编译的最终 AST：
 
-![A tree diagram, with a constant as the root element.  The constant has a name, magic number, and a value.  The constant’s value is the integer literal 1145258561 of type UInt32.](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-result@2x.png)
+![macro-ast-result](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-result@2x.png){.light-only}
+![macro-ast-result~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-result~dark@2x.png){.dark-only}{.light-only}
+![macro-ast-result~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-result~dark@2x.png){.light-only}
+![macro-ast-result~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/macro-ast-result~dark~dark@2x.png){.dark-only}{.dark-only}
 
 这个 AST 对应于如下的 Swift 代码：
 
