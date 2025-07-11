@@ -4,7 +4,8 @@
 
 Swift 提供三种主要的集合类型，称为数组、集合和字典，用于存储值的集合。数组是有序的值集合。集合是无序的唯一值集合。字典是无序的键值关联集合。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/CollectionTypes_intro~dark@2x.png)
+![CollectionTypes_intro~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/CollectionTypes_intro~dark@2x.png){.light-only}
+![CollectionTypes_intro~dark~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/CollectionTypes_intro~dark~dark@2x.png){.dark-only}
 
 Swift 中的数组、集合和字典始终明确它们可以存储的值和键的类型。这意味着您不能错误地将错误类型的值插入集合中。这也意味着您可以对从集合中检索到的值的类型充满信心。
 
@@ -399,7 +400,8 @@ for genre in favoriteGenres.sorted() {
 
 下面的插图描绘了两个集合 — `a` 和 `b` — 其结果通过阴影区域表示。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/setVennDiagram@2x.png)
+![setVennDiagram](https://docs.swift.org/swift-book/images/org.swift.tspl/setVennDiagram@2x.png){.light-only}
+![setVennDiagram~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/setVennDiagram~dark@2x.png){.dark-only}
 
 - 使用 `intersection(_:)` 方法创建一个新集合，仅包含两个集合中共同的值。
 - 使用 `symmetricDifference(_:)` 方法创建一个新集合，包含任一集合中的值，但不包括两个集合中的值。
@@ -426,7 +428,8 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 
 下面的插图描绘了三个集合 — `a` , `b` 和 `c` — 其中重叠区域表示集合之间共享的元素。集合 `a` 是集合 `b` 的超集，因为 `a` 包含了 `b` 中的所有元素。相反，集合 `b` 是集合 `a` 的子集，因为 `b` 中的所有元素也被 `a` 包含。集合 `b` 和集合 `c` 彼此不相交，因为它们没有共同的元素。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/setEulerDiagram@2x.png)
+![setEulerDiagram](https://docs.swift.org/swift-book/images/org.swift.tspl/setEulerDiagram@2x.png){.light-only}
+![setEulerDiagram~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/setEulerDiagram~dark@2x.png){.dark-only}
 
 - 使用“相等”运算符 ( `==` ) 来确定两个集合是否包含所有相同的值。
 - 使用 `isSubset(of:)` 方法来确定一个集合的所有值是否都包含在指定的集合中。

@@ -106,7 +106,7 @@ for tickMark in stride(from: 3, through: hours, by: hourInterval) {
 - `while` 在每次循环开始时评估其条件。
 - `repeat` - `while` 在每次循环结束时评估其条件。
 
-### [当](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow#While)
+### [while](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow#While)
 
 一个 `while` 循环通过评估一个单一条件开始。如果条件是 `true` ，则一组语句会重复执行，直到条件变为 `false` 。
 
@@ -120,7 +120,8 @@ while <#condition#> {
 
 这个例子玩一个简单的蛇梯游戏（也称为滑梯和梯子）：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/snakesAndLadders@2x.png)
+![snakesAndLadders](https://docs.swift.org/swift-book/images/org.swift.tspl/snakesAndLadders@2x.png){.light-only}
+![snakesAndLadders~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/snakesAndLadders~dark@2x.png){.dark-only}
 
 游戏规则如下：
 
@@ -521,7 +522,8 @@ default:
 // Prints "(1, 1) is inside the box"
 ```
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphSimple@2x.png)
+![coordinateGraphSimple](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphSimple@2x.png){.light-only}
+![coordinateGraphSimple~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphSimple~dark@2x.png){.dark-only}
 
 `switch` 语句确定该点是否位于原点 (0, 0)、红色 x 轴上、绿色 y 轴上、位于以原点为中心的蓝色 4x4 方框内，或在方框外。
 
@@ -546,7 +548,8 @@ case let (x, y):
 // Prints "on the x-axis with an x value of 2"
 ```
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphMedium@2x.png)
+![coordinateGraphMedium](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphMedium@2x.png){.light-only}
+![coordinateGraphMedium~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphMedium~dark@2x.png){.dark-only}
 
 `switch` 语句决定该点是否位于红色 x 轴上，绿色 y 轴上，或其他位置（均不在轴上）。
 
@@ -575,7 +578,8 @@ case let (x, y):
 // Prints "(1, -1) is on the line x == -y"
 ```
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphComplex@2x.png)
+![coordinateGraphComplex](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphComplex@2x.png){.light-only}
+![coordinateGraphComplex~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/coordinateGraphComplex~dark@2x.png){.dark-only}
 
 `switch` 语句确定该点是否位于绿色对角线 `x == y` 上，紫色对角线 `x == -y` 上，或两者都不是。
 
@@ -753,7 +757,8 @@ print(description)
 
 游戏棋盘与之前一样。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/snakesAndLadders@2x.png)
+![snakesAndLadders](https://docs.swift.org/swift-book/images/org.swift.tspl/snakesAndLadders@2x.png){.light-only}
+![snakesAndLadders~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/snakesAndLadders~dark@2x.png){.dark-only}
 
 `finalSquare` 、 `board` 、 `square` 和 `diceRoll` 的值以与之前相同的方式初始化：
 

@@ -55,7 +55,7 @@ Grammar of a for-in statement
 
 _for-in-statement_ → **`for`** **`case`**_?_ _pattern_ **`in`** _expression_ _where-clause?_ _code-block_
 
-### [当语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#While-Statement)
+### [while 语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements#While-Statement)
 
 一个 `while` 语句允许代码块重复执行，只要条件保持为真。
 
@@ -69,11 +69,9 @@ while <#condition#> {
 
 一个 `while` 语句的执行如下：
 
-1.  条件被评估。
-
-    如果 `true` ，执行继续到步骤 2。如果 `false` ，程序完成执行 `while` 语句。
-
-2.  程序执行语句，执行返回到步骤 1。
+1. 条件被评估。
+   如果 `true` ，执行继续到步骤 2。如果 `false` ，程序完成执行 `while` 语句。
+2. 程序执行语句，执行返回到步骤 1。
 
 因为条件的值在语句执行之前被评估，所以在 `while` 语句中的语句可以执行零次或多次。
 

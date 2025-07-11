@@ -1,5 +1,6 @@
 import { defineConfig, HeadConfig, type DefaultTheme } from "vitepress";
 import { genFeed } from "./genFeed.ts";
+import llmstxt from "vitepress-plugin-llms";
 
 const umamiScript: HeadConfig = [
   "script",
@@ -93,6 +94,15 @@ export default defineConfig({
     transformItems(items) {
       return items.filter((item) => !item.url.includes("migration"));
     },
+  },
+
+  vite: {
+    plugins: [
+      llmstxt({
+        workDir: "en",
+        ignoreFiles: ["index.md"],
+      }),
+    ],
   },
 
   themeConfig: {

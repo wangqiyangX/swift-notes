@@ -1,5 +1,5 @@
-# Swift 开发笔记
+# Swift Notes
 
-> 致谢
+> Acknowledgments
 >
-> 本网站的配置参考并引用了[VitePress 文档网站](https://vitepress.dev)的源代码
+> The configuration of this website references and cites the source code of [VitePress Documentation Website](https://vitepress.dev).

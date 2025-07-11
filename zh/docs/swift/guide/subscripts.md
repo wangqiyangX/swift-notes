@@ -117,7 +117,8 @@ var matrix = Matrix(rows: 2, columns: 2)
 
 上面的示例创建了一个新的 `Matrix` 实例，具有两行两列。该 `grid` 数组对于这个 `Matrix` 实例实际上是矩阵的扁平化版本，从左上角读取到右下角：
 
-![subscriptMatrix01](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix01@2x.png)
+![subscriptMatrix01](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix01@2x.png){.light-only}
+![subscriptMatrix01~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix01~dark@2x.png){.dark-only}
 
 矩阵中的值可以通过将行和列值传递到下标中来设置，值之间用逗号分隔：
 
@@ -128,7 +129,8 @@ matrix[1, 0] = 3.2
 
 这两个语句调用下标的设置器，将 `1.5` 的值设置在矩阵的右上角位置（其中 `row` 是 `0` ，而 `column` 是 `1` ），并在左下角位置设置 `3.2` （其中 `row` 是 `1` ，而 `column` 是 `0` ）：
 
-![subscriptMatrix02](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix02@2x.png)
+![subscriptMatrix02](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix02@2x.png){.light-only}
+![subscriptMatrix02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/subscriptMatrix02~dark@2x.png){.dark-only}
 
 `Matrix` 下标的获取器和设置器都包含一个断言，以检查下标的 `row` 和 `column` 值是否有效。为了辅助这些断言， `Matrix` 包含一个名为 `indexIsValid(row:column:)` 的便利方法，该方法检查请求的 `row` 和 `column` 是否在矩阵的边界内：
 

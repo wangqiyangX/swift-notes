@@ -130,7 +130,8 @@ unit4A = Apartment(unit: "4A")
 
 创建并分配这两个实例后，强引用的样子如下。 `john` 变量现在对新的 `Person` 实例有一个强引用，而 `unit4A` 变量对新的 `Apartment` 实例有一个强引用：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle01@2x.png)
+![referenceCycle01](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle01@2x.png){.light-only}
+![referenceCycle01~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle01~dark@2x.png){.dark-only}
 
 您现在可以将两个实例链接在一起，使得该人拥有一个公寓，而公寓有一个租户。请注意，使用感叹号 ( `!` ) 来解包并访问存储在 `john` 和 `unit4A` 可选变量中的实例，以便可以设置这些实例的属性：
 
@@ -141,7 +142,8 @@ unit4A!.tenant = john
 
 将两个实例链接在一起后，强引用看起来是这样的：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle02@2x.png)
+![referenceCycle02](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle02@2x.png){.light-only}
+![referenceCycle02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle02~dark@2x.png){.dark-only}
 
 不幸的是，链接这两个实例会在它们之间创建一个强引用循环。 `Person` 实例现在对 `Apartment` 实例有一个强引用，而 `Apartment` 实例对 `Person` 实例有一个强引用。因此，当你断开 `john` 和 `unit4A` 变量持有的强引用时，引用计数不会降到零，实例不会被 ARC 释放：
 
@@ -154,7 +156,8 @@ unit4A = nil
 
 在您将 `john` 和 `unit4A` 变量设置为 `nil` 后，强引用的样子如下：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle03@2x.png)
+![referenceCycle03](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle03@2x.png){.light-only}
+![referenceCycle03~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle03~dark@2x.png){.dark-only}
 
 `Person` 实例与 `Apartment` 实例之间的强引用保持不变，无法被破坏。
 
@@ -214,7 +217,8 @@ unit4A!.tenant = john
 
 现在，您将两个实例链接在一起后，引用的样子如下：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference01@2x.png)
+![weakReference01](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference01@2x.png){.light-only}
+![weakReference01~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference01~dark@2x.png){.dark-only}
 
 `Person` 实例仍然对 `Apartment` 实例有一个强引用，但是 `Apartment` 实例现在对 `Person` 实例有一个弱引用。这意味着当你通过将 `john` 变量设置为 `nil` 来断开对 `Person` 实例的强引用时，已没有对 `Person` 实例的强引用：
 
@@ -225,7 +229,8 @@ john = nil
 
 因为对 `Person` 实例已没有强引用，因此它被释放， `tenant` 属性被设置为 `nil` ：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference02@2x.png)
+![weakReference02](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference02@2x.png){.light-only}
+![weakReference02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference02~dark@2x.png){.dark-only}
 
 对 `Apartment` 实例的唯一剩余强引用来自 `unit4A` 变量。如果你打破那个强引用，就没有更多对 `Apartment` 实例的强引用了：
 
@@ -236,7 +241,8 @@ unit4A = nil
 
 因为没有更多对 `Apartment` 实例的强引用，它也被释放了：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference03@2x.png)
+![weakReference03](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference03@2x.png){.light-only}
+![weakReference03~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference03~dark@2x.png){.dark-only}
 
 注意
 
@@ -303,13 +309,15 @@ john!.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)
 
 现在就来看一下引用，看起来您已经链接了这两个实例：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedReference01@2x.png)
+![unownedReference01](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedReference01@2x.png){.light-only}
+![unownedReference01~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedReference01~dark@2x.png){.dark-only}
 
 `Customer` 实例现在对 `CreditCard` 实例有一个强引用，而 `CreditCard` 实例对 `Customer` 实例有一个未拥有的引用。
 
 由于无主的 `customer` 引用，当您打破由 `john` 变量持有的强引用时，对 `Customer` 实例就没有更多的强引用：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedReference02@2x.png)
+![unownedReference02](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedReference02@2x.png){.light-only}
+![unownedReference02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedReference02~dark@2x.png){.dark-only}
 
 因为没有更多对 `Customer` 实例的强引用，它被释放了。在这之后， `CreditCard` 实例也没有更多的强引用，因此它也被释放：
 
@@ -376,7 +384,8 @@ department.courses = [intro, intermediate, advanced]
 
 上面的代码创建了一个部门及其三个课程。入门和中级课程都有一个建议的下一个课程存储在它们的 `nextCourse` 属性中，该属性维护一个未拥有的可选引用，该引用指向学生在完成此课程后应修的课程。
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedOptionalReference@2x.png)
+![unownedOptionalReference](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedOptionalReference@2x.png){.light-only}
+![unownedOptionalReference~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/unownedOptionalReference~dark@2x.png){.dark-only}
 
 一个未拥有的可选引用不会对它所包装的类实例保持强引用，因此不会阻止 ARC 释放该实例。它的行为与 ARC 下的未拥有引用相同，除了未拥有的可选引用可以是 `nil` 。
 
@@ -524,7 +533,8 @@ print(paragraph!.asHTML())
 
 不幸的是，上述的 `HTMLElement` 类在 `HTMLElement` 实例和用于其默认 `asHTML` 值的闭包之间创建了一个强引用循环。循环的样子如下：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle01@2x.png)
+![closureReferenceCycle01](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle01@2x.png){.light-only}
+![closureReferenceCycle01~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle01~dark@2x.png){.dark-only}
 
 实例的 `asHTML` 属性持有对其闭包的强引用。然而，由于闭包在其主体内引用了 `self` （作为引用 `self.name` 和 `self.text` 的一种方式），闭包捕获了 self，这意味着它持有对 `HTMLElement` 实例的强引用。两个之间创建了一个强引用循环。（有关在闭包中捕获值的更多信息，请参阅捕获值。）
 
@@ -627,7 +637,8 @@ print(paragraph!.asHTML())
 
 这是带有捕获列表的引用的样子：
 
-![](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle02@2x.png)
+![closureReferenceCycle02](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle02@2x.png){.light-only}
+![closureReferenceCycle02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle02~dark@2x.png){.dark-only}
 
 这次，闭包对 `self` 的捕获是一个无主引用，并且不会对它捕获的 `HTMLElement` 实例保持强引用。如果你将 `paragraph` 变量的强引用设置为 `nil` ，则 `HTMLElement` 实例会被释放，如下面示例中打印的去初始化器消息所示：
 
