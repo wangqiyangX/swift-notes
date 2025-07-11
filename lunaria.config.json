@@ -11,6 +11,7 @@
     },
     {
       "location": "**/*.md",
+      "ignore": ["**/docs/**/*.md", "README.md"],
       "pattern": "@lang/@path",
       "type": "universal"
     }
