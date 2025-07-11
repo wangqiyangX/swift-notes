@@ -1,4 +1,3 @@
-import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
 import { defineConfig, HeadConfig, type DefaultTheme } from "vitepress";
 import { genFeed } from "./genFeed.ts";
 
@@ -11,7 +10,18 @@ const umamiScript: HeadConfig = [
   },
 ];
 
-const baseHeaders: HeadConfig[] = [];
+const baseHeaders: HeadConfig[] = [
+  ["link", { rel: "icon", type: "image/png", href: "/logo.png" }],
+  ["meta", { property: "og:type", content: "website" }],
+  ["meta", { property: "og:site_name", content: "Swift 开发笔记" }],
+  [
+    "meta",
+    {
+      property: "og:url",
+      content: "http://wangqiyangx.github.io/swift-notes/",
+    },
+  ],
+];
 
 const headers =
   process.env.NODE_ENV === "production"
@@ -25,7 +35,7 @@ export default defineConfig({
 
   lang: "zh-Hans",
   title: "Swift 开发笔记",
-  description: "记录开发",
+  description: "记录 Swift 开发日常。",
 
   rewrites: {
     "zh/:rest*": ":rest*",
@@ -78,7 +88,6 @@ export default defineConfig({
           `<button title="${codeCopyButtonTitle}" class="copy"></button>`
         );
       };
-      md.use(groupIconMdPlugin);
     },
   },
 
@@ -162,7 +171,6 @@ export default defineConfig({
     darkModeSwitchTitle: "切换到深色模式",
     skipToContentLabel: "跳转到内容",
   },
-
   buildEnd: genFeed,
 });
 
