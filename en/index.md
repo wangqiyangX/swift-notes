@@ -4,14 +4,13 @@ layout: home
 hero:
   name: Swift Notes
   text: Some notes about swift learning.
-  # tagline:
   actions:
     - theme: brand
       text: Blog
       link: /posts
-#   image:
-#     src: /vitepress-logo-large.svg
-#     alt: VitePress
+    - theme: alt
+      text: Projects
+      lint: /projects
 
 features:
   - title: Examples

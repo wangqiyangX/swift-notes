@@ -52,6 +52,11 @@ export default defineConfig({
 
   markdown: {
     math: true,
+    lineNumbers: true,
+    image: {
+      lazyLoading: true,
+    },
+    toc: { level: [1, 2, 3] },
     codeTransformers: [
       {
         postprocess(code) {
