@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: Swift Notes
-  text: Some notes about swift learning。
+  text: Some notes about swift learning.
   # tagline:
   actions:
     - theme: brand

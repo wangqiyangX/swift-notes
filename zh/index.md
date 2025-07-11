@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Swift 入门之旅
-      link: /docs/swift/preface/a-swift-tour
+      link: /zh/docs/swift/preface/a-swift-tour
     - theme: alt
       text: 博客
-      link: /posts
+      link: /zh/posts
 #   image:
 #     src: /vitepress-logo-large.svg
 #     alt: VitePress
