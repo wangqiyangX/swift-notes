@@ -15,6 +15,10 @@ export default defineAdditionalConfig({
         base: "/zh/docs/swift/",
         items: sidebarSwift(),
       },
+      "/zh/docs/swiftui": {
+        base: "/zh/docs/swiftui/",
+        items: sidebarSwiftUI(),
+      },
       "/zh/posts/": {
         base: "/zh/posts/",
         items: sidebarPosts(),
@@ -92,6 +96,10 @@ function nav(): DefaultTheme.NavItem[] {
         {
           text: "Swift",
           link: "/zh/docs/swift/preface/about-swift",
+        },
+        {
+          text: "SwiftUI",
+          link: "/zh/docs/swiftui/view-layout/scroll-views",
         },
       ],
     },
@@ -270,6 +278,121 @@ function sidebarSwift(): DefaultTheme.SidebarItem[] {
         {
           text: "声明",
           link: "declarations",
+        },
+      ],
+    },
+  ];
+}
+
+function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "视图布局",
+      collapsed: true,
+      base: "/zh/docs/swiftui/view-layout/",
+      items: [
+        {
+          text: "视图分组",
+          base: "/zh/docs/swiftui/view-layout/view-groupings",
+          link: "/",
+          items: [],
+        },
+        {
+          text: "滚动视图",
+          base: "/zh/docs/swiftui/view-layout/scroll-views/",
+          link: "/",
+          items: [
+            {
+              text: "创建滚动视图",
+              collapsed: false,
+              items: [
+                {
+                  text: "ScrollView",
+                  link: "scrollview",
+                },
+                {
+                  text: "ScrollViewReader",
+                  link: "scrollviewreader",
+                },
+                {
+                  text: "ScrollViewProxy",
+                  link: "scrollviewproxy",
+                },
+              ],
+            },
+            {
+              text: "管理滚动位置",
+              collapsed: false,
+              items: [
+                {
+                  text: "scrollPosition(_:anchor:)",
+                  link: "scrollPosition(_:anchor:)",
+                },
+                {
+                  text: "scrollPosition(id:anchor:)",
+                  link: "scrollPosition(id:anchor:)",
+                },
+                {
+                  text: "defaultScrollAnchor(_:)",
+                  link: "defaultScrollAnchor(_:)",
+                },
+                {
+                  text: "defaultScrollAnchor(_:for:)",
+                  link: "defaultScrollAnchor(_:for:)",
+                },
+                {
+                  text: "ScrollPosition",
+                  link: "scrollposition",
+                },
+              ],
+            },
+            {
+              text: "定义滚动目标",
+              collapsed: false,
+              items: [
+                {
+                  text: "scrollTargetBehavior(_:)",
+                  link: "scrollTargetBehavior(_:)",
+                },
+                {
+                  text: "scrollTargetLayout(isEnabled:)",
+                  link: "scrollTargetLayout(isEnabled:)",
+                },
+                {
+                  text: "ScrollTarget",
+                  link: "scrolltarget",
+                },
+                {
+                  text: "ScrollTargetBehavior",
+                  link: "scrolltargetbehavior",
+                },
+                {
+                  text: "ScrollTargetBehaviorContext",
+                  link: "scrolltargetbehaviorcontext",
+                },
+                {
+                  text: "PagingScrollTargetBehavior",
+                  link: "pagingscrolltargetbehavior",
+                },
+                {
+                  text: "ViewAlignedScrollTargetBehavior",
+                  link: "viewalignedscrolltargetbehavior",
+                },
+                {
+                  text: "AnyScrollTargetBehavior",
+                  link: "anyscrolltargetbehavior",
+                },
+                {
+                  text: "ScrollTargetBehaviorProperties",
+                  link: "scrolltargetbehaviorproperties",
+                },
+                {
+                  text: "ScrollTargetBehaviorPropertiesContext",
+                  link: "scrolltargetbehaviorpropertiescontext",
+                },
+              ],
+            },
+          ],
         },
       ],
     },
