@@ -21,7 +21,7 @@ export default defineAdditionalConfig({
 
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2015, @wangqiyangx",
+      copyright: "Copyright © 2025, @wangqiyangx",
     },
   },
 });

@@ -9,6 +9,7 @@ hero:
     - theme: brand
       text: Blog
       link: /posts
+
 #   image:
 #     src: /vitepress-logo-large.svg
 #     alt: VitePress
