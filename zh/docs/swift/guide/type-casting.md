@@ -126,9 +126,9 @@ for item in library {
 
 如果向下转型成功，则使用 `movie` 的属性打印该 `Movie` 实例的描述，包括其 `director` 的名称。类似的原则用于检查 `Song` 实例，并在库中找到 `Song` 时打印适当的描述（包括 `artist` 名称）。
 
-注意
-
-类型转换实际上并不会修改实例或更改其值。底层实例保持不变；它只是被视为和访问为已转换类型的实例。
+> 注意
+>
+> 类型转换实际上并不会修改实例或更改其值。底层实例保持不变；它只是被视为和访问为已转换类型的实例。
 
 ## [对 Any 和 AnyObject 的类型转换](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/typecasting#Type-Casting-for-Any-and-AnyObject)
 

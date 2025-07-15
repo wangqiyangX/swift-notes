@@ -177,9 +177,9 @@ Swift 提供了两种解决强引用循环的方法，当您处理类类型的�
 
 你可以检查弱引用中值的存在，就像检查任何其他可选值一样，并且你永远不会得到指向不再存在的无效实例的引用。
 
-注意
-
-属性观察者在 ARC 将弱引用设置为 `nil` 时不会被调用。
+> 注意
+>
+> 属性观察者在 ARC 将弱引用设置为 `nil` 时不会被调用。
 
 下面的示例与上面的 `Person` 和 `Apartment` 示例完全相同，但有一个重要区别。这一次， `Apartment` 类型的 `tenant` 属性被声明为弱引用：
 
@@ -244,9 +244,9 @@ unit4A = nil
 ![weakReference03](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference03@2x.png){.light-only}
 ![weakReference03~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference03~dark@2x.png){.dark-only}
 
-注意
-
-在使用垃圾回收的系统中，弱引用有时用于实现简单的缓存机制，因为没有强引用的对象仅在内存压力触发垃圾回收时被释放。然而，在 ARC 中，值在其最后一个强引用被移除时立即被释放，这使得弱引用不适合用于此目的。
+> 注意
+>
+> 在使用垃圾回收的系统中，弱引用有时用于实现简单的缓存机制，因为没有强引用的对象仅在内存压力触发垃圾回收时被释放。然而，在 ARC 中，值在其最后一个强引用被移除时立即被释放，这使得弱引用不适合用于此目的。
 
 ### [无主引用](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting#Unowned-References)
 
@@ -254,9 +254,9 @@ unit4A = nil
 
 与弱引用不同，无主引用预计始终有一个值。因此，将一个值标记为无主并不会使其变为可选，ARC 从不将无主引用的值设置为 `nil` 。
 
-重要
-
-仅在您确定引用始终指向未被释放的实例时，才使用无主引用。
+> 重要
+>
+> 仅在您确定引用始终指向未被释放的实例时，才使用无主引用。
 
 如果在该实例被释放后尝试访问未拥有引用的值，您将会遇到运行时错误。
 
@@ -290,9 +290,9 @@ class CreditCard {
 }
 ```
 
-注意
-
-`CreditCard` 类的 `number` 属性被定义为 `UInt64` 类型而不是 `Int` ，以确保 `number` 属性的容量足够大，可以在 32 位和 64 位系统上存储 16 位数字的卡号。
+> 注意
+>
+> `CreditCard` 类的 `number` 属性被定义为 `UInt64` 类型而不是 `Int` ，以确保 `number` 属性的容量足够大，可以在 32 位和 64 位系统上存储 16 位数字的卡号。
 
 这个下一个代码片段定义了一个名为 `john` 的可选 `Customer` 变量，该变量将用于存储对特定客户的引用。由于是可选的，这个变量的初始值为 nil：
 
@@ -329,9 +329,9 @@ john = nil
 
 上面的最终代码片段显示， `Customer` 实例和 `CreditCard` 实例的去初始化器在 `john` 变量被设置为 `nil` 之后都打印它们的“已去初始化”消息。
 
-注意
-
-上面的示例展示了如何使用安全的无主引用。Swift 还提供了不安全的无主引用，用于需要禁用运行时安全检查的情况——例如，出于性能考虑。与所有不安全操作一样，您需要自行负责检查代码的安全性。
+> 注意
+>
+> 上面的示例展示了如何使用安全的无主引用。Swift 还提供了不安全的无主引用，用于需要禁用运行时安全检查的情况——例如，出于性能考虑。与所有不安全操作一样，您需要自行负责检查代码的安全性。
 
 您通过写 `unowned(unsafe)` 来指示一个不安全的无主引用。如果您在引用的实例被释放后尝试访问不安全的无主引用，您的程序将尝试访问实例曾经所在的内存位置，这是一种不安全的操作。
 
@@ -391,9 +391,9 @@ department.courses = [intro, intermediate, advanced]
 
 像非可选的无主引用一样，您有责任确保 `nextCourse` 始终指向一个未被释放的课程。在这种情况下，例如，当您从 `department.courses` 中删除一个课程时，您还需要删除其他课程可能对它的任何引用。
 
-注意
-
-可选值的底层类型是 `Optional` ，这是 Swift 标准库中的一个枚举。然而，可选值是一个例外，因为值类型不能被标记为 `unowned` 。
+> 注意
+>
+> 可选值的底层类型是 `Optional` ，这是 Swift 标准库中的一个枚举。然而，可选值是一个例外，因为值类型不能被标记为 `unowned` 。
 
 包装该类的可选项不使用引用计数，因此您不需要维护对可选项的强引用。
 
@@ -513,9 +513,9 @@ print(heading.asHTML())
 // Prints "<h1>some default text</h1>"
 ```
 
-注意
-
-`asHTML` 属性被声明为懒加载属性，因为它仅在元素实际需要作为某个 HTML 输出目标的字符串值进行渲染时才需要。 `asHTML` 是懒加载属性的事实意味着您可以在默认闭包中引用 `self` ，因为懒加载属性在初始化完成并且 `self` 确定存在之后才会被访问。
+> 注意
+>
+> `asHTML` 属性被声明为懒加载属性，因为它仅在元素实际需要作为某个 HTML 输出目标的字符串值进行渲染时才需要。 `asHTML` 是懒加载属性的事实意味着您可以在默认闭包中引用 `self` ，因为懒加载属性在初始化完成并且 `self` 确定存在之后才会被访问。
 
 `HTMLElement` 类提供了一个单一的初始化器，它接受一个 `name` 参数（如果需要）和一个 `text` 参数以初始化一个新元素。该类还定义了一个析构函数，当 `HTMLElement` 实例被释放时，会打印一条消息以显示。
 
@@ -527,9 +527,9 @@ print(paragraph!.asHTML())
 // Prints "<p>hello, world</p>"
 ```
 
-注意
-
-上面的 `paragraph` 变量被定义为一个可选的 `HTMLElement` ，因此可以在下面设置为 `nil` 以演示强引用循环的存在。
+> 注意
+>
+> 上面的 `paragraph` 变量被定义为一个可选的 `HTMLElement` ，因此可以在下面设置为 `nil` 以演示强引用循环的存在。
 
 不幸的是，上述的 `HTMLElement` 类在 `HTMLElement` 实例和用于其默认 `asHTML` 值的闭包之间创建了一个强引用循环。循环的样子如下：
 
@@ -538,9 +538,9 @@ print(paragraph!.asHTML())
 
 实例的 `asHTML` 属性持有对其闭包的强引用。然而，由于闭包在其主体内引用了 `self` （作为引用 `self.name` 和 `self.text` 的一种方式），闭包捕获了 self，这意味着它持有对 `HTMLElement` 实例的强引用。两个之间创建了一个强引用循环。（有关在闭包中捕获值的更多信息，请参阅捕获值。）
 
-注意
-
-尽管闭包多次引用了 `self` ，但它只捕获了对 `HTMLElement` 实例的一个强引用。
+> 注意
+>
+> 尽管闭包多次引用了 `self` ，但它只捕获了对 `HTMLElement` 实例的一个强引用。
 
 如果将 `paragraph` 变量设置为 `nil` 并打破其对 `HTMLElement` 实例的强引用，强引用循环将阻止同时释放 `HTMLElement` 实例及其闭包：
 
@@ -554,9 +554,9 @@ paragraph = nil
 
 通过在闭包的定义中定义捕获列表，您可以解决闭包和类实例之间的强引用循环。捕获列表定义在闭包主体内捕获一个或多个引用类型时使用的规则。与两个类实例之间的强引用循环一样，您将每个捕获的引用声明为弱引用或无主引用，而不是强引用。弱引用或无主引用的适当选择取决于您代码不同部分之间的关系。
 
-注意
-
-Swift 要求您在闭包中引用 `self` 的成员时，写 `self.someProperty` 或 `self.someMethod()` （而不仅仅是 `someProperty` 或 `someMethod()` ）。这有助于您记住可能会意外捕获 `self` 。
+> 注意
+>
+> Swift 要求您在闭包中引用 `self` 的成员时，写 `self.someProperty` 或 `self.someMethod()` （而不仅仅是 `someProperty` 或 `someMethod()` ）。这有助于您记住可能会意外捕获 `self` 。
 
 ### [定义捕获列表](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting#Defining-a-Capture-List)
 
@@ -587,11 +587,11 @@ lazy var someClosure = {
 
 相反，当捕获的引用在未来某个时刻可能变为 `nil` 时，将捕获定义为弱引用。弱引用总是可选类型，并在它们引用的实例被释放时自动变为 `nil` 。这使您能够在闭包的主体内检查它们的存在。
 
-注意
+> 注意
+>
+> 如果捕获的引用永远不会变成 `nil` ，则它应始终作为无所有权引用进行捕获，而不是弱引用。
 
-如果捕获的引用永远不会变成 `nil` ，则它应始终作为无所有权引用进行捕获，而不是弱引用。
-
-无主引用是解决上面《闭包的强引用循环》中 `HTMLElement` 示例的适当捕获方法。以下是如何编写 `HTMLElement` 类以避免循环：
+无主引用是解决上面[闭包的强引用循环](#闭包的强引用循环)中 `HTMLElement` 示例的适当捕获方法。以下是如何编写 `HTMLElement` 类以避免循环：
 
 ```swift
 class HTMLElement {

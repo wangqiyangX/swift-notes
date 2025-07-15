@@ -731,9 +731,9 @@ print(description)
 
 在 `switch` 语句执行完毕后，使用 `print(_:separator:terminator:)` 函数打印该数字的描述。在这个例子中，数字 `5` 被正确识别为一个质数。
 
-注意
-
-`fallthrough` 关键字不会检查导致执行进入的 `switch` 情况的大小写条件。 `fallthrough` 关键字只是简单地使代码执行直接移动到下一个 case（或 `default` case）块中的语句，就像 C 的标准 `switch` 语句行为一样。
+> 注意
+>
+> `fallthrough` 关键字不会检查导致执行进入的 `switch` 情况的大小写条件。 `fallthrough` 关键字只是简单地使代码执行直接移动到下一个 case（或 `default` case）块中的语句，就像 C 的标准 `switch` 语句行为一样。
 
 ### [标记语句](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow#Labeled-Statements)
 

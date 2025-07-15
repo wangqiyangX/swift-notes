@@ -32,9 +32,9 @@ class SomeClass: SomeSuperclass, FirstProtocol, AnotherProtocol {
 }
 ```
 
-注意
-
-因为协议是类型，所以它们的名称首字母大写（例如 `FullyNamed` 和 `RandomNumberGenerator` ）以匹配 Swift 中其他类型的名称（例如 `Int` 、 `String` 和 `Double` ）。
+> 注意
+>
+> 因为协议是类型，所以它们的名称首字母大写（例如 `FullyNamed` 和 `RandomNumberGenerator` ）以匹配 Swift 中其他类型的名称（例如 `Int` 、 `String` 和 `Double` ）。
 
 ## [属性要求](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols#Property-Requirements)
 
@@ -154,9 +154,9 @@ print("And another one: \(generator.random())")
 
 如果您定义了一个协议实例方法的要求，旨在修改任何采用该协议的类型的实例，请在协议定义中使用 `mutating` 关键字标记该方法。这使得结构体和枚举可以采用该协议并满足该方法的要求。
 
-注意
-
-如果将协议实例方法要求标记为 `mutating` ，则在为类编写该方法的实现时不需要写 `mutating` 关键字。 `mutating` 关键字仅由结构体和枚举使用。
+> 注意
+>
+> 如果将协议实例方法要求标记为 `mutating` ，则在为类编写该方法的实现时不需要写 `mutating` 关键字。 `mutating` 关键字仅由结构体和枚举使用。
 
 下面的例子定义了一个名为 `Togglable` 的协议，它定义了一个名为 `toggle` 的单例方法要求。正如其名称所示， `toggle()` 方法旨在切换或反转任何符合类型的状态，通常通过修改该类型的一个属性。
 
@@ -215,9 +215,9 @@ class SomeClass: SomeProtocol {
 
 有关必需初始化器的更多信息，请参见 必需初始化器。
 
-注意
-
-您不需要在标记为 `final` 修饰符的类上使用 `required` 修饰符标记协议初始化器的实现，因为最终类无法被子类化。有关 `final` 修饰符的更多信息，请参见防止覆盖。
+> 注意
+>
+> 您不需要在标记为 `final` 修饰符的类上使用 `required` 修饰符标记协议初始化器的实现，因为最终类无法被子类化。有关 `final` 修饰符的更多信息，请参见防止覆盖。
 
 如果子类重写了超类的指定初始化器，并且还实现了协议的匹配初始化器要求，请使用 `required` 和 `override` 修饰符标记初始化器实现：
 
@@ -372,9 +372,9 @@ game.play(rounds: 3)
 
 您可以扩展现有类型以采用并符合新协议，即使您无法访问现有类型的源代码。扩展可以向现有类型添加新的属性、方法和下标，因此能够添加协议可能要求的任何要求。有关扩展的更多信息，请参见扩展。
 
-注意
-
-当在扩展中将该符合性添加到实例的类型时，类型的现有实例会自动采用并符合该协议。
+> 注意
+>
+> 当在扩展中将该符合性添加到实例的类型时，类型的现有实例会自动采用并符合该协议。
 
 例如，这个协议，称为 `TextRepresentable` ，可以由任何一种能够以文本形式表示的类型实现。这可能是对其自身的描述，或者是其当前状态的文本版本：
 
@@ -457,9 +457,9 @@ print(somethingTextRepresentable.textualDescription)
 // Prints "A hamster named Simon"
 ```
 
-注意
-
-类型不会因为满足协议的要求而自动采用该协议。它们必须始终明确声明对该协议的采用。
+> 注意
+>
+> 类型不会因为满足协议的要求而自动采用该协议。它们必须始终明确声明对该协议的采用。
 
 ## [采用使用合成实现的协议](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols#Adopting-a-Protocol-Using-a-Synthesized-Implementation)
 
@@ -606,9 +606,9 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 
 在上面的示例中， `SomeClassOnlyProtocol` 只能被类类型采用。编写尝试采用 `SomeClassOnlyProtocol` 的结构或枚举定义是编译时错误。
 
-注意
-
-当该协议的要求所定义的行为假定或要求符合的类型具有引用语义而不是值语义时，请使用仅限类的协议。有关引用语义和值语义的更多信息，请参阅结构和枚举是值类型，而类是引用类型。
+> 注意
+>
+> 当该协议的要求所定义的行为假定或要求符合的类型具有引用语义而不是值语义时，请使用仅限类的协议。有关引用语义和值语义的更多信息，请参阅结构和枚举是值类型，而类是引用类型。
 
 ## [协议组合](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols#Protocol-Composition)
 
@@ -767,9 +767,9 @@ for object in objects {
 
 `CounterDataSource` 协议定义了一个可选的方法要求，称为 `increment(forCount:)` ，以及一个可选的属性要求，称为 `fixedIncrement` 。这些要求定义了数据源为 `Counter` 实例提供适当增量值的两种不同方式。
 
-注意
-
-严格来说，你可以编写一个符合 `CounterDataSource` 的自定义类，而无需实现任何协议要求。毕竟，它们都是可选的。虽然从技术上讲是允许的，但这并不构成一个很好的数据源。
+> 注意
+>
+> 严格来说，你可以编写一个符合 `CounterDataSource` 的自定义类，而无需实现任何协议要求。毕竟，它们都是可选的。虽然从技术上讲是允许的，但这并不构成一个很好的数据源。
 
 下面定义的 `Counter` 类具有一个类型为 `CounterDataSource?` 的可选 `dataSource` 属性：
 
@@ -888,9 +888,9 @@ print("And here's a random Boolean: \(generator.randomBool())")
 
 您可以使用协议扩展为该协议的任何方法或计算属性要求提供默认实现。如果符合类型提供了所需方法或属性的自定义实现，则将使用该实现，而不是扩展提供的实现。
 
-注意
-
-具有默认实现的协议要求与可选协议要求是不同的。尽管符合类型不必提供它们自己的实现，但可以在不使用可选链的情况下调用具有默认实现的要求。
+> 注意
+>
+> 具有默认实现的协议要求与可选协议要求是不同的。尽管符合类型不必提供它们自己的实现，但可以在不使用可选链的情况下调用具有默认实现的要求。
 
 例如， `PrettyTextRepresentable` 协议，它继承了 `TextRepresentable` 协议，可以提供其所需 `prettyTextualDescription` 属性的默认实现，以简单地返回访问 `textualDescription` 属性的结果：
 
@@ -939,6 +939,6 @@ print(differentNumbers.allEqual())
 // Prints "false"
 ```
 
-注意
-
-如果一个符合类型满足多个约束扩展的要求，这些扩展为相同的方法或属性提供实现，Swift 将使用对应于最专业约束的实现。
+> 注意
+>
+> 如果一个符合类型满足多个约束扩展的要求，这些扩展为相同的方法或属性提供实现，Swift 将使用对应于最专业约束的实现。

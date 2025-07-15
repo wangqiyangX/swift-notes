@@ -35,9 +35,9 @@ enum CompassPoint {
 
 在枚举中定义的值（例如 `north` 、 `south` 、 `east` 和 `west` ）是其枚举案例。您使用 `case` 关键字来引入新的枚举案例。
 
-注意
-
-Swift 枚举案例默认没有设置整数值，与 C 和 Objective-C 等语言不同。在上面的 `CompassPoint` 示例中， `north` 、 `south` 、 `east` 和 `west` 并不隐式等于 `0` 、 `1` 、 `2` 和 `3` 。相反，不同的枚举案例本身就是值，具有明确定义的类型 `CompassPoint` 。
+> 注意
+>
+> Swift 枚举案例默认没有设置整数值，与 C 和 Objective-C 等语言不同。在上面的 `CompassPoint` 示例中， `north` 、 `south` 、 `east` 和 `west` 并不隐式等于 `0` 、 `1` 、 `2` 和 `3` 。相反，不同的枚举案例本身就是值，具有明确定义的类型 `CompassPoint` 。
 
 多个案例可以出现在一行中，用逗号分隔：
 
@@ -218,9 +218,9 @@ enum ASCIIControlCharacter: Character {
 
 原始值可以是字符串、字符或任何整数或浮点数类型。每个原始值在其枚举声明中必须是唯一的。
 
-注意
-
-原始值与关联值并不相同。原始值在您首次在代码中定义枚举时被设置为预填充值，就像上面提到的三个 ASCII 代码。特定枚举案例的原始值始终是相同的。关联值是在您基于枚举的某个案例创建新常量或变量时设置的，并且每次这样做时可以不同。
+> 注意
+>
+> 原始值与关联值并不相同。原始值在您首次在代码中定义枚举时被设置为预填充值，就像上面提到的三个 ASCII 代码。特定枚举案例的原始值始终是相同的。关联值是在您基于枚举的某个案例创建新常量或变量时设置的，并且每次这样做时可以不同。
 
 ### [隐式赋值的原始值](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations#Implicitly-Assigned-Raw-Values)
 
@@ -274,9 +274,9 @@ let possiblePlanet = Planet(rawValue: 7)
 
 并不是所有可能的 `Int` 值都会找到匹配的行星。因此，原始值初始化器总是返回一个可选的枚举案例。在上面的例子中， `possiblePlanet` 的类型是 `Planet?` ，或“可选 `Planet` ”。
 
-注意
-
-原始值初始化器是一个可失败的初始化器，因为并不是每个原始值都会返回一个枚举案例。有关更多信息，请参见可失败的初始化器。
+> 注意
+>
+> 原始值初始化器是一个可失败的初始化器，因为并不是每个原始值都会返回一个枚举案例。有关更多信息，请参见可失败的初始化器。
 
 如果你尝试查找位置为 `11` 的行星，则原始值初始化器返回的可选 `Planet` 值将是 `nil` :
 

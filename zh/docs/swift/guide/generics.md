@@ -51,9 +51,9 @@ func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
 
 编写一个可以交换任何类型的两个值的单一函数更有用，并且灵活性更大。通用代码使您能够编写这样的函数。（这些函数的通用版本在下面定义。）
 
-注意
-
-在所有三个函数中， `a` 和 `b` 的类型必须相同。如果 `a` 和 `b` 不是同一类型，则无法交换它们的值。Swift 是一种类型安全的语言，不允许（例如）类型为 `String` 的变量和类型为 `Double` 的变量相互交换值。尝试这样做会导致编译时错误。
+> 注意
+>
+> 在所有三个函数中， `a` 和 `b` 的类型必须相同。如果 `a` 和 `b` 不是同一类型，则无法交换它们的值。Swift 是一种类型安全的语言，不允许（例如）类型为 `String` 的变量和类型为 `Double` 的变量相互交换值。尝试这样做会导致编译时错误。
 
 ## [通用函数](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics#Generic-Functions)
 
@@ -95,9 +95,9 @@ swapTwoValues(&someString, &anotherString)
 // someString is now "world", and anotherString is now "hello"
 ```
 
-注意
-
-上面定义的 `swapTwoValues(_:_:)` 函数受到一个名为 `swap` 的通用函数的启发，该函数是 Swift 标准库的一部分，并会自动提供给您在应用中使用。如果您需要在自己的代码中实现 `swapTwoValues(_:_:)` 函数的行为，可以使用 Swift 现有的 `swap(_:_:)` 函数，而不是提供自己的实现。
+> 注意
+>
+> 上面定义的 `swapTwoValues(_:_:)` 函数受到一个名为 `swap` 的通用函数的启发，该函数是 Swift 标准库的一部分，并会自动提供给您在应用中使用。如果您需要在自己的代码中实现 `swapTwoValues(_:_:)` 函数的行为，可以使用 Swift 现有的 `swap(_:_:)` 函数，而不是提供自己的实现。
 
 ## [类型参数](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics#Type-Parameters)
 
@@ -111,9 +111,9 @@ swapTwoValues(&someString, &anotherString)
 
 在大多数情况下，类型参数具有描述性名称，例如 `Key` 和 `Value` 在 `Dictionary<Key, Value>` 中，以及 `Element` 在 `Array<Element>` 中，这告诉读者类型参数与其使用的泛型类型或函数之间的关系。然而，当它们之间没有有意义的关系时，通常使用单个字母命名，例如 `T` 、 `U` 和 `V` ，例如上面 `swapTwoValues(_:_:)` 函数中的 `T` 。
 
-注意
-
-始终使用大驼峰命名法为类型参数命名（例如 `T` 和 `MyTypeParameter` ），以表明它们是类型的占位符，而不是值。
+> 注意
+>
+> 始终使用大驼峰命名法为类型参数命名（例如 `T` 和 `MyTypeParameter` ），以表明它们是类型的占位符，而不是值。
 
 ## [通用类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/generics#Generic-Types)
 
@@ -121,9 +121,9 @@ swapTwoValues(&someString, &anotherString)
 
 本节向您展示如何编写一个名为 `Stack` 的通用集合类型。栈是一个有序值集合，类似于数组，但其操作集比 Swift 的 `Array` 类型更受限制。数组允许在数组的任何位置插入和删除新项。然而，栈只允许将新项附加到集合的末尾（称为将新值推入栈中）。同样，栈只允许从集合的末尾删除项（称为从栈中弹出值）。
 
-注意
-
-栈的概念被 `UINavigationController` 类用于建模其导航层次结构中的视图控制器。您可以调用 `UINavigationController` 类的 `pushViewController(_:animated:)` 方法将视图控制器添加（或推入）到导航栈中，并使用其 `popViewControllerAnimated(_:)` 方法从导航栈中移除（或弹出）视图控制器。栈是一种有用的集合模型，适用于您需要严格的“后进先出”方法来管理集合的情况。
+> 注意
+>
+> 栈的概念被 `UINavigationController` 类用于建模其导航层次结构中的视图控制器。您可以调用 `UINavigationController` 类的 `pushViewController(_:animated:)` 方法将视图控制器添加（或推入）到导航栈中，并使用其 `popViewControllerAnimated(_:)` 方法从导航栈中移除（或弹出）视图控制器。栈是一种有用的集合模型，适用于您需要严格的“后进先出”方法来管理集合的情况。
 
 下图显示了栈的推入和弹出行为：
 

@@ -34,9 +34,9 @@ print("We're number \(one)!")
 
 此示例还展示了您在修复内存冲突访问时可能遇到的挑战：有时解决冲突的方式有多种，这会产生不同的答案，并且并不总是显而易见哪种答案是正确的。在这个例子中，根据您是希望获得原始总金额还是更新后的总金额，5 美元或 320 美元都可能是正确答案。在您能够修复冲突访问之前，您必须确定它打算执行什么。
 
-注意
-
-如果您编写过并发或多线程代码，内存的冲突访问可能是一个熟悉的问题。然而，这里讨论的冲突访问可以发生在单个线程上，并不涉及并发或多线程代码。
+> 注意
+>
+> 如果您编写过并发或多线程代码，内存的冲突访问可能是一个熟悉的问题。然而，这里讨论的冲突访问可以发生在单个线程上，并不涉及并发或多线程代码。
 
 如果您在单个线程内对内存有冲突访问，Swift 保证您将在编译时或运行时遇到错误。对于多线程代码，请使用线程消毒器（Thread Sanitizer）来帮助检测线程之间的冲突访问。
 
@@ -126,9 +126,9 @@ balance(&playerOneScore, &playerOneScore)
 
 上面的 `balance(_:_:)` 函数修改它的两个参数，以便将总值均匀地分配给它们。用 `playerOneScore` 和 `playerTwoScore` 作为参数调用它不会产生冲突——有两个时间上重叠的写访问，但它们访问的是内存中的不同位置。相比之下，将 `playerOneScore` 作为两个参数的值传递会产生冲突，因为它试图同时对内存中的同一位置进行两次写访问。
 
-注意
-
-由于运算符是函数，它们也可以长期访问其输入输出参数。例如，如果 `balance(_:_:)` 是一个名为 `<^>` 的运算符函数，编写 `playerOneScore <^> playerOneScore` 将导致与 `balance(&playerOneScore, &playerOneScore)` 相同的冲突。
+> 注意
+>
+> 由于运算符是函数，它们也可以长期访问其输入输出参数。例如，如果 `balance(_:_:)` 是一个名为 `<^>` 的运算符函数，编写 `playerOneScore <^> playerOneScore` 将导致与 `balance(&playerOneScore, &playerOneScore)` 相同的冲突。
 
 ## [方法中对 self 的冲突访问](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/memorysafety#Conflicting-Access-to-self-in-Methods)
 

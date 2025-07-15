@@ -4,9 +4,9 @@
 
 可选链是一种查询和调用可能当前为 `nil` 的可选项的属性、方法和下标的过程。如果可选项包含一个值，则属性、方法或下标调用成功；如果可选项为 `nil` ，则属性、方法或下标调用返回 `nil` 。多个查询可以链式连接，如果链中的任何链接为 `nil` ，整个链将优雅地失败。
 
-注意
-
-在 Swift 中的可选链式调用类似于在 Objective-C 中发送消息 `nil` ，但它可以适用于任何类型，并且可以检查成功或失败。
+> 注意
+>
+> 在 Swift 中的可选链式调用类似于在 Objective-C 中发送消息 `nil` ，但它可以适用于任何类型，并且可以检查成功或失败。
 
 ## [可选链作为强制解包的替代方案](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/optionalchaining#Optional-Chaining-as-an-Alternative-to-Forced-Unwrapping)
 
@@ -245,9 +245,9 @@ if (john.residence?.address = someAddress) != nil {
 
 您可以使用可选链来尝试从可选值的下标中检索和设置值，并检查该下标调用是否成功。
 
-注意
-
-当你通过可选链访问可选值上的下标时，你应该将问号放在下标的括号之前，而不是之后。可选链的问号总是紧跟在表达式中可选的部分之后。
+> 注意
+>
+> 当你通过可选链访问可选值上的下标时，你应该将问号放在下标的括号之前，而不是之后。可选链的问号总是紧跟在表达式中可选的部分之后。
 
 下面的示例尝试使用在 `Residence` 类上定义的下标，从 `john.residence` 属性的 `rooms` 数组中检索第一个房间的名称。因为 `john.residence` 当前是 `nil` ，所以下标调用失败：
 
@@ -376,6 +376,6 @@ if let beginsWithThe =
 // Prints "John's building identifier begins with "The"."
 ```
 
-注意
-
-在上面的例子中，你将可选链操作符问号放在括号后面，因为你正在链接的可选值是 `buildingIdentifier()` 方法的返回值，而不是 `buildingIdentifier()` 方法本身。
+> 注意
+>
+> 在上面的例子中，你将可选链操作符问号放在括号后面，因为你正在链接的可选值是 `buildingIdentifier()` 方法的返回值，而不是 `buildingIdentifier()` 方法本身。
