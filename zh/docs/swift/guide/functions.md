@@ -227,9 +227,9 @@ print(anotherGreeting(for: "Dave"))
 
 正如您在简写获取器声明中看到的，属性获取器也可以使用隐式返回。
 
-注意
-
-您作为隐式返回值编写的代码需要返回某个值。例如，您不能使用 `print(13)` 作为隐式返回值。然而，您可以使用一个从不返回的函数，比如 `fatalError("Oh no!")` ，作为隐式返回值，因为 Swift 知道隐式返回不会发生。
+> 注意
+>
+> 您作为隐式返回值编写的代码需要返回某个值。例如，您不能使用 `print(13)` 作为隐式返回值。然而，您可以使用一个从不返回的函数，比如 `fatalError("Oh no!")` ，作为隐式返回值，因为 Swift 知道隐式返回不会发生。
 
 ## [函数参数标签和参数名称](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions#Function-Argument-Labels-and-Parameter-Names)
 

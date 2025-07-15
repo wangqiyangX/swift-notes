@@ -23,6 +23,14 @@ export default defineAdditionalConfig({
         base: "/zh/posts/",
         items: sidebarPosts(),
       },
+      "/zh/projects/examples/": {
+        base: "/zh/projects/examples/",
+        items: sidebarExamples(),
+      },
+      "/zh/projects/open-source/": {
+        base: "/zh/projects/open-source/",
+        items: sidebarOpenSource(),
+      },
     },
 
     editLink: {
@@ -86,6 +94,10 @@ function nav(): DefaultTheme.NavItem[] {
         {
           text: "代码示例",
           link: "/zh/projects/examples",
+        },
+        {
+          text: "开源项目",
+          link: "/zh/projects/open-source",
         },
       ],
     },
@@ -416,6 +428,28 @@ function sidebarPosts(): DefaultTheme.SidebarItem[] {
       text: "RSS 订阅",
       base: "/",
       link: "/feed.rss",
+    },
+  ];
+}
+
+function sidebarExamples(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "代码示例",
+      collapsed: true,
+      base: "/zh/projects/examples",
+      items: [],
+    },
+  ];
+}
+
+function sidebarOpenSource(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "开源项目",
+      collapsed: true,
+      base: "/zh/projects/open-source",
+      items: [],
     },
   ];
 }

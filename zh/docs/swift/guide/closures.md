@@ -209,9 +209,9 @@ let strings = numbers.map { (number) -> String in
 
 每次调用时，闭包表达式都会构建一个名为 `output` 的字符串。它通过使用余数运算符 ( `number % 10` ) 计算 `number` 的最后一位数字，并使用该数字在 `digitNames` 字典中查找适当的字符串。闭包可以用于创建任何大于零的整数的字符串表示。
 
-注意
-
-对 `digitNames` 字典的下标调用后面带有一个感叹号（ `!` ），因为字典下标返回一个可选值，以表示当键不存在时，字典查找可能会失败。在上面的示例中，保证 `number % 10` 将始终是 `digitNames` 字典的有效下标键，因此使用感叹号来强制解包存储在下标的可选返回值中的 `String` 值。
+> 注意
+>
+> 对 `digitNames` 字典的下标调用后面带有一个感叹号（ `!` ），因为字典下标返回一个可选值，以表示当键不存在时，字典查找可能会失败。在上面的示例中，保证 `number % 10` 将始终是 `digitNames` 字典的有效下标键，因此使用感叹号来强制解包存储在下标的可选返回值中的 `String` 值。
 
 从 `digitNames` 字典中检索到的字符串被添加到 `output` 的前面，有效地反向构建数字的字符串版本。（表达式 `number % 10` 对于 `16` 给出值 `6` ，对于 `58` 给出值 `8` ，对于 `510` 给出值 `0` 。）
 
@@ -245,9 +245,9 @@ loadPicture(from: someServer) { picture in
 
 在这个例子中， `loadPicture(from:completion:onFailure:)` 函数将其网络任务分配到后台，并在网络任务完成时调用两个完成处理程序之一。这样编写函数可以让你干净地将负责处理网络故障的代码与在成功下载后更新用户界面的代码分开，而不是使用一个处理两种情况的闭包。
 
-注意
-
-完成处理程序可能变得难以阅读，特别是当你需要嵌套多个处理程序时。另一种方法是使用异步代码，如并发中所述。
+> 注意
+>
+> 完成处理程序可能变得难以阅读，特别是当你需要嵌套多个处理程序时。另一种方法是使用异步代码，如并发中所述。
 
 ## [捕获值](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures#Capturing-Values)
 
@@ -285,9 +285,9 @@ func incrementer() -> Int {
 
 该 `incrementer()` 函数没有任何参数，但它在其函数体内引用了 `runningTotal` 和 `amount` 。它通过捕获对周围函数的 `runningTotal` 和 `amount` 的引用来实现这一点，并在其自身的函数体内使用它们。通过引用捕获确保 `runningTotal` 和 `amount` 在对 `makeIncrementer` 的调用结束时不会消失，同时确保下次调用 `incrementer` 函数时 `runningTotal` 可用。
 
-注意
-
-作为一种优化，如果一个值没有被闭包修改，并且在闭包创建后该值没有被修改，Swift 可以选择捕获并存储该值的副本。
+> 注意
+>
+> 作为一种优化，如果一个值没有被闭包修改，并且在闭包创建后该值没有被修改，Swift 可以选择捕获并存储该值的副本。
 
 Swift 还处理所有内存管理，涉及在变量不再需要时处置它们。
 
@@ -323,9 +323,9 @@ incrementByTen()
 // returns a value of 40
 ```
 
-注意
-
-如果您将一个闭包分配给类实例的属性，并且闭包通过引用该实例或其成员来捕获该实例，则会在闭包和该实例之间创建强引用循环。Swift 使用捕获列表来打破这些强引用循环。有关更多信息，请参见闭包的强引用循环。
+> 注意
+>
+> 如果您将一个闭包分配给类实例的属性，并且闭包通过引用该实例或其成员来捕获该实例，则会在闭包和该实例之间创建强引用循环。Swift 使用捕获列表来打破这些强引用循环。有关更多信息，请参见闭包的强引用循环。
 
 ## [闭包是引用类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures#Closures-Are-Reference-Types)
 
@@ -467,9 +467,9 @@ serve(customer: customersInLine.remove(at: 0))
 // Prints "Now serving Ewa!"
 ```
 
-注意
-
-过度使用自动闭包可能会使您的代码难以理解。上下文和函数名称应该清楚地表明评估正在被延迟。
+> 注意
+>
+> 过度使用自动闭包可能会使您的代码难以理解。上下文和函数名称应该清楚地表明评估正在被延迟。
 
 如果您想要一个允许逃逸的自动闭包，请同时使用 `@autoclosure` 和 `@escaping` 属性。 `@escaping` 属性在“逃逸闭包”中已描述。
 

@@ -8,9 +8,9 @@
 
 除了提供各种级别的访问控制外，Swift 通过为典型场景提供默认访问级别，减少了指定显式访问控制级别的需要。实际上，如果您正在编写单目标应用程序，您可能根本不需要指定显式访问控制级别。
 
-注意
-
-在下面的部分中，您的代码的各个方面（属性、类型、函数等）可以应用访问控制，这些方面被称为“实体”。
+> 注意
+>
+> 在下面的部分中，您的代码的各个方面（属性、类型、函数等）可以应用访问控制，这些方面被称为“实体”。
 
 ## [模块、源文件和包](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/accesscontrol/#Modules-Source-Files-and-Packages)
 
@@ -158,7 +158,7 @@ func someFunction() -> (SomeInternalClass, SomePrivateClass) {
 
 ```swift
 private func someFunction() -> (SomeInternalClass, SomePrivateClass) {
-    // function implementation goes here
+    // 函数实现
 }
 ```
 
@@ -235,13 +235,13 @@ private var privateInstance = SomePrivateClass()
 
 ### [获取器和设置器](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/accesscontrol/#Getters-and-Setters)
 
-常量、变量、属性和下标的 getter 和 setter 自动继承其所属常量、变量、属性或下标的访问级别。
+常量、变量、属性和下标的 `getter` 和 `setter` 自动继承其所属常量、变量、属性或下标的访问级别。
 
-您可以为 setter 指定一个比相应的 getter 低的访问级别，以限制该变量、属性或下标的读写范围。通过在 `var` 或 `subscript` 引入者之前写入 `fileprivate(set)` 、 `private(set)` 、 `internal(set)` 或 `package(set)` 来指定较低的访问级别。
+您可以为 `setter` 指定一个比相应的 `getter` 低的访问级别，以限制该变量、属性或下标的读写范围。通过在 `var` 或 `subscript` 引入者之前写入 `fileprivate(set)` 、 `private(set)` 、 `internal(set)` 或 `package(set)` 来指定较低的访问级别。
 
-注意
-
-此规则适用于存储属性和计算属性。尽管您不为存储属性编写显式的 getter 和 setter，Swift 仍然为您合成了隐式的 getter 和 setter，以提供对存储属性后备存储的访问。使用 `fileprivate(set)` 、 `private(set)` 、 `internal(set)` 和 `package(set)` 以与计算属性中的显式 setter 完全相同的方式更改此合成 setter 的访问级别。
+> 注意
+>
+> 此规则适用于存储属性和计算属性。尽管您不为存储属性编写显式的 `getter` 和 `setter`，Swift 仍然为您合成了隐式的 `getter` 和 `setter`，以提供对存储属性后备存储的访问。使用 `fileprivate(set)` 、 `private(set)` 、 `internal(set)` 和 `package(set)` 以与计算属性中的显式 `setter` 完全相同的方式更改此合成 `setter` 的访问级别。
 
 下面的示例定义了一个名为 `TrackedString` 的结构，该结构跟踪字符串属性被修改的次数：
 
@@ -258,7 +258,7 @@ struct TrackedString {
 
 `TrackedString` 结构定义了一个名为 `value` 的存储字符串属性，初始值为 `""` （一个空字符串）。该结构还定义了一个名为 `numberOfEdits` 的存储整数属性，用于跟踪 `value` 被修改的次数。这种修改跟踪通过在 `value` 属性上使用 `didSet` 属性观察器来实现，每当 `value` 属性被设置为新值时， `numberOfEdits` 增加 1。
 
-`TrackedString` 结构和 `value` 属性没有提供显式的访问级别修饰符，因此它们都接收默认的访问级别 internal。然而， `numberOfEdits` 属性的访问级别标记为 `private(set)` 修饰符，以指示该属性的 getter 仍然具有默认的访问级别 internal，但该属性只能在 `TrackedString` 结构内部的代码中设置。这使得 `TrackedString` 可以在内部修改 `numberOfEdits` 属性，但在结构定义外部使用时将该属性呈现为只读属性。
+`TrackedString` 结构和 `value` 属性没有提供显式的访问级别修饰符，因此它们都接收默认的访问级别 `internal`。然而， `numberOfEdits` 属性的访问级别标记为 `private(set)` 修饰符，以指示该属性的 `getter` 仍然具有默认的访问级别 `internal`，但该属性只能在 `TrackedString` 结构内部的代码中设置。这使得 `TrackedString` 可以在内部修改 `numberOfEdits` 属性，但在结构定义外部使用时将该属性呈现为只读属性。
 
 如果您创建一个 `TrackedString` 实例并多次修改其字符串值，您可以看到 `numberOfEdits` 属性值更新以匹配修改次数：
 
@@ -273,7 +273,7 @@ print("The number of edits is \(stringToEdit.numberOfEdits)")
 
 虽然您可以从另一个源文件中查询 `numberOfEdits` 属性的当前值，但不能从另一个源文件修改该属性。这一限制保护了 `TrackedString` 编辑跟踪功能的实现细节，同时仍提供了对该功能某一方面的便捷访问。
 
-请注意，如果需要，您可以为 getter 和 setter 分配显式访问级别。下面的示例显示了一个 `TrackedString` 结构的版本，其中结构被定义为具有显式的 public 访问级别。因此，结构的成员（包括 `numberOfEdits` 属性）默认具有 internal 访问级别。您可以通过结合 `public` 和 `private(set)` 访问级别修饰符，使结构的 `numberOfEdits` 属性的 getter 为 public，而其属性的 setter 为 private：
+请注意，如果需要，您可以为 `getter` 和 `setter` 分配显式访问级别。下面的示例显示了一个 `TrackedString` 结构的版本，其中结构被定义为具有显式的 `public` 访问级别。因此，结构的成员（包括 `numberOfEdits` 属性）默认具有 `internal` 访问级别。您可以通过结合 `public` 和 `private(set)` 访问级别修饰符，使结构的 `numberOfEdits` 属性的 `getter` 为 `public`，而其属性的 `setter` 为 `private`：
 
 ```swift
 public struct TrackedString {
@@ -289,13 +289,13 @@ public struct TrackedString {
 
 ## [初始化器](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/accesscontrol/#Initializers)
 
-自定义初始化器的访问级别可以小于或等于它们初始化的类型。唯一的例外是必需的初始化器（如《必需的初始化器》中定义的）。必需的初始化器必须具有与其所属类相同的访问级别。
+自定义初始化器的访问级别可以小于或等于它们初始化的类型。唯一的例外是必需的初始化器（如[必需的初始化器](initialization.md#必需的初始化器)中定义的）。必需的初始化器必须具有与其所属类相同的访问级别。
 
 与函数和方法参数一样，初始化器参数的类型不能比初始化器自身的访问级别更私有。
 
 ### [默认初始值设定项](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/accesscontrol/#Default-Initializers)
 
-如《默认初始化器》中所述，Swift 自动为任何提供所有属性默认值且自身没有提供至少一个初始化器的结构或基类提供一个没有任何参数的默认初始化器。
+如[默认初始化器](initialization.md#默认初始化器)中所述，Swift 自动为任何提供所有属性默认值且自身没有提供至少一个初始化器的结构或基类提供一个没有任何参数的默认初始化器。
 
 默认初始化器具有与其初始化的类型相同的访问级别，除非该类型定义为 `public` 。对于定义为 `public` 的类型，默认初始化器被视为内部的。如果您希望一个公共类型在另一个模块中使用无参数初始化器时可被初始化，您必须在类型定义中显式提供一个公共无参数初始化器。
 
@@ -311,9 +311,9 @@ public struct TrackedString {
 
 协议定义中每个需求的访问级别会自动设置为与协议相同的访问级别。您无法将协议需求设置为与其支持的协议不同的访问级别。这确保了所有协议的需求在任何采用该协议的类型上都是可见的。
 
-注意
-
-如果您定义一个公共协议，则协议的要求在实现时需要公共访问级别。这种行为与其他类型不同，公共类型定义意味着该类型成员的访问级别为内部。
+> 注意
+>
+> 如果您定义一个公共协议，则协议的要求在实现时需要公共访问级别。这种行为与其他类型不同，公共类型定义意味着该类型成员的访问级别为内部。
 
 ### [协议继承](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/accesscontrol/#Protocol-Inheritance)
 
