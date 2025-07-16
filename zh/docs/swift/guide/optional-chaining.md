@@ -71,7 +71,7 @@ if let roomCount = john.residence?.numberOfRooms {
 john.residence = Residence()
 ```
 
-`john.residence` 现在包含一个实际的 `Residence` 实例，而不是 `nil` 。如果你尝试使用之前相同的可选链访问 `numberOfRooms` ，它现在将返回一个包含默认 `numberOfRooms` 值 `1` 的 `Int?` ：
+`john.residence` 现在包含一个实际的 `Residence` 实例，而不是 `nil` 。如果您尝试使用之前相同的可选链访问 `numberOfRooms` ，它现在将返回一个包含默认 `numberOfRooms` 值 `1` 的 `Int?` ：
 
 ```swift
 if let roomCount = john.residence?.numberOfRooms {
@@ -84,7 +84,7 @@ if let roomCount = john.residence?.numberOfRooms {
 
 ## [定义可选链的模型类](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/optionalchaining#Defining-Model-Classes-for-Optional-Chaining)
 
-你可以在对属性、方法和下标的调用中使用可选链，这些调用的层级超过一个。这使你能够深入到复杂模型中相互关联类型的子属性，并检查是否可以访问这些子属性上的属性、方法和下标。
+您可以在对属性、方法和下标的调用中使用可选链，这些调用的层级超过一个。这使您能够深入到复杂模型中相互关联类型的子属性，并检查是否可以访问这些子属性上的属性、方法和下标。
 
 下面的代码片段定义了四个模型类，以便在后续的几个示例中使用，包括多层可选链的示例。这些类通过添加一个 `Room` 和 `Address` 类，及其相关的属性、方法和下标，扩展了上面的 `Person` 和 `Residence` 模型。
 
@@ -203,7 +203,7 @@ func createAddress() -> Address {
 john.residence?.address = createAddress()
 ```
 
-你可以看出 `createAddress()` 函数没有被调用，因为没有任何输出。
+您可以看出 `createAddress()` 函数没有被调用，因为没有任何输出。
 
 ## [通过可选链调用方法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/optionalchaining#Calling-Methods-Through-Optional-Chaining)
 
@@ -247,7 +247,7 @@ if (john.residence?.address = someAddress) != nil {
 
 > 注意
 >
-> 当你通过可选链访问可选值上的下标时，你应该将问号放在下标的括号之前，而不是之后。可选链的问号总是紧跟在表达式中可选的部分之后。
+> 当您通过可选链访问可选值上的下标时，您应该将问号放在下标的括号之前，而不是之后。可选链的问号总是紧跟在表达式中可选的部分之后。
 
 下面的示例尝试使用在 `Residence` 类上定义的下标，从 `john.residence` 属性的 `rooms` 数组中检索第一个房间的名称。因为 `john.residence` 当前是 `nil` ，所以下标调用失败：
 
@@ -270,7 +270,7 @@ john.residence?[0] = Room(name: "Bathroom")
 
 此下标设置尝试也失败，因为 `residence` 当前是 `nil` 。
 
-如果你创建并将一个实际的 `Residence` 实例赋值给 `john.residence` ，并在其 `rooms` 数组中包含一个或多个 `Room` 实例，你可以通过可选链使用 `Residence` 下标访问 `rooms` 数组中的实际项：
+如果您创建并将一个实际的 `Residence` 实例赋值给 `john.residence` ，并在其 `rooms` 数组中包含一个或多个 `Room` 实例，您可以通过可选链使用 `Residence` 下标访问 `rooms` 数组中的实际项：
 
 ```swift
 let johnsHouse = Residence()
@@ -312,8 +312,8 @@ testScores["Brian"]?[0] = 72
 
 因此：
 
-- 如果你尝试通过可选链获取一个 `Int` 值，无论使用多少级链，始终返回一个 `Int?` 。
-- 同样，如果你尝试通过可选链检索 `Int?` 值，则始终返回 `Int?` ，无论使用了多少级链式调用。
+- 如果您尝试通过可选链获取一个 `Int` 值，无论使用多少级链，始终返回一个 `Int?` 。
+- 同样，如果您尝试通过可选链检索 `Int?` 值，则始终返回 `Int?` ，无论使用了多少级链式调用。
 
 下面的示例尝试访问 `john` 的 `residence` 属性的 `address` 属性的 `street` 属性。这里使用了两个级别的可选链，以链式访问 `residence` 和 `address` 属性，这两个属性都是可选类型：
 
@@ -378,4 +378,4 @@ if let beginsWithThe =
 
 > 注意
 >
-> 在上面的例子中，你将可选链操作符问号放在括号后面，因为你正在链接的可选值是 `buildingIdentifier()` 方法的返回值，而不是 `buildingIdentifier()` 方法本身。
+> 在上面的例子中，您将可选链操作符问号放在括号后面，因为您正在链接的可选值是 `buildingIdentifier()` 方法的返回值，而不是 `buildingIdentifier()` 方法本身。

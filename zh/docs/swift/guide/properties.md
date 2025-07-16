@@ -33,7 +33,7 @@ rangeOfThreeItems.firstValue = 6
 
 ### [常量结构实例的存储属性](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties#Stored-Properties-of-Constant-Structure-Instances)
 
-如果你创建一个结构的实例并将该实例赋值给一个常量，你不能修改该实例的属性，即使它们被声明为变量属性：
+如果您创建一个结构的实例并将该实例赋值给一个常量，您不能修改该实例的属性，即使它们被声明为变量属性：
 
 ```swift
 let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
@@ -297,7 +297,7 @@ stepCounter.totalSteps = 896
 
 ## [属性包装器](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties#Property-Wrappers)
 
-属性包装器在管理属性存储方式的代码和定义属性的代码之间添加了一层分离。例如，如果你有提供线程安全检查或将其底层数据存储在数据库中的属性，你必须在每个属性上编写那段代码。当你使用属性包装器时，你在定义包装器时只需编写一次管理代码，然后通过将其应用于多个属性来重复使用该管理代码。
+属性包装器在管理属性存储方式的代码和定义属性的代码之间添加了一层分离。例如，如果您有提供线程安全检查或将其底层数据存储在数据库中的属性，您必须在每个属性上编写那段代码。当您使用属性包装器时，您在定义包装器时只需编写一次管理代码，然后通过将其应用于多个属性来重复使用该管理代码。
 
 要定义一个属性包装器，您需要创建一个结构体、枚举或类来定义一个 `wrappedValue` 属性。在下面的代码中， `TwelveOrLess` 结构体确保它包装的值始终包含一个小于或等于 12 的数字。如果您要求它存储一个更大的数字，它将存储 12。
 
@@ -344,7 +344,7 @@ print(rectangle.height)
 
 `height` 和 `width` 属性的初始值来自 `TwelveOrLess` 的定义，该定义将 `TwelveOrLess.number` 设置为零。 `TwelveOrLess` 中的 setter 将 10 视为有效值，因此将数字 10 存储在 `rectangle.height` 中的操作按原样进行。然而，24 超出了 `TwelveOrLess` 允许的范围，因此尝试存储 24 最终将 `rectangle.height` 设置为 12，这是允许的最大值。
 
-当你将包装器应用于一个属性时，编译器会合成代码，为包装器提供存储空间，并提供通过包装器访问属性的代码。（属性包装器负责存储被包装的值，因此没有合成代码用于此。）你可以编写代码使用属性包装器的行为，而不利用特殊的属性语法。例如，这里是前面代码清单中 `SmallRectangle` 的一个版本，它将其属性明确地封装在 `TwelveOrLess` 结构中，而不是将 `@TwelveOrLess` 写为一个属性：
+当您将包装器应用于一个属性时，编译器会合成代码，为包装器提供存储空间，并提供通过包装器访问属性的代码。（属性包装器负责存储被包装的值，因此没有合成代码用于此。）您可以编写代码使用属性包装器的行为，而不利用特殊的属性语法。例如，这里是前面代码清单中 `SmallRectangle` 的一个版本，它将其属性明确地封装在 `TwelveOrLess` 结构中，而不是将 `@TwelveOrLess` 写为一个属性：
 
 ```swift
 struct SmallRectangle {
@@ -397,7 +397,7 @@ struct SmallNumber {
 
 `SmallNumber` 的定义包括三个初始化器 — `init()` 、 `init(wrappedValue:)` 和 `init(wrappedValue:maximum:)` — 示例中使用这些初始化器来设置包装值和最大值。有关初始化和初始化器语法的信息，请参见初始化。
 
-当你对一个属性应用包装器而不指定初始值时，Swift 使用 `init()` 初始化器来设置包装器。例如：
+当您对一个属性应用包装器而不指定初始值时，Swift 使用 `init()` 初始化器来设置包装器。例如：
 
 ```swift
 struct ZeroRectangle {
@@ -427,9 +427,9 @@ print(unitRectangle.height, unitRectangle.width)
 // Prints "1 1"
 ```
 
-当你在一个带有包装器的属性上写 `= 1` 时，会被转换为对 `init(wrappedValue:)` 初始化器的调用。包装 `height` 和 `width` 的 `SmallNumber` 实例是通过调用 `SmallNumber(wrappedValue: 1)` 创建的。初始化器使用这里指定的包装值，并使用默认的最大值 12。
+当您在一个带有包装器的属性上写 `= 1` 时，会被转换为对 `init(wrappedValue:)` 初始化器的调用。包装 `height` 和 `width` 的 `SmallNumber` 实例是通过调用 `SmallNumber(wrappedValue: 1)` 创建的。初始化器使用这里指定的包装值，并使用默认的最大值 12。
 
-当你在自定义属性后面的括号中写入参数时，Swift 会使用接受这些参数的初始化器来设置包装器。例如，如果你提供一个初始值和一个最大值，Swift 会使用 `init(wrappedValue:maximum:)` 初始化器：
+当您在自定义属性后面的括号中写入参数时，Swift 会使用接受这些参数的初始化器来设置包装器。例如，如果您提供一个初始值和一个最大值，Swift 会使用 `init(wrappedValue:maximum:)` 初始化器：
 
 ```swift
 struct NarrowRectangle {
@@ -476,9 +476,9 @@ print(mixedRectangle.height)
 
 ### [从属性包装器投影值](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties#Projecting-a-Value-From-a-Property-Wrapper)
 
-除了包装的值，属性包装器还可以通过定义一个投影值来暴露额外的功能——例如，一个管理数据库访问的属性包装器可以在其投影值上暴露一个 `flushDatabaseConnection()` 方法。投影值的名称与包装值相同，只是前面加了一个美元符号 ( `$` )。由于你的代码不能定义以 `$` 开头的属性，因此投影值从不干扰你定义的属性。
+除了包装的值，属性包装器还可以通过定义一个投影值来暴露额外的功能——例如，一个管理数据库访问的属性包装器可以在其投影值上暴露一个 `flushDatabaseConnection()` 方法。投影值的名称与包装值相同，只是前面加了一个美元符号 ( `$` )。由于您的代码不能定义以 `$` 开头的属性，因此投影值从不干扰您定义的属性。
 
-在上面的 `SmallNumber` 示例中，如果你尝试将属性设置为一个过大的数字，属性包装器会在存储之前调整这个数字。下面的代码向 `SmallNumber` 结构添加一个 `projectedValue` 属性，以跟踪属性包装器在存储新值之前是否调整了属性的新值。
+在上面的 `SmallNumber` 示例中，如果您尝试将属性设置为一个过大的数字，属性包装器会在存储之前调整这个数字。下面的代码向 `SmallNumber` 结构添加一个 `projectedValue` 属性，以跟踪属性包装器在存储新值之前是否调整了属性的新值。
 
 ```swift
 @propertyWrapper
@@ -526,7 +526,7 @@ print(someStructure.$someNumber)
 
 属性包装器可以返回任何类型的值作为其投影值。在这个例子中，属性包装器仅暴露一条信息——数字是否被调整——因此它将该布尔值作为其投影值。一个需要暴露更多信息的包装器可以返回某个其他类型的实例，或者它可以返回 `self` 以将包装器的实例作为其投影值。
 
-当你从代码中访问投影值时，这段代码是类型的一部分，例如属性获取器或实例方法，你可以省略 `self.` 放在属性名称之前，就像访问其他属性一样。以下例子中的代码将包装器围绕 `height` 和 `width` 的投影值称为 `$height` 和 `$width` :
+当您从代码中访问投影值时，这段代码是类型的一部分，例如属性获取器或实例方法，您可以省略 `self.` 放在属性名称之前，就像访问其他属性一样。以下例子中的代码将包装器围绕 `height` 和 `width` 的投影值称为 `$height` 和 `$width` :
 
 ```swift
 enum Size {
@@ -553,7 +553,7 @@ struct SizedRectangle {
 }
 ```
 
-因为属性包装器语法只是一个带有 getter 和 setter 的属性的语法糖，访问 `height` 和 `width` 的行为与访问任何其他属性相同。例如， `resize(to:)` 中的代码使用它们的属性包装器访问 `height` 和 `width` 。如果你调用 `resize(to: .large)` ， `.large` 的 switch case 将矩形的高度和宽度设置为 100。包装器防止这些属性的值大于 12，并将投影值设置为 `true` ，以记录它调整了它们的值。在 `resize(to:)` 的末尾，返回语句检查 `$height` 和 `$width` 以确定属性包装器是否调整了 `height` 或 `width` 。
+因为属性包装器语法只是一个带有 getter 和 setter 的属性的语法糖，访问 `height` 和 `width` 的行为与访问任何其他属性相同。例如， `resize(to:)` 中的代码使用它们的属性包装器访问 `height` 和 `width` 。如果您调用 `resize(to: .large)` ， `.large` 的 switch case 将矩形的高度和宽度设置为 100。包装器防止这些属性的值大于 12，并将投影值设置为 `true` ，以记录它调整了它们的值。在 `resize(to:)` 的末尾，返回语句检查 `$height` 和 `$width` 以确定属性包装器是否调整了 `height` 或 `width` 。
 
 ## [全局变量和局部变量](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties#Global-and-Local-Variables)
 
@@ -585,13 +585,13 @@ func someFunction() {
 }
 ```
 
-就像当你将 `SmallNumber` 应用到一个属性时，将 `myNumber` 的值设置为 10 是有效的。因为属性包装器不允许值高于 12，所以它将 `myNumber` 设置为 12，而不是 24。
+就像当您将 `SmallNumber` 应用到一个属性时，将 `myNumber` 的值设置为 10 是有效的。因为属性包装器不允许值高于 12，所以它将 `myNumber` 设置为 12，而不是 24。
 
 ## [类型属性](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties#Type-Properties)
 
-实例属性是属于特定类型实例的属性。每次你创建该类型的新实例时，它都有自己的一组属性值，与任何其他实例分开。
+实例属性是属于特定类型实例的属性。每次您创建该类型的新实例时，它都有自己的一组属性值，与任何其他实例分开。
 
-你还可以定义属于类型本身的属性，而不是属于该类型的任何一个实例。这些属性只有一份副本，无论你创建多少个该类型的实例。这种类型的属性称为类型属性。
+您还可以定义属于类型本身的属性，而不是属于该类型的任何一个实例。这些属性只有一份副本，无论您创建多少个该类型的实例。这种类型的属性称为类型属性。
 
 类型属性对于定义特定类型的所有实例的通用值非常有用，例如所有实例都可以使用的常量属性（如 C 中的静态常量），或者存储对该类型所有实例全局值的变量属性（如 C 中的静态变量）。
 
@@ -713,7 +713,7 @@ print(AudioChannel.maxInputLevelForAllChannels)
 // Prints "7"
 ```
 
-如果你尝试将右通道的 `currentLevel` 设置为 `11` ，你会看到右通道的 `currentLevel` 属性被限制为最大值 `10` ，并且 `maxInputLevelForAllChannels` 类型属性被更新为 `10` ：
+如果您尝试将右通道的 `currentLevel` 设置为 `11` ，您会看到右通道的 `currentLevel` 属性被限制为最大值 `10` ，并且 `maxInputLevelForAllChannels` 类型属性被更新为 `10` ：
 
 ```swift
 rightChannel.currentLevel = 11

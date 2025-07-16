@@ -33,7 +33,7 @@ Swift 中的数组、集合和字典始终明确它们可以存储的值和键�
 
 ### [数组类型简写语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes#Array-Type-Shorthand-Syntax)
 
-Swift 数组的类型完全写为 `Array<Element>` ，其中 `Element` 是数组允许存储的值的类型。你也可以将数组的类型以简写形式写为 `[Element]` 。虽然这两种形式在功能上是相同的，但是简写形式更受欢迎，并在本指南中用于指代数组的类型。
+Swift 数组的类型完全写为 `Array<Element>` ，其中 `Element` 是数组允许存储的值的类型。您也可以将数组的类型以简写形式写为 `[Element]` 。虽然这两种形式在功能上是相同的，但是简写形式更受欢迎，并在本指南中用于指代数组的类型。
 
 ### [创建一个空数组](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes#Creating-an-Empty-Array)
 
@@ -165,7 +165,7 @@ shoppingList[0] = "Six eggs"
 // the first item in the list is now equal to "Six eggs" rather than "Eggs"
 ```
 
-当你使用下标语法时，指定的索引需要是有效的。例如，写 `shoppingList[shoppingList.count] = "Salt"` 尝试将一个项目附加到数组的末尾会导致运行时错误。
+当您使用下标语法时，指定的索引需要是有效的。例如，写 `shoppingList[shoppingList.count] = "Salt"` 尝试将一个项目附加到数组的末尾会导致运行时错误。
 
 您还可以使用下标语法一次更改一系列值，即使替换值集的长度与您要替换的范围不同。以下示例将 `"Chocolate Spread"` 、 `"Cheese"` 和 `"Butter"` 替换为 `"Bananas"` 和 `"Apples"` ：
 

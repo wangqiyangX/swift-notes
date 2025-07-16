@@ -32,7 +32,7 @@ Swift 中的结构和类有许多**共同之处**。两者都可以：
 
 有关更多信息，请参见继承、类型转换、析构和自动引用计数。
 
-类支持的额外功能以增加复杂性为代价。一般指南是，优先使用结构，因为它们更容易理解，而在适当或必要时使用类。在实践中，这意味着你定义的大多数自定义类型将是结构和枚举。有关更详细的比较，请参阅《选择结构与类》。
+类支持的额外功能以增加复杂性为代价。一般指南是，优先使用结构，因为它们更容易理解，而在适当或必要时使用类。在实践中，这意味着您定义的大多数自定义类型将是结构和枚举。有关更详细的比较，请参阅《选择结构与类》。
 
 > 注意
 >
@@ -40,7 +40,7 @@ Swift 中的结构和类有许多**共同之处**。两者都可以：
 
 ### [定义语法](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures#Definition-Syntax)
 
-结构和类有类似的定义语法。你通过 `struct` 关键字引入结构，通过 `class` 关键字引入类。两者的整个定义都在一对大括号内：
+结构和类有类似的定义语法。您通过 `struct` 关键字引入结构，通过 `class` 关键字引入类。两者的整个定义都在一对大括号内：
 
 ```swift
 struct SomeStructure {
@@ -127,9 +127,9 @@ let vga = Resolution(width: 640, height: 480)
 
 值类型是指在赋值给变量或常量时，或者在传递给函数时，其**值会被复制**的类型。
 
-实际上，在前面的章节中你已经广泛使用了值类型。事实上，Swift 中的所有基本类型——整数、浮点数、布尔值、字符串、数组和字典——都是值类型，并且在后台实现为结构体。
+实际上，在前面的章节中您已经广泛使用了值类型。事实上，Swift 中的所有基本类型——整数、浮点数、布尔值、字符串、数组和字典——都是值类型，并且在后台实现为结构体。
 
-在 Swift 中，所有结构体和枚举都是值类型。这意味着你创建的任何结构体和枚举实例——以及它们作为属性拥有的任何值类型——在你的代码中传递时总是会被复制。
+在 Swift 中，所有结构体和枚举都是值类型。这意味着您创建的任何结构体和枚举实例——以及它们作为属性拥有的任何值类型——在您的代码中传递时总是会被复制。
 
 > 注意
 >
@@ -230,7 +230,7 @@ print("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
 
 此示例还显示了引用类型可能更难推理的原因。如果 `tenEighty` 和 `alsoTenEighty` 在您程序的代码中相距很远，那么找到所有视频模式变化的方式可能会很困难。无论您在哪里使用 `tenEighty` ，您都必须考虑使用 `alsoTenEighty` 的代码，反之亦然。相比之下，值类型更容易推理，因为与同一值交互的所有代码在您的源文件中相对靠近。
 
-请注意， `tenEighty` 和 `alsoTenEighty` 被声明为常量，而不是变量。然而，你仍然可以改变 `tenEighty.frameRate` 和 `alsoTenEighty.frameRate` ，因为 `tenEighty` 和 `alsoTenEighty` 常量本身的值实际上并没有改变。 `tenEighty` 和 `alsoTenEighty` 本身并没有“存储” `VideoMode` 实例——相反，它们都在后台引用一个 `VideoMode` 实例。改变的是底层 `VideoMode` 的 `frameRate` 属性，而不是对该 `VideoMode` 的常量引用的值。
+请注意， `tenEighty` 和 `alsoTenEighty` 被声明为常量，而不是变量。然而，您仍然可以改变 `tenEighty.frameRate` 和 `alsoTenEighty.frameRate` ，因为 `tenEighty` 和 `alsoTenEighty` 常量本身的值实际上并没有改变。 `tenEighty` 和 `alsoTenEighty` 本身并没有“存储” `VideoMode` 实例——相反，它们都在后台引用一个 `VideoMode` 实例。改变的是底层 `VideoMode` 的 `frameRate` 属性，而不是对该 `VideoMode` 的常量引用的值。
 
 ### [身份运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures#Identity-Operators)
 
@@ -252,8 +252,8 @@ if tenEighty === alsoTenEighty {
 
 请注意，identical to（用三个等号表示，或 `===` ）并不意味着与 equal to（用两个等号表示，或 `==` ）相同。identical to 意味着两个类类型的常量或变量指向完全相同的类实例。equal to 意味着两个实例在某种适当的等价意义上被认为是相等或等价的，这种等价由类型的设计者定义。
 
-当你定义自己的自定义结构和类时，决定两个实例是否相等是你的责任。定义你自己的 `==` 和 `!=` 运算符实现的过程在等价运算符中进行了描述。
+当您定义自己的自定义结构和类时，决定两个实例是否相等是您的责任。定义您自己的 `==` 和 `!=` 运算符实现的过程在等价运算符中进行了描述。
 
 ### [指针](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures#Pointers)
 
-如果你有 C、C++ 或 Objective-C 的经验，你可能知道这些语言使用指针来引用内存中的地址。一个引用某个引用类型实例的 Swift 常量或变量类似于 C 中的指针，但并不是直接指向内存地址的指针，也不需要你写一个星号 ( `*` ) 来表示你正在创建一个引用。相反，这些引用的定义方式与 Swift 中的其他常量或变量相同。Swift 标准库提供了指针和缓冲区类型，如果你需要直接与指针交互，可以使用它们 — 请参见手动内存管理。
+如果您有 C、C++ 或 Objective-C 的经验，您可能知道这些语言使用指针来引用内存中的地址。一个引用某个引用类型实例的 Swift 常量或变量类似于 C 中的指针，但并不是直接指向内存地址的指针，也不需要您写一个星号 ( `*` ) 来表示您正在创建一个引用。相反，这些引用的定义方式与 Swift 中的其他常量或变量相同。Swift 标准库提供了指针和缓冲区类型，如果您需要直接与指针交互，可以使用它们 — 请参见手动内存管理。

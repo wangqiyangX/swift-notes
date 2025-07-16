@@ -14,11 +14,11 @@ Swift 使用自动引用计数（ARC）来跟踪和管理您应用的内存使�
 
 此外，当一个实例不再需要时，ARC 会释放该实例使用的内存，以便将内存用于其他目的。这确保了类实例在不再需要时不会占用内存空间。
 
-然而，如果 ARC 试图释放一个仍在使用的实例，则将无法访问该实例的属性或调用该实例的方法。实际上，如果你尝试访问该实例，你的应用程序很可能会崩溃。
+然而，如果 ARC 试图释放一个仍在使用的实例，则将无法访问该实例的属性或调用该实例的方法。实际上，如果您尝试访问该实例，您的应用程序很可能会崩溃。
 
 为了确保实例在仍然需要时不会消失，ARC 跟踪当前引用每个类实例的属性、常量和变量的数量。只要至少存在一个对该实例的活动引用，ARC 就不会释放该实例。
 
-为了实现这一点，每当你将一个类实例分配给一个属性、常量或变量时，该属性、常量或变量会对该实例进行强引用。该引用被称为“强”引用，因为它对该实例保持牢固的控制，并且只要该强引用存在，就不允许其被释放。
+为了实现这一点，每当您将一个类实例分配给一个属性、常量或变量时，该属性、常量或变量会对该实例进行强引用。该引用被称为“强”引用，因为它对该实例保持牢固的控制，并且只要该强引用存在，就不允许其被释放。
 
 ## [ARC in Action（ARC 的应用）](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting#ARC-in-Action)
 
@@ -67,14 +67,14 @@ reference3 = reference1
 
 现在对这个单一的 `Person` 实例有三个强引用。
 
-如果你通过将 `nil` 赋值给两个变量来打破这两个强引用（包括原始引用），则只剩下一个强引用，而 `Person` 实例不会被释放：
+如果您通过将 `nil` 赋值给两个变量来打破这两个强引用（包括原始引用），则只剩下一个强引用，而 `Person` 实例不会被释放：
 
 ```swift
 reference1 = nil
 reference2 = nil
 ```
 
-ARC 直到第三个也是最后一个强引用被打破时才会释放 `Person` 实例，这时很明显你不再使用 `Person` 实例：
+ARC 直到第三个也是最后一个强引用被打破时才会释放 `Person` 实例，这时很明显您不再使用 `Person` 实例：
 
 ```swift
 reference3 = nil
@@ -145,7 +145,7 @@ unit4A!.tenant = john
 ![referenceCycle02](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle02@2x.png){.light-only}
 ![referenceCycle02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/referenceCycle02~dark@2x.png){.dark-only}
 
-不幸的是，链接这两个实例会在它们之间创建一个强引用循环。 `Person` 实例现在对 `Apartment` 实例有一个强引用，而 `Apartment` 实例对 `Person` 实例有一个强引用。因此，当你断开 `john` 和 `unit4A` 变量持有的强引用时，引用计数不会降到零，实例不会被 ARC 释放：
+不幸的是，链接这两个实例会在它们之间创建一个强引用循环。 `Person` 实例现在对 `Apartment` 实例有一个强引用，而 `Apartment` 实例对 `Person` 实例有一个强引用。因此，当您断开 `john` 和 `unit4A` 变量持有的强引用时，引用计数不会降到零，实例不会被 ARC 释放：
 
 ```swift
 john = nil
@@ -175,7 +175,7 @@ Swift 提供了两种解决强引用循环的方法，当您处理类类型的�
 
 因为弱引用不对它所引用的实例保持强引用，所以在弱引用仍然引用它时，那个实例有可能被释放。因此，当引用的实例被释放时，ARC 会自动将弱引用设置为 `nil` 。而且，由于弱引用需要允许它们的值在运行时更改为 `nil` ，所以它们总是被声明为可选类型的变量，而不是常量。
 
-你可以检查弱引用中值的存在，就像检查任何其他可选值一样，并且你永远不会得到指向不再存在的无效实例的引用。
+您可以检查弱引用中值的存在，就像检查任何其他可选值一样，并且您永远不会得到指向不再存在的无效实例的引用。
 
 > 注意
 >
@@ -220,7 +220,7 @@ unit4A!.tenant = john
 ![weakReference01](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference01@2x.png){.light-only}
 ![weakReference01~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference01~dark@2x.png){.dark-only}
 
-`Person` 实例仍然对 `Apartment` 实例有一个强引用，但是 `Apartment` 实例现在对 `Person` 实例有一个弱引用。这意味着当你通过将 `john` 变量设置为 `nil` 来断开对 `Person` 实例的强引用时，已没有对 `Person` 实例的强引用：
+`Person` 实例仍然对 `Apartment` 实例有一个强引用，但是 `Apartment` 实例现在对 `Person` 实例有一个弱引用。这意味着当您通过将 `john` 变量设置为 `nil` 来断开对 `Person` 实例的强引用时，已没有对 `Person` 实例的强引用：
 
 ```swift
 john = nil
@@ -232,7 +232,7 @@ john = nil
 ![weakReference02](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference02@2x.png){.light-only}
 ![weakReference02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/weakReference02~dark@2x.png){.dark-only}
 
-对 `Apartment` 实例的唯一剩余强引用来自 `unit4A` 变量。如果你打破那个强引用，就没有更多对 `Apartment` 实例的强引用了：
+对 `Apartment` 实例的唯一剩余强引用来自 `unit4A` 变量。如果您打破那个强引用，就没有更多对 `Apartment` 实例的强引用了：
 
 ```swift
 unit4A = nil
@@ -266,7 +266,7 @@ unit4A = nil
 
 此外，一个新的 `CreditCard` 实例只能通过传递一个 `number` 值和一个 `customer` 实例给自定义 `CreditCard` 初始化函数来创建。这确保了当 `CreditCard` 实例被创建时， `CreditCard` 实例总是与一个 `customer` 实例相关联。
 
-因为信用卡总是会有一个客户，所以你将其 `customer` 属性定义为无主引用，以避免强引用循环：
+因为信用卡总是会有一个客户，所以您将其 `customer` 属性定义为无主引用，以避免强引用循环：
 
 ```swift
 class Customer {
@@ -452,11 +452,11 @@ print("\(country.name)'s capital city is called \(country.capitalCity.name)")
 
 ## [闭包的强引用循环](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting#Strong-Reference-Cycles-for-Closures)
 
-你上面看到，当两个类实例属性相互持有强引用时，如何创建强引用循环。你还看到如何使用弱引用和未拥有引用来打破这些强引用循环。
+您上面看到，当两个类实例属性相互持有强引用时，如何创建强引用循环。您还看到如何使用弱引用和未拥有引用来打破这些强引用循环。
 
-如果你将一个闭包赋值给类实例的属性，并且该闭包的主体捕获了该实例，也会发生强引用循环。这种捕获可能是因为闭包的主体访问了实例的一个属性，例如 `self.someProperty` ，或者因为闭包调用了实例上的一个方法，例如 `self.someMethod()` 。在这两种情况下，这些访问会导致闭包“捕获” `self` ，从而创建一个强引用循环。
+如果您将一个闭包赋值给类实例的属性，并且该闭包的主体捕获了该实例，也会发生强引用循环。这种捕获可能是因为闭包的主体访问了实例的一个属性，例如 `self.someProperty` ，或者因为闭包调用了实例上的一个方法，例如 `self.someMethod()` 。在这两种情况下，这些访问会导致闭包“捕获” `self` ，从而创建一个强引用循环。
 
-这个强引用循环发生是因为闭包和类一样是引用类型。当你将一个闭包赋值给一个属性时，你是在将对该闭包的引用赋值。本质上，这与上面的问题是一样的——两个强引用互相保持对方的存活。然而，这次保持对方存活的是一个类实例和一个闭包，而不是两个类实例。
+这个强引用循环发生是因为闭包和类一样是引用类型。当您将一个闭包赋值给一个属性时，您是在将对该闭包的引用赋值。本质上，这与上面的问题是一样的——两个强引用互相保持对方的存活。然而，这次保持对方存活的是一个类实例和一个闭包，而不是两个类实例。
 
 Swift 提供了一个优雅的解决方案，称为闭包捕获列表。然而，在您学习如何使用闭包捕获列表打破强引用周期之前，了解这种周期是如何产生的会很有用。
 
@@ -640,7 +640,7 @@ print(paragraph!.asHTML())
 ![closureReferenceCycle02](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle02@2x.png){.light-only}
 ![closureReferenceCycle02~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/closureReferenceCycle02~dark@2x.png){.dark-only}
 
-这次，闭包对 `self` 的捕获是一个无主引用，并且不会对它捕获的 `HTMLElement` 实例保持强引用。如果你将 `paragraph` 变量的强引用设置为 `nil` ，则 `HTMLElement` 实例会被释放，如下面示例中打印的去初始化器消息所示：
+这次，闭包对 `self` 的捕获是一个无主引用，并且不会对它捕获的 `HTMLElement` 实例保持强引用。如果您将 `paragraph` 变量的强引用设置为 `nil` ，则 `HTMLElement` 实例会被释放，如下面示例中打印的去初始化器消息所示：
 
 ```swift
 paragraph = nil

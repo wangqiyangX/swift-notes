@@ -57,7 +57,7 @@ let library = [
 // the type of "library" is inferred to be [MediaItem]
 ```
 
-存储在 `library` 中的项目仍然是 `Movie` 和 `Song` 实例在后台。然而，如果你遍历这个数组的内容，你收到的项目被类型化为 `MediaItem` ，而不是 `Movie` 或 `Song` 。为了以它们的原生类型进行操作，你需要检查它们的类型，或者将它们转换为不同的类型，如下所述。
+存储在 `library` 中的项目仍然是 `Movie` 和 `Song` 实例在后台。然而，如果您遍历这个数组的内容，您收到的项目被类型化为 `MediaItem` ，而不是 `Movie` 或 `Song` 。为了以它们的原生类型进行操作，您需要检查它们的类型，或者将它们转换为不同的类型，如下所述。
 
 ## [检查类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/typecasting#Checking-Type)
 
@@ -99,7 +99,7 @@ print("Media library contains \(movieCount) movies and \(songCount) songs")
 
 下面的例子对 `library` 中的每个 `MediaItem` 进行迭代，并为每个项目打印适当的描述。为此，它需要将每个项目作为真正的 `Movie` 或 `Song` 进行访问，而不仅仅是作为 `MediaItem` 。这是必要的，以使其能够访问 `Movie` 或 `Song` 的 `director` 或 `artist` 属性，以便在描述中使用。
 
-在这个例子中，数组中的每个项可能是一个 `Movie` ，或者它可能是一个 `Song` 。你无法事先知道每个项实际使用哪个类，因此在循环的每次迭代中使用类型转换运算符的条件形式 ( `as?` ) 来检查下转型是合适的。
+在这个例子中，数组中的每个项可能是一个 `Movie` ，或者它可能是一个 `Song` 。您无法事先知道每个项实际使用哪个类，因此在循环的每次迭代中使用类型转换运算符的条件形式 ( `as?` ) 来检查下转型是合适的。
 
 ```swift
 for item in library {

@@ -243,11 +243,11 @@ loadPicture(from: someServer) { picture in
 }
 ```
 
-在这个例子中， `loadPicture(from:completion:onFailure:)` 函数将其网络任务分配到后台，并在网络任务完成时调用两个完成处理程序之一。这样编写函数可以让你干净地将负责处理网络故障的代码与在成功下载后更新用户界面的代码分开，而不是使用一个处理两种情况的闭包。
+在这个例子中， `loadPicture(from:completion:onFailure:)` 函数将其网络任务分配到后台，并在网络任务完成时调用两个完成处理程序之一。这样编写函数可以让您干净地将负责处理网络故障的代码与在成功下载后更新用户界面的代码分开，而不是使用一个处理两种情况的闭包。
 
 > 注意
 >
-> 完成处理程序可能变得难以阅读，特别是当你需要嵌套多个处理程序时。另一种方法是使用异步代码，如并发中所述。
+> 完成处理程序可能变得难以阅读，特别是当您需要嵌套多个处理程序时。另一种方法是使用异步代码，如并发中所述。
 
 ## [捕获值](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures#Capturing-Values)
 
@@ -308,7 +308,7 @@ incrementByTen()
 // returns a value of 30
 ```
 
-如果你创建第二个增量器，它将拥有自己的存储引用一个新的、独立的 `runningTotal` 变量：
+如果您创建第二个增量器，它将拥有自己的存储引用一个新的、独立的 `runningTotal` 变量：
 
 ```swift
 let incrementBySeven = makeIncrementer(forIncrement: 7)
@@ -331,9 +331,9 @@ incrementByTen()
 
 在上面的例子中， `incrementBySeven` 和 `incrementByTen` 是常量，但这些常量所引用的闭包仍然能够递增它们捕获的 `runningTotal` 变量。这是因为函数和闭包是引用类型。
 
-每当你将一个函数或闭包赋值给一个常量或变量时，你实际上是在将该常量或变量设置为对该函数或闭包的引用。在上面的例子中， `incrementByTen` 所引用的闭包的选择是常量，而不是闭包本身的内容。
+每当您将一个函数或闭包赋值给一个常量或变量时，您实际上是在将该常量或变量设置为对该函数或闭包的引用。在上面的例子中， `incrementByTen` 所引用的闭包的选择是常量，而不是闭包本身的内容。
 
-这也意味着，如果你将一个闭包赋值给两个不同的常量或变量，那么这两个常量或变量都引用同一个闭包。
+这也意味着，如果您将一个闭包赋值给两个不同的常量或变量，那么这两个常量或变量都引用同一个闭包。
 
 ```swift
 let alsoIncrementByTen = incrementByTen
@@ -349,7 +349,7 @@ incrementByTen()
 
 ## [转义闭包](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures#Escaping-Closures)
 
-当闭包作为参数传递给函数，但在函数返回后被调用时，称该闭包逃逸了函数。当你声明一个函数，该函数以闭包作为其参数之一时，可以在参数类型前写 `@escaping` 来指示该闭包被允许逃逸。
+当闭包作为参数传递给函数，但在函数返回后被调用时，称该闭包逃逸了函数。当您声明一个函数，该函数以闭包作为其参数之一时，可以在参数类型前写 `@escaping` 来指示该闭包被允许逃逸。
 
 闭包逃逸的一种方式是被存储在函数外部定义的变量中。例如，许多启动异步操作的函数将闭包作为完成处理程序的参数。函数在启动操作后返回，但闭包在操作完成之前不会被调用——闭包需要逃逸，以便稍后被调用。例如：
 
@@ -360,7 +360,7 @@ func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
 }
 ```
 
-`someFunctionWithEscapingClosure(_:)` 函数将一个闭包作为参数，并将其添加到函数外声明的数组中。如果你没有用 `@escaping` 标记这个函数的参数，你将会得到一个编译时错误。
+`someFunctionWithEscapingClosure(_:)` 函数将一个闭包作为参数，并将其添加到函数外声明的数组中。如果您没有用 `@escaping` 标记这个函数的参数，您将会得到一个编译时错误。
 
 一个引用到 `self` 的逃逸闭包需要特别考虑，如果 `self` 引用的是一个类的实例。在逃逸闭包中捕获 `self` 会很容易意外地创建一个强引用循环。有关引用循环的信息，请参见自动引用计数。
 
@@ -404,7 +404,7 @@ class SomeOtherClass {
 }
 ```
 
-如果 `self` 是一个结构体或枚举的实例，你总是可以隐式地引用 `self` 。然而，当 `self` 是一个结构体或枚举的实例时，逃逸闭包不能捕获 `self` 的可变引用。正如在《结构体和枚举是值类型》中讨论的那样，结构体和枚举不允许共享可变性。
+如果 `self` 是一个结构体或枚举的实例，您总是可以隐式地引用 `self` 。然而，当 `self` 是一个结构体或枚举的实例时，逃逸闭包不能捕获 `self` 的可变引用。正如在《结构体和枚举是值类型》中讨论的那样，结构体和枚举不允许共享可变性。
 
 ```swift
 struct SomeStruct {

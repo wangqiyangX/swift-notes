@@ -143,7 +143,7 @@ class Train: Vehicle {
 }
 ```
 
-如果你创建一个新的 `Train` 实例并调用它的 `makeNoise()` 方法，你可以看到 `Train` 子类版本的方法被调用：
+如果您创建一个新的 `Train` 实例并调用它的 `makeNoise()` 方法，您可以看到 `Train` 子类版本的方法被调用：
 
 ```swift
 let train = Train()

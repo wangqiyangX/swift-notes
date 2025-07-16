@@ -406,7 +406,7 @@ var mathFunction: (Int, Int) -> Int = addTwoInts
 
 `addTwoInts(_:_:)` 函数与 `mathFunction` 变量具有相同的类型，因此这个赋值被 Swift 的类型检查器允许。
 
-现在你可以使用名称 `mathFunction` 调用分配的函数：
+现在您可以使用名称 `mathFunction` 调用分配的函数：
 
 ```swift
 print("Result: \(mathFunction(2, 3))")
@@ -499,7 +499,7 @@ print("zero!")
 
 ## [嵌套函数](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions#Nested-Functions)
 
-本章中你遇到的所有函数都是全局函数的例子，它们在全局范围内定义。你还可以在其他函数的主体内定义函数，这被称为嵌套函数。
+本章中您遇到的所有函数都是全局函数的例子，它们在全局范围内定义。您还可以在其他函数的主体内定义函数，这被称为嵌套函数。
 
 嵌套函数默认情况下对外部世界是隐藏的，但仍然可以被其封闭函数调用和使用。封闭函数还可以返回其嵌套函数之一，以允许在另一个范围中使用嵌套函数。
 
