@@ -1,6 +1,14 @@
-import { defineConfig, HeadConfig, type DefaultTheme } from "vitepress";
+import { defineConfig, HeadConfig } from "vitepress";
 import { genFeed } from "./genFeed.ts";
 import llmstxt from "vitepress-plugin-llms";
+import {
+  GitChangelog,
+  GitChangelogMarkdownSection,
+} from "@nolebase/vitepress-plugin-git-changelog/vite";
+import { BiDirectionalLinks } from "@nolebase/markdown-it-bi-directional-links";
+import { InlineLinkPreviewElementTransform } from "@nolebase/vitepress-plugin-inline-link-preview/markdown-it";
+import { UnlazyImages } from "@nolebase/markdown-it-unlazy-img";
+import { ThumbnailHashImages } from "@nolebase/vitepress-plugin-thumbnail-hash/vite";
 
 const umamiScript: HeadConfig = [
   "script",
@@ -50,6 +58,14 @@ export default defineConfig({
 
   head: headers,
 
+  vue: {
+    template: {
+      transformAssetUrls: {
+        NolebaseUnlazyImg: ["src"],
+      },
+    },
+  },
+
   markdown: {
     math: true,
     codeTransformers: [
@@ -86,6 +102,11 @@ export default defineConfig({
           `<button title="${codeCopyButtonTitle}" class="copy"></button>`
         );
       };
+      md.use(BiDirectionalLinks());
+      md.use(InlineLinkPreviewElementTransform);
+      md.use(UnlazyImages(), {
+        imgElementTag: "NolebaseUnlazyImg",
+      });
     },
   },
 
@@ -102,7 +123,19 @@ export default defineConfig({
         workDir: "en",
         ignoreFiles: ["index.md"],
       }),
+      GitChangelog({ repoURL: "https://github.com/wangqiyangx/swift-notes" }),
+      GitChangelogMarkdownSection(),
+      ThumbnailHashImages(),
     ],
+    optimizeDeps: {
+      exclude: ["@nolebase/vitepress-plugin-inline-link-preview/client"],
+    },
+    ssr: {
+      noExternal: [
+        "@nolebase/vitepress-plugin-highlight-targeted-heading",
+        "@nolebase/vitepress-plugin-inline-link-preview",
+      ],
+    },
   },
 
   themeConfig: {
