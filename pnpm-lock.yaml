@@ -53,6 +53,9 @@ importers:
       vitepress-plugin-llms:
         specifier: ^1.7.0
         version: 1.7.0
+      vitepress-plugin-tabs:
+        specifier: ^0.7.1
+        version: 0.7.1(vitepress@2.0.0-alpha.8(@algolia/client-search@5.32.0)(@types/node@22.16.2)(jiti@1.21.7)(less@4.3.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.6)(search-insights@2.17.3)(typescript@5.8.3))(vue@3.5.17(typescript@5.8.3))
       vue:
         specifier: ^3.5.17
         version: 3.5.17(typescript@5.8.3)
@@ -1749,6 +1752,12 @@ packages:
 
   vitepress-plugin-llms@1.7.0:
     resolution: {integrity: sha512-J4va/lPTBcrlV5RXmuML8Lg1nzRR8cB1nJszqjITtayOrliR1jDbho31nkzJCdU/SmwdR7PFVQDRwwOTEDdoHA==}
+
+  vitepress-plugin-tabs@0.7.1:
+    resolution: {integrity: sha512-jxJvsicxnMSIYX9b8mAFLD2nwyKUcMO10dEt4nDSbinZhM8cGvAmMFOHPdf6TBX6gYZRl+/++/iYHtoM14fERQ==}
+    peerDependencies:
+      vitepress: ^1.0.0
+      vue: ^3.5.0
 
   vitepress@2.0.0-alpha.8:
     resolution: {integrity: sha512-4LJZ7c/b68ch69gh6WaQgQGqkha/KxCFlSN7vCyIjxW7WbdI+pWe110+nnxXpvN43OH/3EoYNEPkV28z0WPSYA==}
@@ -3654,6 +3663,11 @@ snapshots:
     transitivePeerDependencies:
       - '@75lb/nature'
       - supports-color
+
+  vitepress-plugin-tabs@0.7.1(vitepress@2.0.0-alpha.8(@algolia/client-search@5.32.0)(@types/node@22.16.2)(jiti@1.21.7)(less@4.3.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.6)(search-insights@2.17.3)(typescript@5.8.3))(vue@3.5.17(typescript@5.8.3)):
+    dependencies:
+      vitepress: 2.0.0-alpha.8(@algolia/client-search@5.32.0)(@types/node@22.16.2)(jiti@1.21.7)(less@4.3.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.6)(search-insights@2.17.3)(typescript@5.8.3)
+      vue: 3.5.17(typescript@5.8.3)
 
   vitepress@2.0.0-alpha.8(@algolia/client-search@5.32.0)(@types/node@22.16.2)(jiti@1.21.7)(less@4.3.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.6)(search-insights@2.17.3)(typescript@5.8.3):
     dependencies:

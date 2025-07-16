@@ -9,6 +9,7 @@ import { BiDirectionalLinks } from "@nolebase/markdown-it-bi-directional-links";
 import { InlineLinkPreviewElementTransform } from "@nolebase/vitepress-plugin-inline-link-preview/markdown-it";
 import { UnlazyImages } from "@nolebase/markdown-it-unlazy-img";
 import { ThumbnailHashImages } from "@nolebase/vitepress-plugin-thumbnail-hash/vite";
+import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 
 const umamiScript: HeadConfig = [
   "script",
@@ -107,6 +108,7 @@ export default defineConfig({
       md.use(UnlazyImages(), {
         imgElementTag: "NolebaseUnlazyImg",
       });
+      md.use(tabsMarkdownPlugin);
     },
   },
 

@@ -6,6 +6,7 @@ import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-chang
 import { NolebaseHighlightTargetedHeading } from "@nolebase/vitepress-plugin-highlight-targeted-heading/client";
 import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
 import { NolebaseUnlazyImg } from "@nolebase/vitepress-plugin-thumbnail-hash/client";
+import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 
 import "./styles.css";
 import "@nolebase/vitepress-plugin-thumbnail-hash/client/style.css";
@@ -25,5 +26,6 @@ export default {
     app.use(NolebaseGitChangelogPlugin);
     app.use(NolebaseInlineLinkPreviewPlugin);
     app.component("NolebaseUnlazyImg", NolebaseUnlazyImg);
+    enhanceAppWithTabs(app);
   },
 } satisfies Theme;
