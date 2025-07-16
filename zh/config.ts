@@ -65,7 +65,7 @@ export default defineAdditionalConfig({
     notFound: {
       title: "页面未找到",
       quote:
-        "但如果你不改变方向，并且继续寻找，你可能最终会到达你所前往的地方。",
+        "但如果您不改变方向，并且继续寻找，您可能最终会到达您所前往的地方。",
       linkLabel: "前往首页",
       linkText: "带我回首页",
     },
@@ -300,23 +300,24 @@ function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "视图布局",
-      collapsed: true,
       base: "/zh/docs/swiftui/view-layout/",
       items: [
         {
           text: "视图分组",
+          collapsed: true,
           base: "/zh/docs/swiftui/view-layout/view-groupings/",
           link: "/",
           items: [],
         },
         {
           text: "滚动视图",
+          collapsed: true,
           base: "/zh/docs/swiftui/view-layout/scroll-views/",
           link: "/",
           items: [
             {
               text: "创建滚动视图",
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: "ScrollView",
@@ -334,7 +335,7 @@ function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
             },
             {
               text: "管理滚动位置",
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: "scrollPosition(_:anchor:)",
@@ -360,7 +361,7 @@ function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
             },
             {
               text: "定义滚动目标",
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   text: "scrollTargetBehavior(_:)",
@@ -411,13 +412,46 @@ function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
     {
       text: "事件处理",
       collapsed: true,
-      base: "/zh/docs/swiftui/event-handing/",
+      base: "/zh/docs/swiftui/event-handling/",
       items: [
         {
           text: "手势",
-          base: "/zh/docs/swiftui/event-handing/gestures/",
+          base: "/zh/docs/swiftui/event-handling/gestures/",
           link: "/",
-          items: [],
+          items: [
+            {
+              text: "重点",
+              collapsed: false,
+              items: [
+                {
+                  text: "通过手势添加交互性",
+                  link: "adding-interactivity-with-gestures",
+                },
+              ],
+            },
+            {
+              text: "识别点击手势",
+              collapsed: false,
+              items: [
+                {
+                  text: "onTapGesture(count:perform:)",
+                  link: "ontapgesture(count:perform:)",
+                },
+                {
+                  text: "onTapGesture(count:coordinateSpace:perform:)",
+                  link: "ontapgesture(count:coordinatespace:perform:)",
+                },
+                {
+                  text: "TapGesture",
+                  link: "tapgesture",
+                },
+                {
+                  text: "SpatialTapGesture",
+                  link: "spatialtapgesture",
+                },
+              ],
+            },
+          ],
         },
       ],
     },
