@@ -73,7 +73,7 @@ print("There are now \(Bank.coinsInBank) coins left in the bank")
 // Prints "There are now 9900 coins left in the bank"
 ```
 
-A new `Player` instance is created, with a request for 100 coins if they’re available. This `Player` instance is stored in an optional `Player` variable called `playerOne` . An optional variable is used here, because players can leave the game at any point. The optional lets you track whether there’s currently a player in the game. 创建一个新的 `Player` 实例，如果有的话请求 100 个硬币。这个 `Player` 实例存储在一个名为 `playerOne` 的可选 `Player` 变量中。这里使用可选变量，因为玩家可以在任何时候离开游戏。可选变量让你跟踪当前游戏中是否有玩家。
+A new `Player` instance is created, with a request for 100 coins if they’re available. This `Player` instance is stored in an optional `Player` variable called `playerOne` . An optional variable is used here, because players can leave the game at any point. The optional lets you track whether there’s currently a player in the game. 创建一个新的 `Player` 实例，如果有的话请求 100 个硬币。这个 `Player` 实例存储在一个名为 `playerOne` 的可选 `Player` 变量中。这里使用可选变量，因为玩家可以在任何时候离开游戏。可选变量让您跟踪当前游戏中是否有玩家。
 
 Because `playerOne` is an optional, it’s qualified with an exclamation point ( `!` ) when its `coinsInPurse` property is accessed to print its default number of coins, and whenever its `win(coins:)` method is called: 因为 `playerOne` 是一个可选的，所以在访问其 `coinsInPurse` 属性以打印其默认硬币数量时，它用感叹号 ( `!` ) 进行限定，并且每当调用其 `win(coins:)` 方法时：
 

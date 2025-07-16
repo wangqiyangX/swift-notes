@@ -80,12 +80,12 @@ Swift 支持所有数字类型的四个标准算术运算符：
 >
 > 余数运算符 ( `%` ) 在其他语言中也被称为模运算符。然而，它在 Swift 中对负数的行为意味着，严格来说，它是一个余数而不是模运算。
 
-这里是余数运算符的工作原理。要计算 `9 % 4` ，你首先要计算有多少个 `4` 可以放入 `9` 中：
+这里是余数运算符的工作原理。要计算 `9 % 4` ，您首先要计算有多少个 `4` 可以放入 `9` 中：
 
 ![remainderInteger](https://docs.swift.org/swift-book/images/org.swift.tspl/remainderInteger@2x.png){.light-only}
 ![remainderInteger~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/remainderInteger~dark@2x.png){.dark-only}
 
-你可以在 `9` 中放入两个 `4` ，余数是 `1` （以橙色显示）。
+您可以在 `9` 中放入两个 `4` ，余数是 `1` （以橙色显示）。
 
 在 Swift 中，这将写成：
 
@@ -289,7 +289,7 @@ var colorNameToUse = userDefinedColorName ?? defaultColorName
 
 `userDefinedColorName` 变量被定义为可选的 `String` ，默认值为 `nil` 。因为 `userDefinedColorName` 是可选类型，所以可以使用 nil 合并运算符来考虑它的值。在上面的示例中，该运算符用于确定名为 `colorNameToUse` 的 `String` 变量的初始值。因为 `userDefinedColorName` 是 `nil` ，表达式 `userDefinedColorName ?? defaultColorName` 返回 `defaultColorName` 的值，或者 `"red"` 。
 
-如果你将一个非 `nil` 值赋给 `userDefinedColorName` 并再次执行 nil 合并运算符检查，则使用包裹在 `userDefinedColorName` 内的值，而不是默认值：
+如果您将一个非 `nil` 值赋给 `userDefinedColorName` 并再次执行 nil 合并运算符检查，则使用包裹在 `userDefinedColorName` 内的值，而不是默认值：
 
 ```swift
 userDefinedColorName = "green"

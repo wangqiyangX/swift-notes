@@ -80,7 +80,7 @@ case .west:
 // Prints "Watch out for penguins"
 ```
 
-你可以将这段代码视为：
+您可以将这段代码视为：
 
 "“考虑 `directionToHead` 的值。在它等于 `.north` 的情况下，打印 `"Lots of planets have a north"` 。在它等于 `.south` 的情况下，打印 `"Watch out for penguins"` 。”"
 
@@ -278,7 +278,7 @@ let possiblePlanet = Planet(rawValue: 7)
 >
 > 原始值初始化器是一个可失败的初始化器，因为并不是每个原始值都会返回一个枚举案例。有关更多信息，请参见可失败的初始化器。
 
-如果你尝试查找位置为 `11` 的行星，则原始值初始化器返回的可选 `Planet` 值将是 `nil` :
+如果您尝试查找位置为 `11` 的行星，则原始值初始化器返回的可选 `Planet` 值将是 `nil` :
 
 ```swift
 let positionToFind = 11

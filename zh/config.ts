@@ -305,7 +305,7 @@ function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: "视图分组",
-          base: "/zh/docs/swiftui/view-layout/view-groupings",
+          base: "/zh/docs/swiftui/view-layout/view-groupings/",
           link: "/",
           items: [],
         },
@@ -405,6 +405,19 @@ function sidebarSwiftUI(): DefaultTheme.SidebarItem[] {
               ],
             },
           ],
+        },
+      ],
+    },
+    {
+      text: "事件处理",
+      collapsed: true,
+      base: "/zh/docs/swiftui/event-handing/",
+      items: [
+        {
+          text: "手势",
+          base: "/zh/docs/swiftui/event-handing/gestures/",
+          link: "/",
+          items: [],
         },
       ],
     },

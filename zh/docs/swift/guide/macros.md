@@ -35,13 +35,13 @@ func myFunction() {
 }
 ```
 
-在第一行， `#function` 调用 Swift 标准库中的 `function()` 宏。当你编译这段代码时，Swift 调用该宏的实现，它将 `#function` 替换为当前函数的名称。当你运行这段代码并调用 `myFunction()` 时，它会打印“当前运行 myFunction()”。在第二行， `#warning` 调用 Swift 标准库中的 `warning(_:)` 宏，以产生自定义的编译时警告。
+在第一行， `#function` 调用 Swift 标准库中的 `function()` 宏。当您编译这段代码时，Swift 调用该宏的实现，它将 `#function` 替换为当前函数的名称。当您运行这段代码并调用 `myFunction()` 时，它会打印“当前运行 myFunction()”。在第二行， `#warning` 调用 Swift 标准库中的 `warning(_:)` 宏，以产生自定义的编译时警告。
 
 自由宏可以产生一个值，像 `#function` 所做的那样，或者它们可以在编译时执行一个动作，像 `#warning` 所做的那样。
 
 ## [附加宏](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros#Attached-Macros)
 
-要调用附加宏，你在其名称前写一个 @ 符号 ( `@` )，并在其名称后用括号写任何传递给宏的参数。
+要调用附加宏，您在其名称前写一个 @ 符号 ( `@` )，并在其名称后用括号写任何传递给宏的参数。
 
 附加的宏修改它们附加到的声明。它们向该声明添加代码，例如定义一个新方法或添加对一个协议的遵从。
 
@@ -73,7 +73,7 @@ struct SundaeToppings {
 
 此版本的 `SundaeToppings` 调用 `@OptionSet` 宏。该宏读取私有枚举中的案例列表，为每个选项生成常量列表，并添加对 `OptionSet` 协议的符合性。
 
-作为比较，这里是 `@OptionSet` 宏扩展版本的样子。你不需要编写这段代码，只有在你特意请求 Swift 显示宏的扩展时才会看到它。
+作为比较，这里是 `@OptionSet` 宏扩展版本的样子。您不需要编写这段代码，只有在您特意请求 Swift 显示宏的扩展时才会看到它。
 
 ```swift
 struct SundaeToppings {
@@ -99,9 +99,9 @@ extension SundaeToppings: OptionSet { }
 
 ## [宏声明](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros#Macro-Declarations)
 
-在大多数 Swift 代码中，当你实现一个符号，例如一个函数或类型时，并没有单独的声明。然而，对于宏，声明和实现是分开的。宏的声明包含它的名称、它接受的参数、它可以使用的地方以及它生成的代码类型。宏的实现包含通过生成 Swift 代码来扩展宏的代码。
+在大多数 Swift 代码中，当您实现一个符号，例如一个函数或类型时，并没有单独的声明。然而，对于宏，声明和实现是分开的。宏的声明包含它的名称、它接受的参数、它可以使用的地方以及它生成的代码类型。宏的实现包含通过生成 Swift 代码来扩展宏的代码。
 
-你可以使用 `macro` 关键字引入一个宏声明。例如，以下是之前示例中使用的 `@OptionSet` 宏的部分声明：
+您可以使用 `macro` 关键字引入一个宏声明。例如，以下是之前示例中使用的 `@OptionSet` 宏的部分声明：
 
 ```swift
 public macro OptionSet<RawType>() =
@@ -186,7 +186,7 @@ let magicNumber = #fourCharacterCode("ABCD")
 
 上面的图表显示了这段代码在内存中是如何表示的。AST 中的每个元素对应源代码的一部分。“常量声明”AST 元素下有两个子元素，分别表示常量声明的两个部分：它的名称和它的值。“宏调用”元素有子元素，表示宏的名称和传递给宏的参数列表。
 
-作为构建这个 AST 的一部分，编译器检查源代码是否是有效的 Swift。例如， `#fourCharacterCode` 只接受一个参数，该参数必须是字符串。如果你尝试传递一个整数参数，或者忘记在字符串字面量的末尾加上引号 ( `"` )，你将在这个过程中遇到错误。
+作为构建这个 AST 的一部分，编译器检查源代码是否是有效的 Swift。例如， `#fourCharacterCode` 只接受一个参数，该参数必须是字符串。如果您尝试传递一个整数参数，或者忘记在字符串字面量的末尾加上引号 ( `"` )，您将在这个过程中遇到错误。
 
 编译器找到代码中调用宏的地方，并加载实现这些宏的外部二进制文件。对于每个宏调用，编译器将部分 AST 传递给该宏的实现。以下是该部分 AST 的表示：
 
@@ -349,7 +349,7 @@ struct MyProjectMacros: CompilerPlugin {
 
 为了扩展 `#fourCharacterCode` 宏，Swift 会将使用此宏的代码的 AST 发送到包含宏实现的库。在库内部，Swift 调用 `FourCharacterCode.expansion(of:in:)` ，将 AST 和上下文作为参数传入该方法。 `expansion(of:in:)` 的实现找到作为参数传递给 `#fourCharacterCode` 的字符串，并计算出相应的 32 位无符号整数字面值。
 
-在上面的示例中，第一个 `guard` 块从 AST 中提取字符串字面量，将该 AST 元素分配给 `literalSegment` 。第二个 `guard` 块调用私有的 `fourCharacterCode(for:)` 函数。如果宏使用不当，这两个块都会抛出错误——错误消息会在格式错误的调用位置变成编译器错误。例如，如果你尝试将宏调用为 `#fourCharacterCode("AB" + "CD")` ，编译器会显示错误“需要一个静态字符串”。
+在上面的示例中，第一个 `guard` 块从 AST 中提取字符串字面量，将该 AST 元素分配给 `literalSegment` 。第二个 `guard` 块调用私有的 `fourCharacterCode(for:)` 函数。如果宏使用不当，这两个块都会抛出错误——错误消息会在格式错误的调用位置变成编译器错误。例如，如果您尝试将宏调用为 `#fourCharacterCode("AB" + "CD")` ，编译器会显示错误“需要一个静态字符串”。
 
 `expansion(of:in:)` 方法返回一个 `ExprSyntax` 实例，这是来自 SwiftSyntax 的一个类型，表示 AST 中的一个表达式。因为这个类型遵循 `StringLiteralConvertible` 协议，宏实现使用字符串字面量作为轻量级语法来创建其结果。您从宏实现返回的所有 SwiftSyntax 类型都遵循 `StringLiteralConvertible`，因此在实现任何类型的宏时都可以使用这种方法。
 

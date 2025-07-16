@@ -10,7 +10,7 @@ Swift 的 `String` 和 `Character` 类型提供了一种快速、符合 Unicode 
 
 > 注意
 >
-> Swift 的 `String` 类型与 Foundation 的 `NSString` 类进行桥接。Foundation 还扩展了 `String` 以暴露由 `NSString` 定义的方法。这意味着，如果你导入 Foundation，你可以在 `String` 上直接访问那些 `NSString` 方法，而无需进行类型转换。
+> Swift 的 `String` 类型与 Foundation 的 `NSString` 类进行桥接。Foundation 还扩展了 `String` 以暴露由 `NSString` 定义的方法。这意味着，如果您导入 Foundation，您可以在 `String` 上直接访问那些 `NSString` 方法，而无需进行类型转换。
 
 有关使用 `String` 与 Foundation 和 Cocoa 的更多信息，请参见在 String 和 NSString 之间的桥接。
 
@@ -49,7 +49,7 @@ These are the same.
 """
 ```
 
-当你的源代码在多行字符串字面量中包含换行符时，该换行符也会出现在字符串的值中。如果你想使用换行符使源代码更易读，但又不希望换行符成为字符串值的一部分，请在这些行的末尾写一个反斜杠 ( `\` )：
+当您的源代码在多行字符串字面量中包含换行符时，该换行符也会出现在字符串的值中。如果您想使用换行符使源代码更易读，但又不希望换行符成为字符串值的一部分，请在这些行的末尾写一个反斜杠 ( `\` )：
 
 ```swift
 let softWrappedQuotation = """
@@ -72,7 +72,7 @@ It also ends with a line break.
 """
 ```
 
-多行字符串可以缩进以匹配周围的代码。关闭引号前的空白 ( `"""` ) 告诉 Swift 忽略所有其他行之前的空白。然而，如果你在行的开头写入空白，除了关闭引号前的空白外，该空白也会被包含在内。
+多行字符串可以缩进以匹配周围的代码。关闭引号前的空白 ( `"""` ) 告诉 Swift 忽略所有其他行之前的空白。然而，如果您在行的开头写入空白，除了关闭引号前的空白外，该空白也会被包含在内。
 
 ![multilineStringWhitespace](https://docs.swift.org/swift-book/images/org.swift.tspl/multilineStringWhitespace@2x.png){.light-only}
 ![multilineStringWhitespace~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/multilineStringWhitespace~dark@2x.png){.dark-only}
@@ -96,7 +96,7 @@ let blackHeart = "\u{2665}"      // ♥,  Unicode scalar U+2665
 let sparklingHeart = "\u{1F496}" // 💖, Unicode scalar U+1F496
 ```
 
-因为多行字符串字面量使用三个双引号而不是一个，所以你可以在多行字符串字面量中包含一个双引号 ( `"` ) 而无需转义。要在多行字符串中包含文本 `"""` ，请转义至少一个引号。例如：
+因为多行字符串字面量使用三个双引号而不是一个，所以您可以在多行字符串字面量中包含一个双引号 ( `"` ) 而无需转义。要在多行字符串中包含文本 `"""` ，请转义至少一个引号。例如：
 
 ```swift
 let threeDoubleQuotationMarks = """
@@ -107,7 +107,7 @@ Escaping all three quotation marks \"\"\"
 
 ### [扩展字符串定界符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters#Extended-String-Delimiters)
 
-你可以将字符串字面量放在扩展定界符内，以在字符串中包含特殊字符而不引发它们的效果。你将字符串放在引号 ( `"` ) 中，并用数字符号 ( `#` ) 包围它。例如，打印字符串字面量 `#"Line 1Line 2"#` 会打印换行转义序列 ( )，而不是将字符串打印在两行上。
+您可以将字符串字面量放在扩展定界符内，以在字符串中包含特殊字符而不引发它们的效果。您将字符串放在引号 ( `"` ) 中，并用数字符号 ( `#` ) 包围它。例如，打印字符串字面量 `#"Line 1Line 2"#` 会打印换行转义序列 ( )，而不是将字符串打印在两行上。
 
 如果您需要字符串字面量中字符的特殊效果，请匹配转义字符 ( `\` ) 后字符串中的井号数量。例如，如果您的字符串是 `#"Line 1Line 2"#` 并且您想换行，可以使用 `#"Line 1\#nLine 2"#` 代替。同样， `###"Line1\###nLine2"###` 也会换行。
 
@@ -155,13 +155,13 @@ constantString += " and another Highlander"
 
 > 注意
 >
-> 这种方法与 Objective-C 和 Cocoa 中的字符串变异不同，在那里你可以在两个类（ `NSString` 和 `NSMutableString` ）之间选择，以指示字符串是否可以被变异。
+> 这种方法与 Objective-C 和 Cocoa 中的字符串变异不同，在那里您可以在两个类（ `NSString` 和 `NSMutableString` ）之间选择，以指示字符串是否可以被变异。
 
 ## [字符串是值类型](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters#Strings-Are-Value-Types)
 
-Swift 的 `String` 类型是值类型。如果你创建一个新的 `String` 值，当它被传递到一个函数或方法，或者当它被分配给一个常量或变量时，该 `String` 值会被复制。在每种情况下，都会创建现有 `String` 值的新副本，并传递或分配该新副本，而不是原始版本。值类型在结构和枚举是值类型 中进行了描述。
+Swift 的 `String` 类型是值类型。如果您创建一个新的 `String` 值，当它被传递到一个函数或方法，或者当它被分配给一个常量或变量时，该 `String` 值会被复制。在每种情况下，都会创建现有 `String` 值的新副本，并传递或分配该新副本，而不是原始版本。值类型在结构和枚举是值类型 中进行了描述。
 
-Swift 的默认复制 `String` 行为确保当一个函数或方法传递给你一个 `String` 值时，很清楚你拥有那个确切的 `String` 值，不管它来自哪里。你可以确信，传递给你的字符串不会被修改，除非你自己去修改它。
+Swift 的默认复制 `String` 行为确保当一个函数或方法传递给您一个 `String` 值时，很清楚您拥有那个确切的 `String` 值，不管它来自哪里。您可以确信，传递给您的字符串不会被修改，除非您自己去修改它。
 
 在后台，Swift 的编译器优化了字符串的使用，以便只有在绝对必要时才会进行实际复制。这意味着在使用字符串作为值类型时，您始终能获得出色的性能。
 
@@ -348,7 +348,7 @@ print("unusualMenagerie has \(unusualMenagerie.count) characters")
 
 请注意，Swift 对 `Character` 值使用扩展图形簇，这意味着字符串连接和修改可能并不总是影响字符串的字符计数。
 
-例如，如果你用四个字符的单词 `cafe` 初始化一个新字符串，然后在字符串的末尾追加一个 `COMBINING ACUTE ACCENT` ( `U+0301` )，那么结果字符串的字符数仍然是 `4` ，第四个字符是 `é` ，而不是 `e` ：
+例如，如果您用四个字符的单词 `cafe` 初始化一个新字符串，然后在字符串的末尾追加一个 `COMBINING ACUTE ACCENT` ( `U+0301` )，那么结果字符串的字符数仍然是 `4` ，第四个字符是 `é` ，而不是 `e` ：
 
 ```swift
 var word = "cafe"
@@ -450,7 +450,7 @@ welcome.removeSubrange(range)
 
 ## [子字符串](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/stringsandcharacters#Substrings)
 
-当你从一个字符串中获取子字符串时——例如，使用下标或像 `prefix(_:)` 这样的方式——结果是 `Substring` 的一个实例，而不是另一个字符串。Swift 中的子字符串具有与字符串大部分相同的方法，这意味着你可以像处理字符串一样处理子字符串。然而，与字符串不同的是，你在对字符串执行操作时只会短暂使用子字符串。当你准备将结果存储更长时间时，你将子字符串转换为 `String` 的一个实例。例如：
+当您从一个字符串中获取子字符串时——例如，使用下标或像 `prefix(_:)` 这样的方式——结果是 `Substring` 的一个实例，而不是另一个字符串。Swift 中的子字符串具有与字符串大部分相同的方法，这意味着您可以像处理字符串一样处理子字符串。然而，与字符串不同的是，您在对字符串执行操作时只会短暂使用子字符串。当您准备将结果存储更长时间时，您将子字符串转换为 `String` 的一个实例。例如：
 
 ```swift
 let greeting = "Hello, world!"

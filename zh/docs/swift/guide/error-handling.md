@@ -26,7 +26,7 @@ enum VendingMachineError: Error {
 }
 ```
 
-抛出一个错误让你表示发生了一些意想不到的事情，正常的执行流程无法继续。你使用 `throw` 语句来抛出一个错误。例如，下面的代码抛出一个错误，表示自动售货机需要额外的五个硬币：
+抛出一个错误让您表示发生了一些意想不到的事情，正常的执行流程无法继续。您使用 `throw` 语句来抛出一个错误。例如，下面的代码抛出一个错误，表示自动售货机需要额外的五个硬币：
 
 ```swift
 throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
@@ -183,7 +183,7 @@ do {
 
 在上述示例中， `buyFavoriteSnack(person:vendingMachine:)` 函数在 `try` 表达式中被调用，因为它可能会抛出错误。如果抛出错误，则执行立即转移到 `catch` 子句，这些子句决定是否允许传播继续。如果没有模式匹配，则错误会被最终的 `catch` 子句捕获，并绑定到一个本地 `error` 常量。如果没有抛出错误，则执行 `do` 语句中的其余语句。
 
-`catch` 子句不必处理 `do` 子句中可能抛出的每一个错误。如果没有 `catch` 子句处理该错误，错误将传播到周围的作用域。然而，传播的错误必须由某个周围的作用域处理。在一个不抛出错误的函数中，封闭的 `do` - `catch` 语句必须处理该错误。在一个抛出错误的函数中，封闭的 `do` - `catch` 语句或调用者必须处理该错误。如果错误在未被处理的情况下传播到顶层作用域，你将会遇到运行时错误。
+`catch` 子句不必处理 `do` 子句中可能抛出的每一个错误。如果没有 `catch` 子句处理该错误，错误将传播到周围的作用域。然而，传播的错误必须由某个周围的作用域处理。在一个不抛出错误的函数中，封闭的 `do` - `catch` 语句必须处理该错误。在一个抛出错误的函数中，封闭的 `do` - `catch` 语句或调用者必须处理该错误。如果错误在未被处理的情况下传播到顶层作用域，您将会遇到运行时错误。
 
 例如，上面的示例可以写成这样，以便任何不是 `VendingMachineError` 的错误都被调用函数捕获：
 
@@ -244,7 +244,7 @@ do {
 
 如果 `someThrowingFunction()` 抛出错误，则 `x` 和 `y` 的值为 `nil` 。否则， `x` 和 `y` 的值为函数返回的值。请注意 `x` 和 `y` 是可选的，类型为 `someThrowingFunction()` 返回的值。在这里，函数返回一个整数，因此 `x` 和 `y` 是可选的整数。
 
-使用 `try?` 让你在想要以相同方式处理所有错误时写出简洁的错误处理代码。例如，以下代码使用几种方法来获取数据，或者在所有方法失败时返回 `nil` 。
+使用 `try?` 让您在想要以相同方式处理所有错误时写出简洁的错误处理代码。例如，以下代码使用几种方法来获取数据，或者在所有方法失败时返回 `nil` 。
 
 ```swift
 func fetchData() -> Data? {
@@ -256,7 +256,7 @@ func fetchData() -> Data? {
 
 ### [禁用错误传播](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling#Disabling-Error-Propagation)
 
-有时你知道一个抛出异常的函数或方法在运行时实际上不会抛出错误。在这些情况下，你可以在表达式之前写 `try!` 来禁用错误传播，并将调用包装在一个运行时断言中，断言不会抛出错误。如果实际上抛出了错误，你将会得到一个运行时错误。
+有时您知道一个抛出异常的函数或方法在运行时实际上不会抛出错误。在这些情况下，您可以在表达式之前写 `try!` 来禁用错误传播，并将调用包装在一个运行时断言中，断言不会抛出错误。如果实际上抛出了错误，您将会得到一个运行时错误。
 
 例如，以下代码使用一个 `loadImage(atPath:)` 函数，它在给定路径加载图像资源，或者如果无法加载图像则抛出错误。在这种情况下，由于图像与应用程序一起打包，因此在运行时不会抛出错误，因此禁用错误传播是合适的。
 
@@ -271,7 +271,7 @@ let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
 大多数 Swift 代码并未指定它抛出的错误的类型。然而，您可能会在以下特殊情况下限制代码只抛出一种特定类型的错误：
 
 - 在运行代码于不支持动态内存分配的嵌入式系统时。抛出一个 `any Error` 实例或另一个封装协议类型需要在运行时分配内存来存储错误。相比之下，抛出特定类型的错误允许 Swift 避免为错误分配堆内存。
-- 当错误是某个代码单元（如库）的实现细节时，并且不是该代码的接口的一部分。因为错误仅来自库，而不是其他依赖项或库的客户端，所以你可以列出所有可能的失败。而且因为这些错误是库的实现细节，因此它们总是在该库内处理。
+- 当错误是某个代码单元（如库）的实现细节时，并且不是该代码的接口的一部分。因为错误仅来自库，而不是其他依赖项或库的客户端，所以您可以列出所有可能的失败。而且因为这些错误是库的实现细节，因此它们总是在该库内处理。
 - 在仅传播由泛型参数描述的错误的代码中，例如一个接受闭包参数并传播该闭包中的任何错误的函数。关于传播特定错误类型与使用 `rethrows` 的比较，请参见重新抛出函数和方法。
 
 例如，考虑总结评级并使用以下错误类型的代码：
@@ -283,7 +283,7 @@ enum StatisticsError: Error {
 }
 ```
 
-要指定一个函数仅抛出 `StatisticsError` 值作为其错误，你在声明该函数时写 `throws(StatisticsError)` 而不是仅仅 `throws` 。这种语法也称为有类型的抛出，因为你在声明中在 \{{3 \}} 之后写错误类型。例如，下面的函数将 `StatisticsError` 值作为其错误抛出。
+要指定一个函数仅抛出 `StatisticsError` 值作为其错误，您在声明该函数时写 `throws(StatisticsError)` 而不是仅仅 `throws` 。这种语法也称为有类型的抛出，因为您在声明中在 \{{3 \}} 之后写错误类型。例如，下面的函数将 `StatisticsError` 值作为其错误抛出。
 
 ```swift
 func summarize(_ ratings: [Int]) throws(StatisticsError) {
@@ -301,9 +301,9 @@ func summarize(_ ratings: [Int]) throws(StatisticsError) {
 }
 ```
 
-在上面的代码中， `summarize(_:)` 函数总结了一个在 1 到 3 的范围内表达的评分列表。如果输入无效，此函数会抛出一个 `StatisticsError` 的实例。上面代码中抛出错误的两个地方省略了错误的类型，因为函数的错误类型已经定义。抛出错误时，你可以使用短形式 `throw .noRatings` ，而不是写 `throw StatisticsError.noRatings` 。
+在上面的代码中， `summarize(_:)` 函数总结了一个在 1 到 3 的范围内表达的评分列表。如果输入无效，此函数会抛出一个 `StatisticsError` 的实例。上面代码中抛出错误的两个地方省略了错误的类型，因为函数的错误类型已经定义。抛出错误时，您可以使用短形式 `throw .noRatings` ，而不是写 `throw StatisticsError.noRatings` 。
 
-当你在函数开始时写一个具体的错误类型时，Swift 会检查你不会抛出任何其他错误。例如，如果你尝试在上面的 `summarize(_:)` 函数中使用本章前面示例中的 `VendingMachineError` ，那么那段代码将在编译时产生错误。
+当您在函数开始时写一个具体的错误类型时，Swift 会检查您不会抛出任何其他错误。例如，如果您尝试在上面的 `summarize(_:)` 函数中使用本章前面示例中的 `VendingMachineError` ，那么那段代码将在编译时产生错误。
 
 您可以从常规抛出函数中调用一个使用类型抛出函数：
 
@@ -314,7 +314,7 @@ func someThrowingFunction() -> throws {
 }
 ```
 
-上面的代码没有为 `someThrowingFunction()` 指定错误类型，因此抛出了 `any Error` 。你也可以将错误类型显式写为 `throws(any Error)` ；下面的代码与上面的代码等效：
+上面的代码没有为 `someThrowingFunction()` 指定错误类型，因此抛出了 `any Error` 。您也可以将错误类型显式写为 `throws(any Error)` ；下面的代码与上面的代码等效：
 
 ```swift
 func someThrowingFunction() -> throws(any Error) {
@@ -325,7 +325,7 @@ func someThrowingFunction() -> throws(any Error) {
 
 在这段代码中， `someThrowingFunction()` 传播 `summarize(_:)` 抛出的任何错误。来自 `summarize(_:)` 的错误始终是 `StatisticsError` 值，这也是 `someThrowingFunction()` 可以抛出的有效错误。
 
-就像你可以编写一个返回类型为 `Never` 的函数，该函数永远不返回一样，你可以编写一个使用 `throws(Never)` 的函数，该函数永远不抛出：
+就像您可以编写一个返回类型为 `Never` 的函数，该函数永远不返回一样，您可以编写一个使用 `throws(Never)` 的函数，该函数永远不抛出：
 
 ```swift
 func nonThrowingFunction() throws(Never) {
@@ -354,9 +354,9 @@ do throws(StatisticsError) {
 
 在此代码中，写 `do throws(StatisticsError)` 表示 `do` - `catch` 语句抛出 `StatisticsError` 值作为其错误。与其他 `do` - `catch` 语句一样， `catch` 子句可以处理所有可能的错误，或将未处理的错误传播给周围的某个范围进行处理。此代码处理了所有错误，使用 `switch` 语句为每个枚举值提供一个案例。与其他没有模式的 `catch` 子句一样，该子句匹配任何错误并将错误绑定到名为 `error` 的局部常量上。因为 `do` - `catch` 语句抛出 `StatisticsError` 值， `error` 是类型为 `StatisticsError` 的值。
 
-上面的 `catch` 子句使用 `switch` 语句来匹配和处理每个可能的错误。如果你尝试向 `StatisticsError` 添加一个新案例而不更新错误处理代码，Swift 会给你一个错误，因为 `switch` 语句将不再是穷举的。对于一个捕获所有自身错误的库，你可以使用这种方法来确保任何新错误都有相应的新代码来处理它们。
+上面的 `catch` 子句使用 `switch` 语句来匹配和处理每个可能的错误。如果您尝试向 `StatisticsError` 添加一个新案例而不更新错误处理代码，Swift 会给您一个错误，因为 `switch` 语句将不再是穷举的。对于一个捕获所有自身错误的库，您可以使用这种方法来确保任何新错误都有相应的新代码来处理它们。
 
-如果一个函数或 `do` 块只抛出单一类型的错误，Swift 会推断该代码正在使用类型化抛出。使用这种更简短的语法，你可以将上述的 `do` - `catch` 示例写成如下形式：
+如果一个函数或 `do` 块只抛出单一类型的错误，Swift 会推断该代码正在使用类型化抛出。使用这种更简短的语法，您可以将上述的 `do` - `catch` 示例写成如下形式：
 
 ```swift
 let ratings = []
@@ -373,7 +373,7 @@ do {
 // Prints "No ratings available"
 ```
 
-尽管上面的 `do` - `catch` 块没有指定抛出什么类型的错误，但 Swift 推断它抛出 `StatisticsError` 。你可以明确地写 `throws(any Error)` 来避免让 Swift 推断类型的抛出。
+尽管上面的 `do` - `catch` 块没有指定抛出什么类型的错误，但 Swift 推断它抛出 `StatisticsError` 。您可以明确地写 `throws(any Error)` 来避免让 Swift 推断类型的抛出。
 
 ## [指定清理操作](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling#Specifying-Cleanup-Actions)
 

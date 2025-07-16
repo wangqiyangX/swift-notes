@@ -6,9 +6,9 @@
 
 与 C 的算术运算符不同，Swift 的算术运算符默认情况下**不会溢出**。溢出行为会被捕获并报告为错误。要选择溢出行为，可以使用 Swift 的第二组默认情况下会溢出的算术运算符，例如溢出加法运算符 ( `&+` )。所有这些溢出运算符都以一个**字符 '&' 开头** ( `&` )。
 
-当你定义自己的结构、类和枚举时，提供这些自定义类型的标准 Swift 运算符的自定义实现是很有用的。Swift 使得为这些运算符提供量身定制的实现变得容易，并能确定为你创建的每个类型其行为应该是什么。
+当您定义自己的结构、类和枚举时，提供这些自定义类型的标准 Swift 运算符的自定义实现是很有用的。Swift 使得为这些运算符提供量身定制的实现变得容易，并能确定为您创建的每个类型其行为应该是什么。
 
-你并不局限于预定义的运算符。Swift 让你自由定义自己的自定义中缀、前缀、后缀和赋值运算符，具有自定义的优先级和结合性值。这些运算符可以像任何预定义运算符一样在你的代码中使用和采纳，甚至可以扩展现有类型以支持你定义的自定义运算符。
+您并不局限于预定义的运算符。Swift 让您自由定义自己的自定义中缀、前缀、后缀和赋值运算符，具有自定义的优先级和结合性值。这些运算符可以像任何预定义运算符一样在您的代码中使用和采纳，甚至可以扩展现有类型以支持您定义的自定义运算符。
 
 ## [位运算符](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators#Bitwise-Operators)
 
@@ -162,7 +162,7 @@ redComponent 是通过对数字 `0xCC6699` 和 `0xFF0000` 进行按位与操作�
 ![bitshiftSignedAddition](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedAddition@2x.png){.light-only}
 ![bitshiftSignedAddition~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSignedAddition~dark@2x.png){.dark-only}
 
-其次，二的补码表示还允许你像正数一样将负数的位向左和向右移动，并且每次向左移动时仍然会使其翻倍，向右移动时则会使其减半。为了实现这一点，当有符号整数向右移动时，会使用一个额外的规则：当你向右移动有符号整数时，应用与无符号整数相同的规则，但将左侧的任何空位**填充为符号位**，而不是零。
+其次，二的补码表示还允许您像正数一样将负数的位向左和向右移动，并且每次向左移动时仍然会使其翻倍，向右移动时则会使其减半。为了实现这一点，当有符号整数向右移动时，会使用一个额外的规则：当您向右移动有符号整数时，应用与无符号整数相同的规则，但将左侧的任何空位**填充为符号位**，而不是零。
 
 ![bitshiftSigned](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSigned@2x.png){.light-only}
 ![bitshiftSigned~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/bitshiftSigned~dark@2x.png){.dark-only}
@@ -219,7 +219,7 @@ unsignedOverflow = unsignedOverflow &- 1
 // unsignedOverflow is now equal to 255
 ```
 
-`UInt8` 能持有的最小值为零，或者在二进制中为 `00000000` 。如果你使用溢出减法运算符 ( `&-` ) 从 `00000000` 中减去 `1` ，该数字将会溢出并循环回 `11111111` ，或者在十进制中为 `255` 。
+`UInt8` 能持有的最小值为零，或者在二进制中为 `00000000` 。如果您使用溢出减法运算符 ( `&-` ) 从 `00000000` 中减去 `1` ，该数字将会溢出并循环回 `11111111` ，或者在十进制中为 `255` 。
 
 ![overflowUnsignedSubtraction](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowUnsignedSubtraction@2x.png){.light-only}
 ![overflowUnsignedSubtraction~dark](https://docs.swift.org/swift-book/images/org.swift.tspl/overflowUnsignedSubtraction~dark@2x.png){.dark-only}
@@ -253,7 +253,7 @@ signedOverflow = signedOverflow &- 1
 // this equals 17
 ```
 
-如果你严格从左到右阅读，你可能会期望表达式按如下方式计算：
+如果您严格从左到右阅读，您可能会期望表达式按如下方式计算：
 
 - `2` 加 `3` 等于 `5`
 - `5` 余 `4` 等于 `1`
@@ -513,9 +513,9 @@ print(manualDrawing.draw())
 // Prints "***Hello RAVI PATEL!**"
 ```
 
-这段代码可以工作，但有点别扭。 `AllCaps` 后面的深层嵌套括号很难阅读。当 `name` 为 `nil` 时，使用“World”的回退逻辑必须使用 `??` 运算符以内联的方式完成，这在任何更复杂的情况下都会很困难。如果需要包括开关或 `for` 循环来构建绘图的一部分，是没有办法做到的。结果构建器可以让你重写代码，使其看起来像正常的 Swift 代码。
+这段代码可以工作，但有点别扭。 `AllCaps` 后面的深层嵌套括号很难阅读。当 `name` 为 `nil` 时，使用“World”的回退逻辑必须使用 `??` 运算符以内联的方式完成，这在任何更复杂的情况下都会很困难。如果需要包括开关或 `for` 循环来构建绘图的一部分，是没有办法做到的。结果构建器可以让您重写代码，使其看起来像正常的 Swift 代码。
 
-要定义一个结果构建器，可以在类型声明上写上 `@resultBuilder` 属性。例如，这段代码定义了一个名为 `DrawingBuilder` 的结果构建器，它允许你使用声明式语法来描述绘图：
+要定义一个结果构建器，可以在类型声明上写上 `@resultBuilder` 属性。例如，这段代码定义了一个名为 `DrawingBuilder` 的结果构建器，它允许您使用声明式语法来描述绘图：
 
 ```swift
 @resultBuilder
@@ -571,7 +571,7 @@ print(personalGreeting.draw())
 // Prints "***Hello RAVI PATEL!**"
 ```
 
-`makeGreeting(for:)` 函数接受一个 `name` 参数，并使用它来绘制个性化的问候。 `draw(_:)` 和 `caps(_:)` 函数都接受一个闭包作为参数，该闭包被标记为 `@DrawingBuilder` 属性。当你调用这些函数时，你使用 `DrawingBuilder` 定义的特殊语法。 Swift 将绘图的声明性描述转换为对 `DrawingBuilder` 上方法的一系列调用，以构建作为函数参数传递的值。例如，Swift 将该示例中的对 `caps(_:)` 的调用转换为如下代码：
+`makeGreeting(for:)` 函数接受一个 `name` 参数，并使用它来绘制个性化的问候。 `draw(_:)` 和 `caps(_:)` 函数都接受一个闭包作为参数，该闭包被标记为 `@DrawingBuilder` 属性。当您调用这些函数时，您使用 `DrawingBuilder` 定义的特殊语法。 Swift 将绘图的声明性描述转换为对 `DrawingBuilder` 上方法的一系列调用，以构建作为函数参数传递的值。例如，Swift 将该示例中的对 `caps(_:)` 的调用转换为如下代码：
 
 ```swift
 let capsDrawing = caps {

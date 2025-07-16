@@ -1,7 +1,3 @@
----
-description: 使用内置的命名类型和复合类型。
----
-
 # 类型
 
 > 使用内置的命名类型和复合类型。
@@ -149,7 +145,7 @@ var operation: (Int, Int) -> Int               // OK
 
 可以抛出或重新抛出错误的函数的函数类型必须包含 `throws` 关键字。您可以在 `throws` 后面以括号形式包括一个类型，以指定函数抛出的错误类型。抛出错误类型必须符合 `Error` 协议。写 `throws` 而不指定类型等同于写 `throws(any Error)` 。省略 `throws` 等同于写 `throws(Never)` 。一个函数抛出的错误类型可以是任何符合 `Error` 的类型，包括泛型类型、装箱的协议类型和不透明类型。
 
-函数抛出的错误类型是该函数类型的一部分，而错误类型之间的子类型关系意味着相应的函数类型也是子类型。例如，如果你声明一个自定义 `MyError` 类型，则某些函数类型之间的关系如下，从超类型到子类型：
+函数抛出的错误类型是该函数类型的一部分，而错误类型之间的子类型关系意味着相应的函数类型也是子类型。例如，如果您声明一个自定义 `MyError` 类型，则某些函数类型之间的关系如下，从超类型到子类型：
 
 1. 抛出任何错误的函数，标记 `throws(any Error)`
 2. 抛出特定错误的函数，标记 `throws(MyError)`
@@ -544,7 +540,7 @@ _type-inheritance-clause_ → **`:`** _type-inheritance-list_\
 
 ## [类型推断](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/types#Type-Inference)
 
-Swift 广泛使用类型推断，允许你省略代码中许多变量和表达式的类型或部分类型。例如， instead of writing `var x: Int = 0` , 你可以写 `var x = 0` , 完全省略类型——编译器正确推断出 `x` 表示类型 `Int` 的值。同样，当可以从上下文推断出完整类型时，你可以省略部分类型。例如，如果你写 `let dict: Dictionary = ["A": 1]` ，编译器推断出 `dict` 的类型是 `Dictionary<String, Int>` 。
+Swift 广泛使用类型推断，允许您省略代码中许多变量和表达式的类型或部分类型。例如， instead of writing `var x: Int = 0` , 您可以写 `var x = 0` , 完全省略类型——编译器正确推断出 `x` 表示类型 `Int` 的值。同样，当可以从上下文推断出完整类型时，您可以省略部分类型。例如，如果您写 `let dict: Dictionary = ["A": 1]` ，编译器推断出 `dict` 的类型是 `Dictionary<String, Int>` 。
 
 在上述两个示例中，类型信息从表达式树的叶子传递到其根部。也就是说， `var x: Int = 0` 中 `x` 的类型首先通过检查 `0` 的类型被推断，然后将该类型信息传递到根部（变量 `x` ）。
 
