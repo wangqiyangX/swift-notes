@@ -7,8 +7,6 @@ import {
 } from "@nolebase/vitepress-plugin-git-changelog/vite";
 import { BiDirectionalLinks } from "@nolebase/markdown-it-bi-directional-links";
 import { InlineLinkPreviewElementTransform } from "@nolebase/vitepress-plugin-inline-link-preview/markdown-it";
-import { UnlazyImages } from "@nolebase/markdown-it-unlazy-img";
-import { ThumbnailHashImages } from "@nolebase/vitepress-plugin-thumbnail-hash/vite";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 
 const umamiScript: HeadConfig = [
@@ -59,14 +57,6 @@ export default defineConfig({
 
   head: headers,
 
-  vue: {
-    template: {
-      transformAssetUrls: {
-        NolebaseUnlazyImg: ["src"],
-      },
-    },
-  },
-
   markdown: {
     math: true,
     codeTransformers: [
@@ -105,9 +95,6 @@ export default defineConfig({
       };
       md.use(BiDirectionalLinks());
       md.use(InlineLinkPreviewElementTransform);
-      md.use(UnlazyImages(), {
-        imgElementTag: "NolebaseUnlazyImg",
-      });
       md.use(tabsMarkdownPlugin);
     },
   },
@@ -127,7 +114,6 @@ export default defineConfig({
       }),
       GitChangelog({ repoURL: "https://github.com/wangqiyangx/swift-notes" }),
       GitChangelogMarkdownSection(),
-      ThumbnailHashImages(),
     ],
     optimizeDeps: {
       exclude: ["@nolebase/vitepress-plugin-inline-link-preview/client"],

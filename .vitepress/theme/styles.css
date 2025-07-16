@@ -5,6 +5,7 @@
     #fe5c34 30%,
     #dfc645
   );
+  --vp-sidebar-width: 352px;
 }
 
 html.dark .light-only {
