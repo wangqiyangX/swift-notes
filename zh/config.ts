@@ -483,9 +483,9 @@ function sidebarExamples(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "代码示例",
-      collapsed: true,
+      collapsed: false,
       base: "/zh/projects/examples",
-      items: [],
+      items: [{ text: "范围选择器", link: "/the-dual-slider" }],
     },
   ];
 }
@@ -494,9 +494,14 @@ function sidebarOpenSource(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "开源项目",
-      collapsed: true,
+      collapsed: false,
       base: "/zh/projects/open-source",
-      items: [],
+      items: [
+        {
+          text: "SFSymbolPicker",
+          link: "/sfsymbolpicker",
+        },
+      ],
     },
   ];
 }
