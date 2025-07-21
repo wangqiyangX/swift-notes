@@ -99,6 +99,10 @@ function nav(): DefaultTheme.NavItem[] {
           text: "开源项目",
           link: "/zh/projects/open-source",
         },
+        {
+          text: "上架项目",
+          link: "/zh/store/news",
+        },
       ],
     },
     {
@@ -485,7 +489,13 @@ function sidebarExamples(): DefaultTheme.SidebarItem[] {
       text: "代码示例",
       collapsed: false,
       base: "/zh/projects/examples",
-      items: [{ text: "范围选择器", link: "/the-dual-slider" }],
+      items: [
+        { text: "范围选择器", link: "/the-dual-slider" },
+        {
+          text: "贝塞尔曲线控制器",
+          link: "/the-bezier-curve-picker",
+        },
+      ],
     },
   ];
 }
